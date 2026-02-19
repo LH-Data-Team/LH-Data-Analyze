@@ -1,0 +1,55 @@
+# -*- coding: utf-8 -*-
+"""
+08 상세도로망(Level6) → link_master_base 생성
+
+- 입력: 08.상세도로망_네트워크.geojson
+- 처리:
+  - 08은 up_v_link / dw_v_link가 분리되어 있으므로,
+    UP, DW를 "행으로 2배 펼쳐" v_link_id 기준 테이블을 만든다.
+  - dir(UP/DW), v_link_id, f_node, t_node, lanes_dir를 생성
+  - 나머지 속성(max_speed, road_rank, lanes, oneway, length...)은 그대로 유지
+- 출력: link_master_base (v_link_id가 키)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+g08 = gpd.read_file("08.상세도로망_네트워크.geojson")
+
+use_cols_08 = [
+    "link_id",
+    "up_f_node","up_t_node","dw_f_node","dw_t_node",
+    "max_speed","road_name","road_no","road_rank","link_type",
+    "pavement","road_type",
+    "up_lanes","dw_lanes","lanes","oneway","length","level",
+    "up_v_link","dw_v_link",
+    "lon","lat"
+]
+keep_08 = [c for c in use_cols_08 if c in g08.columns]
+df08 = pd.DataFrame(g08[keep_08]).copy()
+
+up = df08.copy()
+up["dir"] = "UP"
+up["v_link_id"] = up["up_v_link"]
+up["f_node"] = up["up_f_node"]
+up["t_node"] = up["up_t_node"]
+up["lanes_dir"] = up["up_lanes"]
+
+dw = df08.copy()
+dw["dir"] = "DW"
+dw["v_link_id"] = dw["dw_v_link"]
+dw["f_node"] = dw["dw_f_node"]
+dw["t_node"] = dw["dw_t_node"]
+dw["lanes_dir"] = dw["dw_lanes"]
+
+link_master_base = pd.concat([up, dw], ignore_index=True)
+
+drop_cols = [c for c in ["up_f_node","up_t_node","dw_f_node","dw_t_node","up_lanes","dw_lanes","up_v_link","dw_v_link"] if c in link_master_base.columns]
+link_master_base = link_master_base.drop(columns=drop_cols, errors="ignore")
+link_master_base = link_master_base.dropna(subset=["v_link_id"]).copy()
+
+# v_link_id 타입 통일(다른 파일과 조인 안정화)
+link_master_base["v_link_id"] = link_master_base["v_link_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+
+front = ["v_link_id","link_id","dir","f_node","t_node"]
+link_master_base = link_master_base[front + [c for c in link_master_base.columns if c not in front]]
