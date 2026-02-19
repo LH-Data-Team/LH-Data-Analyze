@@ -1,0 +1,87 @@
+# -*- coding: utf-8 -*-
+"""
+04._성연령별_유동인구 전처리 (10대 제외, 20~50 + 60만)
+
+- 입력: 04._성연령별_유동인구.csv (lon/lat 포인트 + STD_YM 월)
+- 처리:
+  - lon/lat -> gid 공간매핑
+  - flow20_50 = (20/30/40/50) 남+여 합
+  - flow60p = (60) 남+여 합
+  - 월별 일평균 데이터라 gid별 "연간 대표값"은 mean이 자연스러움:
+      mean = (sum over rows) / (count of rows)
+  - 대용량 대비: chunksize + 좌표->gid 캐시(청크 내 유니크 좌표만 sjoin)
+- 출력: grid_master에 flow20_50_mean, flow60p_mean 추가(NaN 유지)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+assert "grid_slim" in globals()
+assert "grid_master" in globals()
+
+coord2gid = {}
+
+def ensure_gid_for_coords(lon_s, lat_s):
+    keys = pd.DataFrame({"lon_s": lon_s, "lat_s": lat_s}).drop_duplicates()
+    new_keys = [k for k in zip(keys["lon_s"], keys["lat_s"]) if k not in coord2gid]
+    if not new_keys:
+        return
+    nk = pd.DataFrame(new_keys, columns=["lon_s", "lat_s"])
+    nk["lon"] = pd.to_numeric(nk["lon_s"], errors="coerce")
+    nk["lat"] = pd.to_numeric(nk["lat_s"], errors="coerce")
+    nk = nk.dropna(subset=["lon", "lat"])
+    gk = gpd.GeoDataFrame(nk, geometry=gpd.points_from_xy(nk["lon"], nk["lat"]), crs="EPSG:4326")
+    jk = gpd.sjoin(gk, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+    for r in jk[["lon_s","lat_s","gid"]].itertuples(index=False):
+        coord2gid[(r.lon_s, r.lat_s)] = r.gid
+
+usecols04 = [
+    "lon", "lat",
+    "m_20g_pop","m_30g_pop","m_40g_pop","m_50g_pop","m_60g_pop",
+    "w_20g_pop","w_30g_pop","w_40g_pop","w_50g_pop","w_60g_pop",
+]
+adult_cols = ["m_20g_pop","w_20g_pop","m_30g_pop","w_30g_pop","m_40g_pop","w_40g_pop","m_50g_pop","w_50g_pop"]
+senior_cols = ["m_60g_pop","w_60g_pop"]
+
+sum_20_50, cnt_20_50 = {}, {}
+sum_60p, cnt_60p = {}, {}
+
+for df in pd.read_csv("04._성연령별_유동인구.csv", usecols=usecols04, chunksize=200_000):
+    lon_s = df["lon"].astype(str).str.strip()
+    lat_s = df["lat"].astype(str).str.strip()
+    lon = pd.to_numeric(lon_s, errors="coerce")
+    lat = pd.to_numeric(lat_s, errors="coerce")
+    m = lon.notna() & lat.notna()
+    df = df.loc[m].copy()
+    lon_s = lon_s.loc[m]
+    lat_s = lat_s.loc[m]
+
+    for c in adult_cols + senior_cols:
+        df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0)
+
+    df["flow_20_50"] = df[adult_cols].sum(axis=1)
+    df["flow_60p"] = df[senior_cols].sum(axis=1)
+
+    ensure_gid_for_coords(lon_s.values, lat_s.values)
+    df["gid"] = [coord2gid.get((a, b)) for a, b in zip(lon_s.values, lat_s.values)]
+    df = df.dropna(subset=["gid"])
+
+    gsum = df.groupby("gid")[["flow_20_50","flow_60p"]].sum()
+    gcnt = df.groupby("gid").size()
+
+    for gid, row in gsum.iterrows():
+        sum_20_50[gid] = sum_20_50.get(gid, 0.0) + float(row["flow_20_50"])
+        sum_60p[gid] = sum_60p.get(gid, 0.0) + float(row["flow_60p"])
+    for gid, c in gcnt.items():
+        cnt_20_50[gid] = cnt_20_50.get(gid, 0) + int(c)
+        cnt_60p[gid] = cnt_60p.get(gid, 0) + int(c)
+
+gids = list(sum_20_50.keys())
+z04 = pd.DataFrame({
+    "gid": gids,
+    "flow20_50_mean": [sum_20_50[g] / cnt_20_50[g] for g in gids],
+    "flow60p_mean": [sum_60p[g] / cnt_60p[g] for g in gids],
+})
+
+cols04 = ["flow20_50_mean", "flow60p_mean"]
+grid_master = grid_master.drop(columns=cols04, errors="ignore").merge(z04, on="gid", how="left")
