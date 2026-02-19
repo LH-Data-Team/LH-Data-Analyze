@@ -1,0 +1,82 @@
+# -*- coding: utf-8 -*-
+"""
+05._시간대별_직장인구 전처리 (대용량 안전)
+
+- TMST_00~23을 아래 5개로 묶어 gid별 연간 대표(mean) 생성:
+  - work_total_mean(00~23 합)
+  - work_am_mean(07~09)
+  - work_pm_mean(14~16)
+  - work_ev_mean(17~19)
+  - work_night_mean(20~23)
+- 대용량이라 청크 + 청크 내 유니크좌표만 sjoin으로 gid 매핑(메모리 절약)
+- 결과는 grid_master에 merge(NaN 유지)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+assert "grid_slim" in globals()
+assert "grid_master" in globals()
+
+def _tmst_cols(path):
+    cols = pd.read_csv(path, nrows=0).columns.tolist()
+    return sorted([c for c in cols if c.startswith("TMST_")])
+
+def _chunk_map_gid(df):
+    uniq = df[["lon_s","lat_s","lon","lat"]].drop_duplicates()
+    gk = gpd.GeoDataFrame(uniq, geometry=gpd.points_from_xy(uniq["lon"], uniq["lat"]), crs="EPSG:4326")
+    jk = gpd.sjoin(gk, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+    return df.merge(jk[["lon_s","lat_s","gid"]], on=["lon_s","lat_s"], how="left")
+
+tmst = _tmst_cols("05._시간대별_직장인구.csv")
+
+def cols_range(a, b):
+    want = [f"TMST_{h:02d}" for h in range(a, b+1)]
+    return [c for c in want if c in tmst]
+
+usecols = ["lon","lat"] + tmst
+sum_cols = ["work_total","work_am","work_pm","work_ev","work_night"]
+acc_sum, acc_cnt = {}, {}
+
+for chunk in pd.read_csv("05._시간대별_직장인구.csv", usecols=usecols, chunksize=100_000):
+    lon_s = chunk["lon"].astype(str).str.strip()
+    lat_s = chunk["lat"].astype(str).str.strip()
+    lon = pd.to_numeric(lon_s, errors="coerce")
+    lat = pd.to_numeric(lat_s, errors="coerce")
+    m = lon.notna() & lat.notna()
+    chunk = chunk.loc[m].copy()
+    chunk["lon_s"] = lon_s.loc[m].values
+    chunk["lat_s"] = lat_s.loc[m].values
+    chunk["lon"] = lon.loc[m].values
+    chunk["lat"] = lat.loc[m].values
+
+    for c in tmst:
+        chunk[c] = pd.to_numeric(chunk[c].astype(str).str.replace(",",""), errors="coerce").fillna(0)
+
+    chunk["work_total"] = chunk[tmst].sum(axis=1)
+    chunk["work_am"] = chunk[cols_range(7,9)].sum(axis=1)
+    chunk["work_pm"] = chunk[cols_range(14,16)].sum(axis=1)
+    chunk["work_ev"] = chunk[cols_range(17,19)].sum(axis=1)
+    chunk["work_night"] = chunk[cols_range(20,23)].sum(axis=1)
+
+    chunk = _chunk_map_gid(chunk).dropna(subset=["gid"])
+
+    gsum = chunk.groupby("gid")[sum_cols].sum()
+    gcnt = chunk.groupby("gid").size()
+
+    for gid, row in gsum.iterrows():
+        acc_sum[gid] = row.copy() if gid not in acc_sum else acc_sum[gid].add(row, fill_value=0)
+    for gid, c in gcnt.items():
+        acc_cnt[gid] = acc_cnt.get(gid, 0) + int(c)
+
+z05 = pd.DataFrame([{"gid": gid, **(acc_sum[gid] / acc_cnt[gid]).to_dict()} for gid in acc_sum.keys()])
+z05 = z05.rename(columns={
+    "work_total": "work_total_mean",
+    "work_am": "work_am_mean",
+    "work_pm": "work_pm_mean",
+    "work_ev": "work_ev_mean",
+    "work_night": "work_night_mean",
+})
+
+cols05 = ["work_total_mean","work_am_mean","work_pm_mean","work_ev_mean","work_night_mean"]
+grid_master = grid_master.drop(columns=cols05, errors="ignore").merge(z05[["gid"] + cols05], on="gid", how="left")
