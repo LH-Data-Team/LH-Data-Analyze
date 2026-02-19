@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+"""
+11/12 혼잡강도 + link_master_ts 생성(08+09+10+11+12)
+
+- 핵심:
+  - 09/10은 (v_link_id, timeslot) 기반
+  - 11/12는 timeslot이 없으므로 v_link_id로만 붙임(모든 timeslot 행에 동일값 복제)
+- 주의:
+  - df10_ts가 없으면(NameError) 10_aadt_ts.py를 먼저 실행해야 함
+"""
+
+import pandas as pd
+
+# 전제: link_master_base, df09_ts, df10_ts 존재
+assert "link_master_base" in globals()
+assert "df09_ts" in globals()
+assert "df10_ts" in globals()
+
+# 09+10 timeslot 합집합
+ts_union = pd.concat(
+    [df09_ts[["v_link_id","timeslot"]], df10_ts[["v_link_id","timeslot"]]],
+    ignore_index=True
+).drop_duplicates()
+
+# v_link_id+timeslot 조합이 있는 행만 생성
+link_master_ts = link_master_base.merge(ts_union, on="v_link_id", how="inner")
+link_master_ts = link_master_ts.merge(df09_ts, on=["v_link_id","timeslot"], how="left")
+link_master_ts = link_master_ts.merge(df10_ts, on=["v_link_id","timeslot"], how="left")
+
+# 11 (FRIN_CG)
+df11 = pd.read_csv("11._혼잡빈도강도.csv", dtype={"v_link_id": str})
+df11 = df11[["v_link_id","FRIN_CG"]].copy()
+df11["FRIN_CG"] = pd.to_numeric(df11["FRIN_CG"], errors="coerce")
+df11_1 = df11.groupby("v_link_id", as_index=False).agg(FRIN_CG=("FRIN_CG","mean"))
+
+# 12 (TI_CG)
+df12 = pd.read_csv("12._혼잡시간강도.csv", dtype={"v_link_id": str})
+df12 = df12[["v_link_id","TI_CG"]].copy()
+df12["TI_CG"] = pd.to_numeric(df12["TI_CG"], errors="coerce")
+df12_1 = df12.groupby("v_link_id", as_index=False).agg(TI_CG=("TI_CG","mean"))
+
+link_master_ts = link_master_ts.drop(columns=["FRIN_CG","TI_CG"], errors="ignore")
+link_master_ts = link_master_ts.merge(df11_1, on="v_link_id", how="left")
+link_master_ts = link_master_ts.merge(df12_1, on="v_link_id", how="left")
