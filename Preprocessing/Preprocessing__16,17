@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+"""
+16(유치원) + 17(어린이집) 결합 전처리
+
+- 16: age3+age4+age5+mix+spec 합 -> gid별 sum -> kinder_child_cnt
+- 17: curr_cnt gid별 sum을 kinder_child_cnt에 더해서 덮어쓰기
+- 출력: grid_master.kinder_child_cnt (없으면 0)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+assert "grid_slim" in globals()
+assert "grid_master" in globals()
+
+# --- 16 ---
+df16 = pd.read_csv("16._유치원현황.csv")
+df16["lon"] = pd.to_numeric(df16["lon"], errors="coerce")
+df16["lat"] = pd.to_numeric(df16["lat"], errors="coerce")
+df16 = df16.dropna(subset=["lon","lat"]).copy()
+
+cnt_cols = ["age3_cnt","age4_cnt","age5_cnt","mix_cnt","spec_cnt"]
+for c in cnt_cols:
+    df16[c] = pd.to_numeric(df16[c], errors="coerce").fillna(0)
+df16["kinder_child_cnt"] = df16[cnt_cols].sum(axis=1)
+
+g16 = gpd.GeoDataFrame(df16, geometry=gpd.points_from_xy(df16["lon"], df16["lat"]), crs="EPSG:4326")
+j16 = gpd.sjoin(g16, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+z16 = j16.dropna(subset=["gid"]).groupby("gid", as_index=False).agg(kinder_child_cnt=("kinder_child_cnt","sum"))
+
+grid_master = grid_master.drop(columns=["kinder_child_cnt"], errors="ignore").merge(z16, on="gid", how="left")
+grid_master["kinder_child_cnt"] = pd.to_numeric(grid_master["kinder_child_cnt"], errors="coerce").fillna(0).astype(int)
+
+# --- 17 ---
+df17 = pd.read_csv("17._어린이집현황.csv")
+df17["lon"] = pd.to_numeric(df17["lon"], errors="coerce")
+df17["lat"] = pd.to_numeric(df17["lat"], errors="coerce")
+df17 = df17.dropna(subset=["lon","lat"]).copy()
+df17["curr_cnt"] = pd.to_numeric(df17["curr_cnt"], errors="coerce").fillna(0)
+
+g17 = gpd.GeoDataFrame(df17, geometry=gpd.points_from_xy(df17["lon"], df17["lat"]), crs="EPSG:4326")
+j17 = gpd.sjoin(g17, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+z17 = j17.dropna(subset=["gid"]).groupby("gid", as_index=False).agg(curr_cnt_sum=("curr_cnt","sum"))
+
+grid_master = grid_master.drop(columns=["curr_cnt_sum"], errors="ignore").merge(z17, on="gid", how="left")
+grid_master["curr_cnt_sum"] = pd.to_numeric(grid_master["curr_cnt_sum"], errors="coerce").fillna(0)
+
+grid_master["kinder_child_cnt"] = (grid_master["kinder_child_cnt"] + grid_master["curr_cnt_sum"]).astype(int)
+grid_master = grid_master.drop(columns=["curr_cnt_sum"])
