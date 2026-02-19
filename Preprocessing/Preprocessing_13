@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+"""
+13._교통사고이력 전처리
+
+- 입력: 13._교통사고이력.geojson (POINT geometry)
+- 처리:
+  - geometry(사고점) -> gid(within) 매핑
+  - gid별 사고건수/피해합(acc_cnt, dprs_cnt, sep_cnt, slp_cnt, inj_aplcnt_cnt) 생성
+  - 사고 없는 격자는 0으로 채우는 정책(위험도 계산 편의)
+- 출력: grid_master에 사고 지표 merge
+"""
+
+import geopandas as gpd
+
+assert "grid" in globals()
+assert "grid_master" in globals()
+
+g13 = gpd.read_file("13._교통사고이력.geojson")
+g13 = g13.set_crs(epsg=4326, allow_override=True) if g13.crs is None else g13.to_crs(epsg=4326)
+
+joined13 = gpd.sjoin(g13, grid, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+acc = joined13.dropna(subset=["gid"]).copy()
+
+for c in ["victim_vhcle", "injury_svrity", "age_group"]:
+    if c in acc.columns:
+        acc[c] = acc[c].fillna("미상")
+
+acc_grid = (
+    acc.groupby(["gid", "gbn"], as_index=False)
+       .agg(
+           acc_cnt=("gid", "size"),
+           dprs_cnt=("dprs_cnt", "sum"),
+           sep_cnt=("sep_cnt", "sum"),
+           slp_cnt=("slp_cnt", "sum"),
+           inj_aplcnt_cnt=("inj_aplcnt_cnt", "sum"),
+       )
+)
+
+cols13 = ["acc_cnt","dprs_cnt","sep_cnt","slp_cnt","inj_aplcnt_cnt"]
+grid_master = grid_master.drop(columns=cols13, errors="ignore").merge(acc_grid[["gid"] + cols13], on="gid", how="left")
+for c in cols13:
+    grid_master[c] = grid_master[c].fillna(0).astype(int)
