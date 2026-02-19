@@ -1,0 +1,61 @@
+# -*- coding: utf-8 -*-
+"""
+21._과속방지턱 전처리 (4개 변수만)
+
+- 처리:
+  - lon/lat -> gid 매핑
+  - fac_hght: 0 또는 0.1은 "미상/코드값" 가능성이 높아 NaN 처리 후 평균 계산(평균에서 제외)
+  - fac_wdth: 평균(소수 둘째자리 반올림)
+  - sprtn/cntns: Y=1 else 0 => mean = 비율
+- 출력:
+  - speedbump_hght_mean (NaN 유지)
+  - speedbump_wdth_mean (없으면 0)
+  - speedbump_sprtn_ratio (없으면 0)
+  - speedbump_cntns_ratio (없으면 0)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+assert "grid_slim" in globals()
+assert "grid_master" in globals()
+
+df21 = pd.read_csv("21._과속방지턱_현황.csv")
+df21["lon"] = pd.to_numeric(df21["lon"], errors="coerce")
+df21["lat"] = pd.to_numeric(df21["lat"], errors="coerce")
+df21 = df21.dropna(subset=["lon","lat"]).copy()
+
+df21["fac_hght"] = pd.to_numeric(df21["fac_hght"], errors="coerce")
+df21["fac_wdth"] = pd.to_numeric(df21["fac_wdth"], errors="coerce")
+df21.loc[df21["fac_hght"].isin([0, 0.1]), "fac_hght"] = pd.NA
+
+def to01_yn(series):
+    s = series.astype(str).str.strip().str.upper()
+    out = s.map({"Y": 1, "N": 0})
+    return out.fillna(0).astype(int)
+
+df21["sprtn_01"] = to01_yn(df21["sprtn"])
+df21["cntns_01"] = to01_yn(df21["cntns"])
+
+g21 = gpd.GeoDataFrame(df21, geometry=gpd.points_from_xy(df21["lon"], df21["lat"]), crs="EPSG:4326")
+j21 = gpd.sjoin(g21, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+
+z21 = (
+    j21.dropna(subset=["gid"])
+       .groupby("gid", as_index=False)
+       .agg(
+           speedbump_hght_mean=("fac_hght", "mean"),
+           speedbump_wdth_mean=("fac_wdth", "mean"),
+           speedbump_sprtn_ratio=("sprtn_01", "mean"),
+           speedbump_cntns_ratio=("cntns_01", "mean"),
+       )
+)
+z21["speedbump_wdth_mean"] = z21["speedbump_wdth_mean"].round(2)
+
+cols21 = ["speedbump_hght_mean","speedbump_wdth_mean","speedbump_sprtn_ratio","speedbump_cntns_ratio"]
+grid_master = grid_master.drop(columns=cols21, errors="ignore").merge(z21, on="gid", how="left")
+
+grid_master["speedbump_wdth_mean"] = grid_master["speedbump_wdth_mean"].fillna(0)
+grid_master["speedbump_sprtn_ratio"] = grid_master["speedbump_sprtn_ratio"].fillna(0)
+grid_master["speedbump_cntns_ratio"] = grid_master["speedbump_cntns_ratio"].fillna(0)
+# speedbump_hght_mean는 NaN 유지
