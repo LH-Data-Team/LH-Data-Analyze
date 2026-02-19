@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+20._CCTV 전처리
+
+- 처리: lon/lat -> gid 매핑 후 gid별 cam_cnt 합 = cam_cnt
+- 출력: grid_master.cam_cnt (없으면 0)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+assert "grid_slim" in globals()
+assert "grid_master" in globals()
+
+df20 = pd.read_csv("20._CCTV_현황.csv")
+df20["lon"] = pd.to_numeric(df20["lon"], errors="coerce")
+df20["lat"] = pd.to_numeric(df20["lat"], errors="coerce")
+df20 = df20.dropna(subset=["lon","lat"]).copy()
+df20["cam_cnt"] = pd.to_numeric(df20["cam_cnt"], errors="coerce").fillna(0)
+
+g20 = gpd.GeoDataFrame(df20, geometry=gpd.points_from_xy(df20["lon"], df20["lat"]), crs="EPSG:4326")
+j20 = gpd.sjoin(g20, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+z20 = j20.dropna(subset=["gid"]).groupby("gid", as_index=False).agg(cam_cnt=("cam_cnt","sum"))
+
+grid_master = grid_master.drop(columns=["cam_cnt"], errors="ignore").merge(z20, on="gid", how="left")
+grid_master["cam_cnt"] = grid_master["cam_cnt"].fillna(0).astype(int)
