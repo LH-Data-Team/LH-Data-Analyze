@@ -1,0 +1,740 @@
+# -*- coding: utf-8 -*-
+"""
+build_grid_master.py
+
+[목표] 100m 격자(gid) 기반 grid_master 생성
+
+[전처리/결합 개요]
+- (01+02) 격자(폴리곤) 로드 → gid, gbn, geometry 표준화(EPSG:4326) → grid_master(=gid 뼈대) 생성
+- (03) 거주인구(격자) : 20~50 / 60+ 합계 + masked(연령대 그룹 기준) 생성 후 gid로 결합
+- (아동 CSV) : SGIS에서 수집된 gid별 0~15(pop) → child0_15_total로 결합(결측 NaN 유지)
+- (04) 유동인구 : lon/lat → gid 매핑 후 20~50, 60+만 합쳐서 gid 연간 대표(mean) 생성
+- (05/06) 대용량 TMST(00~23) : 청크+청크 내 유니크좌표만 sjoin → gid별 sum/count 누적 → mean
+- (07) 대용량 서비스인구(H/W) : 청크+청크 내 유니크좌표만 sjoin → (gid,hw)별 sum/count → mean → wide 4컬럼
+- (13/14/16/17/18/20/21) 상대적으로 소용량 : lon/lat 또는 geojson → gid 매핑 → gid별 집계 → grid_master merge
+
+[결측 처리 원칙]
+- 사고/시설 “개수/합” 계열은 0 채움 (없으면 0이 자연스러움)
+- 07/05/06/04 등 노출 지표는 NaN 유지 (데이터 없음 vs 값 0 구분)
+- 아동(child0_15_total)도 NaN 유지
+- 방지턱 높이(mean)는 0/0.1을 미상으로 보고 NaN 처리(평균 계산 제외)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+
+# =========================
+# 1+2) 격자 로드 (01+02) -> grid, grid_master, grid_slim
+# =========================
+grid1 = gpd.read_file("01._격자_(4개_시·구).geojson")
+grid2 = gpd.read_file("02._격자_(하남교산).geojson")
+
+grid = gpd.GeoDataFrame(pd.concat([grid1, grid2], ignore_index=True))
+grid = grid.set_crs(epsg=4326, allow_override=True)
+grid = grid[["gid", "gbn", "geometry"]].copy()
+
+grid_master = grid[["gid", "gbn"]].drop_duplicates().copy()
+grid_slim = grid[["gid", "geometry"]].copy()  # 대용량 매핑용
+
+
+# =========================
+# 공통: 청크 내 유니크좌표만 sjoin 해서 gid 붙이기
+# =========================
+def _chunk_map_gid(df: pd.DataFrame, grid_slim: gpd.GeoDataFrame) -> pd.DataFrame:
+    """
+    df에 lon_s/lat_s(문자키), lon/lat(숫자) 있어야 함.
+    청크 내 유니크 좌표만 sjoin하고, df에 gid를 merge로 붙임.
+    """
+    uniq = df[["lon_s", "lat_s", "lon", "lat"]].drop_duplicates()
+    gk = gpd.GeoDataFrame(uniq, geometry=gpd.points_from_xy(uniq["lon"], uniq["lat"]), crs="EPSG:4326")
+    jk = gpd.sjoin(gk, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+    map_df = jk[["lon_s", "lat_s", "gid"]]
+    return df.merge(map_df, on=["lon_s", "lat_s"], how="left")
+
+
+def _tmst_cols(path: str):
+    cols = pd.read_csv(path, nrows=0).columns.tolist()
+    return sorted([c for c in cols if c.startswith("TMST_")])
+
+
+# =========================
+# 13) 교통사고(geojson) -> gid 매핑 -> gid 집계 -> grid_master merge
+# =========================
+g13 = gpd.read_file("13._교통사고이력.geojson")
+if g13.crs is None:
+    g13 = g13.set_crs(epsg=4326, allow_override=True)
+else:
+    g13 = g13.to_crs(epsg=4326)
+
+joined13 = gpd.sjoin(g13, grid, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+acc = joined13.dropna(subset=["gid"]).copy()
+
+# (선택) 범주 결측은 "미상" 처리
+for c in ["victim_vhcle", "injury_svrity", "age_group"]:
+    if c in acc.columns:
+        acc[c] = acc[c].fillna("미상")
+
+acc_grid = (
+    acc.groupby(["gid", "gbn"], as_index=False)
+       .agg(
+           acc_cnt=("gid", "size"),
+           dprs_cnt=("dprs_cnt", "sum"),
+           sep_cnt=("sep_cnt", "sum"),
+           slp_cnt=("slp_cnt", "sum"),
+           inj_aplcnt_cnt=("inj_aplcnt_cnt", "sum"),
+       )
+)
+
+cols13 = ["acc_cnt", "dprs_cnt", "sep_cnt", "slp_cnt", "inj_aplcnt_cnt"]
+grid_master = grid_master.drop(columns=cols13, errors="ignore").merge(
+    acc_grid[["gid"] + cols13],
+    on="gid",
+    how="left",
+)
+for c in cols13:
+    grid_master[c] = grid_master[c].fillna(0).astype(int)
+
+
+# =========================
+# 18) 횡단보도 -> gid 매핑 -> gid별 개수 -> grid_master merge
+# =========================
+df18 = pd.read_csv("18._횡단보도_위치정보.csv")
+df18["lon"] = pd.to_numeric(df18["lon"], errors="coerce")
+df18["lat"] = pd.to_numeric(df18["lat"], errors="coerce")
+df18 = df18.dropna(subset=["lon", "lat"]).copy()
+
+g18 = gpd.GeoDataFrame(df18, geometry=gpd.points_from_xy(df18["lon"], df18["lat"]), crs="EPSG:4326")
+j18 = gpd.sjoin(g18, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+
+z18 = (
+    j18.dropna(subset=["gid"])
+       .groupby("gid", as_index=False)
+       .size()
+       .rename(columns={"size": "crosswalk_cnt"})
+)
+
+grid_master = grid_master.drop(columns=["crosswalk_cnt"], errors="ignore").merge(z18, on="gid", how="left")
+grid_master["crosswalk_cnt"] = grid_master["crosswalk_cnt"].fillna(0).astype(int)
+
+
+# =========================
+# 14) 어린이보호구역 -> gid 매핑 -> fac_nm_nunique -> grid_master merge
+# =========================
+df14 = pd.read_csv("14._어린이보호구역.csv")
+df14["lon"] = pd.to_numeric(df14["lon"], errors="coerce")
+df14["lat"] = pd.to_numeric(df14["lat"], errors="coerce")
+df14 = df14.dropna(subset=["lon", "lat"]).copy()
+
+g14 = gpd.GeoDataFrame(df14, geometry=gpd.points_from_xy(df14["lon"], df14["lat"]), crs="EPSG:4326")
+j14 = gpd.sjoin(g14, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+
+z14 = (
+    j14.dropna(subset=["gid"])
+       .groupby("gid", as_index=False)
+       .agg(fac_nm_nunique=("fac_nm", "nunique"))
+)
+
+grid_master = grid_master.drop(columns=["fac_nm_nunique"], errors="ignore").merge(z14, on="gid", how="left")
+grid_master["fac_nm_nunique"] = grid_master["fac_nm_nunique"].fillna(0).astype(int)
+
+
+# =========================
+# 16) 유치원 -> gid 매핑 -> (age3+age4+age5+mix+spec) 합 -> gid 합 -> kinder_child_cnt
+# =========================
+df16 = pd.read_csv("16._유치원현황.csv")
+df16["lon"] = pd.to_numeric(df16["lon"], errors="coerce")
+df16["lat"] = pd.to_numeric(df16["lat"], errors="coerce")
+df16 = df16.dropna(subset=["lon", "lat"]).copy()
+
+cnt_cols = ["age3_cnt", "age4_cnt", "age5_cnt", "mix_cnt", "spec_cnt"]
+for c in cnt_cols:
+    df16[c] = pd.to_numeric(df16[c], errors="coerce").fillna(0)
+
+df16["kinder_child_cnt"] = df16[cnt_cols].sum(axis=1)
+
+g16 = gpd.GeoDataFrame(df16, geometry=gpd.points_from_xy(df16["lon"], df16["lat"]), crs="EPSG:4326")
+j16 = gpd.sjoin(g16, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+
+z16 = (
+    j16.dropna(subset=["gid"])
+       .groupby("gid", as_index=False)
+       .agg(kinder_child_cnt=("kinder_child_cnt", "sum"))
+)
+
+grid_master = grid_master.drop(columns=["kinder_child_cnt"], errors="ignore").merge(z16, on="gid", how="left")
+grid_master["kinder_child_cnt"] = pd.to_numeric(grid_master["kinder_child_cnt"], errors="coerce").fillna(0).astype(int)
+
+
+# =========================
+# 17) 어린이집 -> gid 매핑 -> curr_cnt gid 합 -> kinder_child_cnt에 더해서 덮어쓰기
+# =========================
+df17 = pd.read_csv("17._어린이집현황.csv")
+df17["lon"] = pd.to_numeric(df17["lon"], errors="coerce")
+df17["lat"] = pd.to_numeric(df17["lat"], errors="coerce")
+df17 = df17.dropna(subset=["lon", "lat"]).copy()
+df17["curr_cnt"] = pd.to_numeric(df17["curr_cnt"], errors="coerce").fillna(0)
+
+g17 = gpd.GeoDataFrame(df17, geometry=gpd.points_from_xy(df17["lon"], df17["lat"]), crs="EPSG:4326")
+j17 = gpd.sjoin(g17, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+
+z17 = (
+    j17.dropna(subset=["gid"])
+       .groupby("gid", as_index=False)
+       .agg(curr_cnt_sum=("curr_cnt", "sum"))
+)
+
+grid_master = grid_master.drop(columns=["curr_cnt_sum"], errors="ignore").merge(z17, on="gid", how="left")
+grid_master["curr_cnt_sum"] = pd.to_numeric(grid_master["curr_cnt_sum"], errors="coerce").fillna(0)
+grid_master["kinder_child_cnt"] = (grid_master["kinder_child_cnt"] + grid_master["curr_cnt_sum"]).astype(int)
+grid_master = grid_master.drop(columns=["curr_cnt_sum"])
+
+
+# =========================
+# 20) CCTV -> gid 매핑 -> cam_cnt gid 합 -> grid_master merge
+# =========================
+df20 = pd.read_csv("20._CCTV_현황.csv")
+df20["lon"] = pd.to_numeric(df20["lon"], errors="coerce")
+df20["lat"] = pd.to_numeric(df20["lat"], errors="coerce")
+df20 = df20.dropna(subset=["lon", "lat"]).copy()
+df20["cam_cnt"] = pd.to_numeric(df20["cam_cnt"], errors="coerce").fillna(0)
+
+g20 = gpd.GeoDataFrame(df20, geometry=gpd.points_from_xy(df20["lon"], df20["lat"]), crs="EPSG:4326")
+j20 = gpd.sjoin(g20, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+
+z20 = (
+    j20.dropna(subset=["gid"])
+       .groupby("gid", as_index=False)
+       .agg(cam_cnt=("cam_cnt", "sum"))
+)
+
+grid_master = grid_master.drop(columns=["cam_cnt"], errors="ignore").merge(z20, on="gid", how="left")
+grid_master["cam_cnt"] = grid_master["cam_cnt"].fillna(0).astype(int)
+
+
+# =========================
+# 21) 과속방지턱 -> gid 매핑 -> 4개(평균/비율)만 -> grid_master merge
+#     - fac_hght: 0, 0.1은 NaN 처리(평균 제외)
+#     - sprtn/cntns: Y=1 else 0 -> mean=비율
+# =========================
+df21 = pd.read_csv("21._과속방지턱_현황.csv")
+df21["lon"] = pd.to_numeric(df21["lon"], errors="coerce")
+df21["lat"] = pd.to_numeric(df21["lat"], errors="coerce")
+df21 = df21.dropna(subset=["lon", "lat"]).copy()
+
+df21["fac_hght"] = pd.to_numeric(df21["fac_hght"], errors="coerce")
+df21["fac_wdth"] = pd.to_numeric(df21["fac_wdth"], errors="coerce")
+df21.loc[df21["fac_hght"].isin([0, 0.1]), "fac_hght"] = pd.NA
+
+def to01_yn(series):
+    s = series.astype(str).str.strip().str.upper()
+    out = s.map({"Y": 1, "N": 0})
+    return out.fillna(0).astype(int)
+
+df21["sprtn_01"] = to01_yn(df21["sprtn"])
+df21["cntns_01"] = to01_yn(df21["cntns"])
+
+g21 = gpd.GeoDataFrame(df21, geometry=gpd.points_from_xy(df21["lon"], df21["lat"]), crs="EPSG:4326")
+j21 = gpd.sjoin(g21, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+
+z21 = (
+    j21.dropna(subset=["gid"])
+       .groupby("gid", as_index=False)
+       .agg(
+           speedbump_hght_mean=("fac_hght", "mean"),
+           speedbump_wdth_mean=("fac_wdth", "mean"),
+           speedbump_sprtn_ratio=("sprtn_01", "mean"),
+           speedbump_cntns_ratio=("cntns_01", "mean"),
+       )
+)
+z21["speedbump_wdth_mean"] = z21["speedbump_wdth_mean"].round(2)
+
+cols21 = ["speedbump_hght_mean", "speedbump_wdth_mean", "speedbump_sprtn_ratio", "speedbump_cntns_ratio"]
+grid_master = grid_master.drop(columns=cols21, errors="ignore").merge(z21, on="gid", how="left")
+
+# 폭/비율은 0 채움, 높이는 NaN 유지
+grid_master["speedbump_wdth_mean"] = grid_master["speedbump_wdth_mean"].fillna(0)
+grid_master["speedbump_sprtn_ratio"] = grid_master["speedbump_sprtn_ratio"].fillna(0)
+grid_master["speedbump_cntns_ratio"] = grid_master["speedbump_cntns_ratio"].fillna(0)
+
+
+# =========================
+# 7) 대용량 07(서비스인구) : 청크+유니크좌표 sjoin -> (gid,hw) sum/count -> mean -> wide 4컬럼
+# =========================
+def build_07_chunked(path07, grid_slim, chunksize=200_000):
+    acc_hw = {}  # (gid, hw) -> [sum_w, sum_v, cnt]
+    usecols = ["lon", "lat", "hw", "w_pop", "v_pop"]
+
+    for chunk in pd.read_csv(path07, usecols=usecols, chunksize=chunksize):
+        lon_s = chunk["lon"].astype(str).str.strip()
+        lat_s = chunk["lat"].astype(str).str.strip()
+        lon = pd.to_numeric(lon_s, errors="coerce")
+        lat = pd.to_numeric(lat_s, errors="coerce")
+        m = lon.notna() & lat.notna()
+
+        chunk = chunk.loc[m].copy()
+        chunk["lon_s"] = lon_s.loc[m].values
+        chunk["lat_s"] = lat_s.loc[m].values
+        chunk["lon"] = lon.loc[m].values
+        chunk["lat"] = lat.loc[m].values
+
+        chunk["hw"] = chunk["hw"].astype(str).str.strip().str.upper()
+        chunk["w_pop"] = pd.to_numeric(chunk["w_pop"].astype(str).str.replace(",", ""), errors="coerce")
+        chunk["v_pop"] = pd.to_numeric(chunk["v_pop"].astype(str).str.replace(",", ""), errors="coerce")
+
+        chunk = _chunk_map_gid(chunk, grid_slim).dropna(subset=["gid"])
+
+        grp = (
+            chunk.groupby(["gid", "hw"], as_index=False)
+                 .agg(sum_w=("w_pop", "sum"), sum_v=("v_pop", "sum"), cnt=("w_pop", "size"))
+        )
+
+        for r in grp.itertuples(index=False):
+            k = (r.gid, r.hw)
+            if k not in acc_hw:
+                acc_hw[k] = [0.0, 0.0, 0]
+            acc_hw[k][0] += 0.0 if pd.isna(r.sum_w) else float(r.sum_w)
+            acc_hw[k][1] += 0.0 if pd.isna(r.sum_v) else float(r.sum_v)
+            acc_hw[k][2] += int(r.cnt)
+
+    rows = []
+    for (gid, hw), (sw, sv, c) in acc_hw.items():
+        if c > 0:
+            rows.append({"gid": gid, "hw": hw, "w_pop_mean": sw / c, "v_pop_mean": sv / c})
+
+    z07 = pd.DataFrame(rows)
+    wide07 = z07.pivot(index="gid", columns="hw", values=["w_pop_mean", "v_pop_mean"]).reset_index()
+    wide07.columns = [
+        "gid" if c == ("gid", "") or c == "gid" else
+        ("w_pop_weekday_mean" if c == ("w_pop_mean", "H") else
+         "w_pop_weekend_mean" if c == ("w_pop_mean", "W") else
+         "v_pop_weekday_mean" if c == ("v_pop_mean", "H") else
+         "v_pop_weekend_mean" if c == ("v_pop_mean", "W") else str(c))
+        for c in wide07.columns
+    ]
+    return wide07
+
+wide07 = build_07_chunked("07._주중주말_서비스인구.csv", grid_slim, chunksize=200_000)
+cols07 = ["w_pop_weekday_mean", "w_pop_weekend_mean", "v_pop_weekday_mean", "v_pop_weekend_mean"]
+grid_master = grid_master.drop(columns=cols07, errors="ignore").merge(
+    wide07[["gid"] + [c for c in cols07 if c in wide07.columns]],
+    on="gid",
+    how="left",
+)
+# NaN 유지(미관측 vs 0 구분)
+
+
+# =========================
+# 6) 대용량 06(방문인구 TMST) : 청크+유니크좌표 sjoin -> gid별 sum/count -> mean
+# =========================
+def build_06_chunked(path06, grid_slim, chunksize=100_000):
+    tmst = _tmst_cols(path06)
+    usecols = ["lon", "lat"] + tmst
+
+    sum_cols = ["visit_total", "visit_am", "visit_pm", "visit_ev", "visit_night"]
+    acc_sum = {}  # gid -> Series sums
+    acc_cnt = {}  # gid -> int count
+
+    def cols_range(a, b):
+        want = [f"TMST_{h:02d}" for h in range(a, b+1)]
+        return [c for c in want if c in tmst]
+
+    for chunk in pd.read_csv(path06, usecols=usecols, chunksize=chunksize):
+        lon_s = chunk["lon"].astype(str).str.strip()
+        lat_s = chunk["lat"].astype(str).str.strip()
+        lon = pd.to_numeric(lon_s, errors="coerce")
+        lat = pd.to_numeric(lat_s, errors="coerce")
+        m = lon.notna() & lat.notna()
+
+        chunk = chunk.loc[m].copy()
+        chunk["lon_s"] = lon_s.loc[m].values
+        chunk["lat_s"] = lat_s.loc[m].values
+        chunk["lon"] = lon.loc[m].values
+        chunk["lat"] = lat.loc[m].values
+
+        for c in tmst:
+            chunk[c] = pd.to_numeric(chunk[c].astype(str).str.replace(",", ""), errors="coerce").fillna(0)
+
+        chunk["visit_total"] = chunk[tmst].sum(axis=1)
+        chunk["visit_am"] = chunk[cols_range(7, 9)].sum(axis=1)
+        chunk["visit_pm"] = chunk[cols_range(14, 16)].sum(axis=1)
+        chunk["visit_ev"] = chunk[cols_range(17, 19)].sum(axis=1)
+        chunk["visit_night"] = chunk[cols_range(20, 23)].sum(axis=1)
+
+        chunk = _chunk_map_gid(chunk, grid_slim).dropna(subset=["gid"])
+
+        grp_sum = chunk.groupby("gid")[sum_cols].sum()
+        grp_cnt = chunk.groupby("gid").size()
+
+        for gid, row in grp_sum.iterrows():
+            if gid not in acc_sum:
+                acc_sum[gid] = row.copy()
+            else:
+                acc_sum[gid] = acc_sum[gid].add(row, fill_value=0)
+
+        for gid, c in grp_cnt.items():
+            acc_cnt[gid] = acc_cnt.get(gid, 0) + int(c)
+
+    z06 = pd.DataFrame([{"gid": gid, **(acc_sum[gid] / acc_cnt[gid]).to_dict()} for gid in acc_sum.keys()])
+    z06 = z06.rename(columns={
+        "visit_total": "visit_total_mean",
+        "visit_am": "visit_am_mean",
+        "visit_pm": "visit_pm_mean",
+        "visit_ev": "visit_ev_mean",
+        "visit_night": "visit_night_mean",
+    })
+    return z06
+
+z06 = build_06_chunked("06._시간대별_방문인구.csv", grid_slim, chunksize=100_000)
+cols06 = ["visit_total_mean", "visit_am_mean", "visit_pm_mean", "visit_ev_mean", "visit_night_mean"]
+grid_master = grid_master.drop(columns=cols06, errors="ignore").merge(z06[["gid"] + cols06], on="gid", how="left")
+# NaN 유지
+
+
+# =========================
+# 5) 대용량 05(직장인구 TMST) : 청크+유니크좌표 sjoin -> gid별 sum/count -> mean
+# =========================
+def build_05_chunked(path05, grid_slim, chunksize=100_000):
+    tmst = _tmst_cols(path05)
+    usecols = ["lon", "lat"] + tmst
+
+    sum_cols = ["work_total", "work_am", "work_pm", "work_ev", "work_night"]
+    acc_sum = {}
+    acc_cnt = {}
+
+    def cols_range(a, b):
+        want = [f"TMST_{h:02d}" for h in range(a, b+1)]
+        return [c for c in want if c in tmst]
+
+    for chunk in pd.read_csv(path05, usecols=usecols, chunksize=chunksize):
+        lon_s = chunk["lon"].astype(str).str.strip()
+        lat_s = chunk["lat"].astype(str).str.strip()
+        lon = pd.to_numeric(lon_s, errors="coerce")
+        lat = pd.to_numeric(lat_s, errors="coerce")
+        m = lon.notna() & lat.notna()
+
+        chunk = chunk.loc[m].copy()
+        chunk["lon_s"] = lon_s.loc[m].values
+        chunk["lat_s"] = lat_s.loc[m].values
+        chunk["lon"] = lon.loc[m].values
+        chunk["lat"] = lat.loc[m].values
+
+        for c in tmst:
+            chunk[c] = pd.to_numeric(chunk[c].astype(str).str.replace(",", ""), errors="coerce").fillna(0)
+
+        chunk["work_total"] = chunk[tmst].sum(axis=1)
+        chunk["work_am"] = chunk[cols_range(7, 9)].sum(axis=1)
+        chunk["work_pm"] = chunk[cols_range(14, 16)].sum(axis=1)
+        chunk["work_ev"] = chunk[cols_range(17, 19)].sum(axis=1)
+        chunk["work_night"] = chunk[cols_range(20, 23)].sum(axis=1)
+
+        chunk = _chunk_map_gid(chunk, grid_slim).dropna(subset=["gid"])
+
+        grp_sum = chunk.groupby("gid")[sum_cols].sum()
+        grp_cnt = chunk.groupby("gid").size()
+
+        for gid, row in grp_sum.iterrows():
+            if gid not in acc_sum:
+                acc_sum[gid] = row.copy()
+            else:
+                acc_sum[gid] = acc_sum[gid].add(row, fill_value=0)
+
+        for gid, c in grp_cnt.items():
+            acc_cnt[gid] = acc_cnt.get(gid, 0) + int(c)
+
+    z05 = pd.DataFrame([{"gid": gid, **(acc_sum[gid] / acc_cnt[gid]).to_dict()} for gid in acc_sum.keys()])
+    z05 = z05.rename(columns={
+        "work_total": "work_total_mean",
+        "work_am": "work_am_mean",
+        "work_pm": "work_pm_mean",
+        "work_ev": "work_ev_mean",
+        "work_night": "work_night_mean",
+    })
+    return z05
+
+z05 = build_05_chunked("05._시간대별_직장인구.csv", grid_slim, chunksize=100_000)
+cols05 = ["work_total_mean", "work_am_mean", "work_pm_mean", "work_ev_mean", "work_night_mean"]
+grid_master = grid_master.drop(columns=cols05, errors="ignore").merge(z05[["gid"] + cols05], on="gid", how="left")
+# NaN 유지
+
+
+# =========================
+# 4) (아동 CSV) + 3) (03 거주인구 20~50/60+ + masked) -> 맨 뒤에 붙이기
+# =========================
+df_child = pd.read_csv("sgis_grid_child_pop.csv")
+df_child = df_child[["gid", "pop"]].copy()
+df_child["gid"] = df_child["gid"].astype(str).str.strip()
+df_child["pop"] = pd.to_numeric(df_child["pop"], errors="coerce")
+z_child = df_child.groupby("gid", as_index=False).agg(child0_15_total=("pop", "sum"))
+
+df03 = pd.read_csv("03._성연령별_거주인구(격자).csv")
+adult_groups = [
+    ("m_20g_pop","w_20g_pop"),
+    ("m_30g_pop","w_30g_pop"),
+    ("m_40g_pop","w_40g_pop"),
+    ("m_50g_pop","w_50g_pop"),
+]
+senior_groups = [
+    ("m_60g_pop","w_60g_pop"),
+    ("m_70g_pop","w_70g_pop"),
+    ("m_80g_pop","w_80g_pop"),
+    ("m_90g_pop","w_90g_pop"),
+    ("m_100g_pop","w_100g_pop"),
+]
+need = ["gid"] + [c for pair in (adult_groups + senior_groups) for c in pair]
+df03 = df03[need].copy()
+for c in need:
+    if c != "gid":
+        df03[c] = pd.to_numeric(df03[c], errors="coerce")
+
+adult_cols = [c for pair in adult_groups for c in pair]
+senior_cols = [c for pair in senior_groups for c in pair]
+
+df03["adult20_50_total"] = df03[adult_cols].sum(axis=1, min_count=1)
+df03["senior60_total"] = df03[senior_cols].sum(axis=1, min_count=1)
+
+df03["adult20_50_masked_groups"] = sum((df03[m].isna() & df03[w].isna()) for m, w in adult_groups).astype(int)
+df03["senior60_masked_groups"] = sum((df03[m].isna() & df03[w].isna()) for m, w in senior_groups).astype(int)
+
+z03 = (
+    df03.groupby("gid", as_index=False)
+       .agg(
+           adult20_50_total=("adult20_50_total", lambda s: s.sum(min_count=1)),
+           adult20_50_masked_groups=("adult20_50_masked_groups", "max"),
+           senior60_total=("senior60_total", lambda s: s.sum(min_count=1)),
+           senior60_masked_groups=("senior60_masked_groups", "max"),
+       )
+)
+
+new_cols = [
+    "child0_15_total",
+    "adult20_50_total", "adult20_50_masked_groups",
+    "senior60_total", "senior60_masked_groups",
+]
+grid_master = grid_master.drop(columns=new_cols + ["masked_cnt_03"], errors="ignore")
+grid_master = grid_master.merge(z_child, on="gid", how="left")
+grid_master = grid_master.merge(z03, on="gid", how="left")
+
+# 맨 뒤로 배치
+tail = [c for c in new_cols if c in grid_master.columns]
+rest = [c for c in grid_master.columns if c not in tail]
+grid_master = grid_master[rest + tail]
+
+
+# =========================
+# 4) 04 유동인구 (20~50/60+) -> gid 매핑(청크 내 유니크좌표 sjoin) -> gid별 mean -> grid_master merge
+# =========================
+def build_04_chunked(path04, grid_slim, chunksize=200_000):
+    usecols = [
+        "lon","lat",
+        "m_20g_pop","m_30g_pop","m_40g_pop","m_50g_pop","m_60g_pop",
+        "w_20g_pop","w_30g_pop","w_40g_pop","w_50g_pop","w_60g_pop",
+    ]
+    adult_cols = ["m_20g_pop","w_20g_pop","m_30g_pop","w_30g_pop","m_40g_pop","w_40g_pop","m_50g_pop","w_50g_pop"]
+    senior_cols = ["m_60g_pop","w_60g_pop"]
+
+    sum_20_50, cnt_20_50 = {}, {}
+    sum_60p, cnt_60p = {}, {}
+
+    for chunk in pd.read_csv(path04, usecols=usecols, chunksize=chunksize):
+        lon_s = chunk["lon"].astype(str).str.strip()
+        lat_s = chunk["lat"].astype(str).str.strip()
+        lon = pd.to_numeric(lon_s, errors="coerce")
+        lat = pd.to_numeric(lat_s, errors="coerce")
+        m = lon.notna() & lat.notna()
+
+        chunk = chunk.loc[m].copy()
+        chunk["lon_s"] = lon_s.loc[m].values
+        chunk["lat_s"] = lat_s.loc[m].values
+        chunk["lon"] = lon.loc[m].values
+        chunk["lat"] = lat.loc[m].values
+
+        for c in adult_cols + senior_cols:
+            chunk[c] = pd.to_numeric(chunk[c], errors="coerce").fillna(0)
+
+        chunk["flow20_50"] = chunk[adult_cols].sum(axis=1)
+        chunk["flow60p"] = chunk[senior_cols].sum(axis=1)
+
+        chunk = _chunk_map_gid(chunk, grid_slim).dropna(subset=["gid"])
+
+        gsum = chunk.groupby("gid")[["flow20_50","flow60p"]].sum()
+        gcnt = chunk.groupby("gid").size()
+
+        for gid, row in gsum.iterrows():
+            sum_20_50[gid] = sum_20_50.get(gid, 0.0) + float(row["flow20_50"])
+            sum_60p[gid] = sum_60p.get(gid, 0.0) + float(row["flow60p"])
+        for gid, c in gcnt.items():
+            cnt_20_50[gid] = cnt_20_50.get(gid, 0) + int(c)
+            cnt_60p[gid] = cnt_60p.get(gid, 0) + int(c)
+
+    gids = list(sum_20_50.keys())
+    return pd.DataFrame({
+        "gid": gids,
+        "flow20_50_mean": [sum_20_50[g] / cnt_20_50[g] for g in gids],
+        "flow60p_mean": [sum_60p[g] / cnt_60p[g] for g in gids],
+    })
+
+z04 = build_04_chunked("04._성연령별_유동인구.csv", grid_slim, chunksize=200_000)
+cols04 = ["flow20_50_mean", "flow60p_mean"]
+grid_master = grid_master.drop(columns=cols04, errors="ignore").merge(z04, on="gid", how="left")
+# NaN 유지
+
+
+# =========================
+# 사고 상세 조회 함수(gid로 13 상세 검색)
+# =========================
+def show_accidents_by_gid(gid, n=50):
+    cols = ["gid","acc_yr","acc_mon","week_type","acc_time","sgg","acc_type","violation",
+            "road_type","road_sttus","weather","attckr_vhcle","victim_vhcle",
+            "injury_svrity","age_group","dprs_cnt","sep_cnt","slp_cnt","inj_aplcnt_cnt","geometry"]
+    cols = [c for c in cols if c in acc.columns]
+    return acc.loc[acc["gid"] == gid, cols].head(n)
+
+
+
+# -*- coding: utf-8 -*-
+"""
+build_link_master_ts.py
+
+[목표] v_link_id(방향 포함) + timeslot 기반 link_master_ts 생성
+
+[전처리/결합 개요]
+- (08) 상세도로망(level6) geojson:
+    - up_v_link / dw_v_link를 "행으로 펼쳐" v_link_id 기준 link_master_base 생성
+- (09) 평균속도:
+    - timeslot 소수점 제거(Int) 후 v_link_id + timeslot로 집계(df09_ts)
+- (10) 추정교통량:
+    - timeslot 소수점 제거(Int) 후 v_link_id + timeslot로 집계(df10_ts)
+    - AADT 4개는 반올림 후 Int64(소수점 제거)
+- (09+10) timeslot 합집합(ts_union) 만들고,
+    - link_master_base와 v_link_id로 inner join해서 (v_link_id, timeslot) 조합만 생성
+    - 그 후 09/10을 (v_link_id,timeslot)로 left merge
+- (11/12) 혼잡강도:
+    - timeslot 없음 → v_link_id로만 left merge (모든 timeslot 행에 복제됨)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+# =========================
+# 08) 상세도로망 -> link_master_base (v_link_id 기준, UP/DW를 행으로 펼침)
+# =========================
+g08 = gpd.read_file("08.상세도로망_네트워크.geojson")
+
+use_cols_08 = [
+    "link_id",
+    "up_f_node","up_t_node","dw_f_node","dw_t_node",
+    "max_speed","road_name","road_no","road_rank","link_type",
+    "pavement","road_type",
+    "up_lanes","dw_lanes","lanes","oneway","length","level",
+    "up_v_link","dw_v_link",
+    "lon","lat"
+]
+keep_08 = [c for c in use_cols_08 if c in g08.columns]
+df08 = pd.DataFrame(g08[keep_08]).copy()
+
+up = df08.copy()
+up["dir"] = "UP"
+up["v_link_id"] = up["up_v_link"]
+up["f_node"] = up["up_f_node"]
+up["t_node"] = up["up_t_node"]
+up["lanes_dir"] = up["up_lanes"]
+
+dw = df08.copy()
+dw["dir"] = "DW"
+dw["v_link_id"] = dw["dw_v_link"]
+dw["f_node"] = dw["dw_f_node"]
+dw["t_node"] = dw["dw_t_node"]
+dw["lanes_dir"] = dw["dw_lanes"]
+
+link_master_base = pd.concat([up, dw], ignore_index=True)
+
+drop_cols = [c for c in ["up_f_node","up_t_node","dw_f_node","dw_t_node","up_lanes","dw_lanes","up_v_link","dw_v_link"] if c in link_master_base.columns]
+link_master_base = link_master_base.drop(columns=drop_cols, errors="ignore")
+link_master_base = link_master_base.dropna(subset=["v_link_id"]).copy()
+
+# v_link_id 타입 통일 (".0" 제거)
+link_master_base["v_link_id"] = link_master_base["v_link_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+
+front = ["v_link_id","link_id","dir","f_node","t_node"]
+link_master_base = link_master_base[front + [c for c in link_master_base.columns if c not in front]]
+
+# =========================
+# 09) 평균속도 -> df09_ts (v_link_id + timeslot)
+# =========================
+df09 = pd.read_csv("09._평균속도.csv", dtype={"v_link_id": str})
+df09 = df09[["v_link_id","timeslot","velocity_AVRG","probe"]].copy()
+
+df09["v_link_id"] = df09["v_link_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+df09["velocity_AVRG"] = pd.to_numeric(df09["velocity_AVRG"], errors="coerce")
+df09["probe"] = pd.to_numeric(df09["probe"], errors="coerce").fillna(0)
+
+ts09 = df09["timeslot"].astype(str).str.extract(r"(\d+)")[0]
+df09["timeslot"] = pd.to_numeric(ts09, errors="coerce").astype("Int64")
+
+df09_ts = (
+    df09.groupby(["v_link_id","timeslot"], as_index=False)
+        .agg(
+            velocity_AVRG=("velocity_AVRG", "mean"),
+            probe=("probe", "sum"),
+        )
+)
+
+# =========================
+# 10) 추정교통량 -> df10_ts (v_link_id + timeslot) + 소수점 제거
+# =========================
+df10 = pd.read_csv("10._추정교통량.csv", dtype={"v_link_id": str})
+df10 = df10[["v_link_id","timeslot","ALL_AADT","PSCR_AADT","BUS_AADT","FGCR_AADT"]].copy()
+
+df10["v_link_id"] = df10["v_link_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+
+ts10 = df10["timeslot"].astype(str).str.extract(r"(\d+)")[0]
+df10["timeslot"] = pd.to_numeric(ts10, errors="coerce").astype("Int64")
+
+for c in ["ALL_AADT","PSCR_AADT","BUS_AADT","FGCR_AADT"]:
+    df10[c] = pd.to_numeric(df10[c], errors="coerce")
+
+df10_ts = (
+    df10.groupby(["v_link_id","timeslot"], as_index=False)
+        .agg(
+            ALL_AADT=("ALL_AADT","mean"),
+            PSCR_AADT=("PSCR_AADT","mean"),
+            BUS_AADT=("BUS_AADT","mean"),
+            FGCR_AADT=("FGCR_AADT","mean"),
+        )
+)
+for c in ["ALL_AADT","PSCR_AADT","BUS_AADT","FGCR_AADT"]:
+    df10_ts[c] = df10_ts[c].round().astype("Int64")
+
+# =========================
+# 09+10) timeslot 합집합 -> link_master_ts 생성 후 09/10 붙이기
+# =========================
+ts_union = pd.concat(
+    [df09_ts[["v_link_id","timeslot"]], df10_ts[["v_link_id","timeslot"]]],
+    ignore_index=True
+).drop_duplicates()
+
+# (v_link_id, timeslot) 조합이 실제로 존재하는 행만 생성
+link_master_ts = link_master_base.merge(ts_union, on="v_link_id", how="inner")
+
+link_master_ts = link_master_ts.merge(df09_ts, on=["v_link_id","timeslot"], how="left")
+link_master_ts = link_master_ts.merge(df10_ts, on=["v_link_id","timeslot"], how="left")
+
+# =========================
+# 11/12) 혼잡강도 (timeslot 없음) -> v_link_id로만 붙이기
+# =========================
+df11 = pd.read_csv("11._혼잡빈도강도.csv", dtype={"v_link_id": str})
+df11 = df11[["v_link_id","FRIN_CG"]].copy()
+df11["v_link_id"] = df11["v_link_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+df11["FRIN_CG"] = pd.to_numeric(df11["FRIN_CG"], errors="coerce")
+df11_1 = df11.groupby("v_link_id", as_index=False).agg(FRIN_CG=("FRIN_CG","mean"))
+
+df12 = pd.read_csv("12._혼잡시간강도.csv", dtype={"v_link_id": str})
+df12 = df12[["v_link_id","TI_CG"]].copy()
+df12["v_link_id"] = df12["v_link_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+df12["TI_CG"] = pd.to_numeric(df12["TI_CG"], errors="coerce")
+df12_1 = df12.groupby("v_link_id", as_index=False).agg(TI_CG=("TI_CG","mean"))
+
+link_master_ts = link_master_ts.drop(columns=["FRIN_CG","TI_CG"], errors="ignore")
+link_master_ts = link_master_ts.merge(df11_1, on="v_link_id", how="left")
+link_master_ts = link_master_ts.merge(df12_1, on="v_link_id", how="left")
