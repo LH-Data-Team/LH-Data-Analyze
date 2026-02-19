@@ -1,30 +1,47 @@
 # -*- coding: utf-8 -*-
 """
-13._교통사고이력 전처리
+13._교통사고이력 전처리 + 드릴다운(상세조회)
 
 - 입력: 13._교통사고이력.geojson (POINT geometry)
 - 처리:
-  - geometry(사고점) -> gid(within) 매핑
-  - gid별 사고건수/피해합(acc_cnt, dprs_cnt, sep_cnt, slp_cnt, inj_aplcnt_cnt) 생성
-  - 사고 없는 격자는 0으로 채우는 정책(위험도 계산 편의)
-- 출력: grid_master에 사고 지표 merge
+  1) geometry(사고점) -> gid(within) 매핑
+  2) (사고 1건 테이블) acc: gid가 붙은 사고 원본 상세
+  3) (격자 1행 테이블) acc_grid: gid별 사고건수/피해합(acc_cnt, dprs_cnt, sep_cnt, slp_cnt, inj_aplcnt_cnt)
+  4) grid_master에 acc_grid merge
+     - 사고 없는 격자는 0으로 채움(위험도 계산 편의)
+
+- 드릴다운(너가 원한 방식):
+  - grid_master에서 gid를 보고 → show_accidents_by_gid(gid) 실행하면
+    13 원본(사고 1건) 상세가 바로 나옴.
+  - 또는 grid_master에서 행 번호로 → show_accidents_by_row(row_idx)
+
+- 출력:
+  - grid_master에 사고 집계 컬럼 추가
+  - acc(사고 상세, gid 포함) / acc_grid(격자 집계) 변수 생성
 """
 
 import geopandas as gpd
+import pandas as pd
 
 assert "grid" in globals()
 assert "grid_master" in globals()
 
+# --- 1) 13 로드 + CRS 통일 ---
 g13 = gpd.read_file("13._교통사고이력.geojson")
 g13 = g13.set_crs(epsg=4326, allow_override=True) if g13.crs is None else g13.to_crs(epsg=4326)
 
+# --- 2) 사고(점) -> 격자(gid) 매핑 ---
 joined13 = gpd.sjoin(g13, grid, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+
+# 사고 상세(1건=1행) + gid 붙은 것만
 acc = joined13.dropna(subset=["gid"]).copy()
 
+# (선택) 결측 카테고리 "미상"
 for c in ["victim_vhcle", "injury_svrity", "age_group"]:
     if c in acc.columns:
         acc[c] = acc[c].fillna("미상")
 
+# --- 3) gid별 집계(격자 1행) ---
 acc_grid = (
     acc.groupby(["gid", "gbn"], as_index=False)
        .agg(
@@ -36,7 +53,41 @@ acc_grid = (
        )
 )
 
-cols13 = ["acc_cnt","dprs_cnt","sep_cnt","slp_cnt","inj_aplcnt_cnt"]
-grid_master = grid_master.drop(columns=cols13, errors="ignore").merge(acc_grid[["gid"] + cols13], on="gid", how="left")
+# --- 4) grid_master에 merge (사고 없는 격자=0) ---
+cols13 = ["acc_cnt", "dprs_cnt", "sep_cnt", "slp_cnt", "inj_aplcnt_cnt"]
+grid_master = grid_master.drop(columns=cols13, errors="ignore").merge(
+    acc_grid[["gid"] + cols13],
+    on="gid",
+    how="left"
+)
 for c in cols13:
     grid_master[c] = grid_master[c].fillna(0).astype(int)
+
+# ============================================================
+# 드릴다운(상세조회) 함수들
+# ============================================================
+
+def show_accidents_by_gid(gid, n=50):
+    """
+    grid_master에서 본 gid를 넣으면,
+    해당 gid의 13 원본 사고 상세(최대 n건)를 반환.
+    """
+    cols = [
+        "gid", "acc_yr", "acc_mon", "week_type", "acc_time", "sgg",
+        "acc_type", "violation", "road_type", "road_sttus", "weather",
+        "attckr_vhcle", "victim_vhcle", "injury_svrity", "age_group",
+        "dprs_cnt", "sep_cnt", "slp_cnt", "inj_aplcnt_cnt",
+        "geometry",
+    ]
+    cols = [c for c in cols if c in acc.columns]
+    return acc.loc[acc["gid"] == gid, cols].head(n)
+
+def show_accidents_by_row(row_idx, n=50):
+    """
+    grid_master의 행 번호(row index)를 넣으면
+    그 행의 gid를 자동으로 가져와 13 원본 사고 상세를 반환.
+    """
+    gid = grid_master.iloc[row_idx]["gid"]
+    return show_accidents_by_gid(gid, n=n)
+
+# 검색 ex)show_accidents_by_gid("다사678312", n=30)
