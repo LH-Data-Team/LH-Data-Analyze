@@ -1,0 +1,85 @@
+# -*- coding: utf-8 -*-
+"""
+03(거주 20~50, 60+) + 친구 SGIS 아동(0~15) 결합
+
+- 입력:
+  - 03._성연령별_거주인구(격자).csv (gid 포함, 20대 이상만 존재)
+  - sgis_grid_child_pop.csv (gid,pop=0~15 합)
+- 처리:
+  - child0_15_total: 친구 CSV의 pop을 gid별 sum
+  - adult20_50_total: (20/30/40/50) 남+여 합, 모두 NaN이면 NaN 유지(sum(min_count=1))
+  - senior60_total: (60/70/80/90/100) 남+여 합, 모두 NaN이면 NaN 유지
+  - masked는 “연령대 그룹 기준(0~4, 0~5)”으로 계산:
+      예) 20대에서 남/여 둘 다 NaN이면 masked_groups += 1
+  - gid 중복 대비:
+      total은 sum(min_count=1)로 NaN이 0으로 바뀌는 문제 방지
+      masked_groups는 max로 QC 의미 유지
+- 출력:
+  - grid_master에 맨 뒤 컬럼 순서대로 추가:
+    child0_15_total, adult20_50_total, adult20_50_masked_groups, senior60_total, senior60_masked_groups
+"""
+
+import pandas as pd
+
+# 전제: grid_master 존재
+assert "grid_master" in globals()
+
+# --- A) 아동(0~15) ---
+df_child = pd.read_csv("sgis_grid_child_pop.csv")
+df_child = df_child[["gid", "pop"]].copy()
+df_child["gid"] = df_child["gid"].astype(str).str.strip()
+df_child["pop"] = pd.to_numeric(df_child["pop"], errors="coerce")
+z_child = df_child.groupby("gid", as_index=False).agg(child0_15_total=("pop", "sum"))
+
+# --- B) 03 거주(20~50, 60+) ---
+df03 = pd.read_csv("03._성연령별_거주인구(격자).csv")
+
+adult_groups = [
+    ("m_20g_pop","w_20g_pop"),
+    ("m_30g_pop","w_30g_pop"),
+    ("m_40g_pop","w_40g_pop"),
+    ("m_50g_pop","w_50g_pop"),
+]
+senior_groups = [
+    ("m_60g_pop","w_60g_pop"),
+    ("m_70g_pop","w_70g_pop"),
+    ("m_80g_pop","w_80g_pop"),
+    ("m_90g_pop","w_90g_pop"),
+    ("m_100g_pop","w_100g_pop"),
+]
+
+need = ["gid"] + [c for pair in (adult_groups + senior_groups) for c in pair]
+df03 = df03[need].copy()
+for c in need:
+    if c != "gid":
+        df03[c] = pd.to_numeric(df03[c], errors="coerce")
+
+adult_cols = [c for pair in adult_groups for c in pair]
+senior_cols = [c for pair in senior_groups for c in pair]
+
+df03["adult20_50_total"] = df03[adult_cols].sum(axis=1, min_count=1)
+df03["senior60_total"] = df03[senior_cols].sum(axis=1, min_count=1)
+
+df03["adult20_50_masked_groups"] = sum((df03[m].isna() & df03[w].isna()) for m, w in adult_groups).astype(int)
+df03["senior60_masked_groups"] = sum((df03[m].isna() & df03[w].isna()) for m, w in senior_groups).astype(int)
+
+z03 = (
+    df03.groupby("gid", as_index=False)
+        .agg(
+            adult20_50_total=("adult20_50_total", lambda s: s.sum(min_count=1)),
+            adult20_50_masked_groups=("adult20_50_masked_groups", "max"),
+            senior60_total=("senior60_total", lambda s: s.sum(min_count=1)),
+            senior60_masked_groups=("senior60_masked_groups", "max"),
+        )
+)
+
+# --- C) grid_master에 추가(기존 컬럼 제거 후 merge, 컬럼은 맨 뒤) ---
+new_cols = ["child0_15_total","adult20_50_total","adult20_50_masked_groups","senior60_total","senior60_masked_groups"]
+grid_master = grid_master.drop(columns=new_cols, errors="ignore")
+
+grid_master = grid_master.merge(z_child, on="gid", how="left")
+grid_master = grid_master.merge(z03, on="gid", how="left")
+
+tail = [c for c in new_cols if c in grid_master.columns]
+rest = [c for c in grid_master.columns if c not in tail]
+grid_master = grid_master[rest + tail]
