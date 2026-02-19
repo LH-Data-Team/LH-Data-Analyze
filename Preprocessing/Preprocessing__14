@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+"""
+14._어린이보호구역 전처리
+
+- 처리: lon/lat -> gid 매핑 후, gid별 fac_nm 고유개수(nunique) = fac_nm_nunique
+- 출력: grid_master에 merge(없으면 0)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+assert "grid_slim" in globals()
+assert "grid_master" in globals()
+
+df14 = pd.read_csv("14._어린이보호구역.csv")
+df14["lon"] = pd.to_numeric(df14["lon"], errors="coerce")
+df14["lat"] = pd.to_numeric(df14["lat"], errors="coerce")
+df14 = df14.dropna(subset=["lon","lat"]).copy()
+
+g14 = gpd.GeoDataFrame(df14, geometry=gpd.points_from_xy(df14["lon"], df14["lat"]), crs="EPSG:4326")
+j14 = gpd.sjoin(g14, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+
+z14 = j14.dropna(subset=["gid"]).groupby("gid", as_index=False).agg(fac_nm_nunique=("fac_nm", "nunique"))
+grid_master = grid_master.drop(columns=["fac_nm_nunique"], errors="ignore").merge(z14, on="gid", how="left")
+grid_master["fac_nm_nunique"] = grid_master["fac_nm_nunique"].fillna(0).astype(int)
