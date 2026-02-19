@@ -1,0 +1,73 @@
+# -*- coding: utf-8 -*-
+"""
+07._주중주말_서비스인구 전처리 (대용량 안전, NaN 유지)
+
+- 입력: lon/lat + hw(H/W) + w_pop/v_pop
+- 처리:
+  - 청크 내 유니크좌표만 sjoin하여 gid 매핑
+  - (gid, hw)별 sum/count 누적 -> mean 계산
+  - wide로 펼쳐 4개 컬럼 생성:
+    w_pop_weekday_mean, w_pop_weekend_mean, v_pop_weekday_mean, v_pop_weekend_mean
+- 출력: grid_master에 merge(NaN 유지)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+assert "grid_slim" in globals()
+assert "grid_master" in globals()
+
+def _chunk_map_gid(df):
+    uniq = df[["lon_s","lat_s","lon","lat"]].drop_duplicates()
+    gk = gpd.GeoDataFrame(uniq, geometry=gpd.points_from_xy(uniq["lon"], uniq["lat"]), crs="EPSG:4326")
+    jk = gpd.sjoin(gk, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+    return df.merge(jk[["lon_s","lat_s","gid"]], on=["lon_s","lat_s"], how="left")
+
+acc = {}  # (gid, hw) -> [sum_w, sum_v, cnt]
+usecols = ["lon","lat","hw","w_pop","v_pop"]
+
+for chunk in pd.read_csv("07._주중주말_서비스인구.csv", usecols=usecols, chunksize=200_000):
+    lon_s = chunk["lon"].astype(str).str.strip()
+    lat_s = chunk["lat"].astype(str).str.strip()
+    lon = pd.to_numeric(lon_s, errors="coerce")
+    lat = pd.to_numeric(lat_s, errors="coerce")
+    m = lon.notna() & lat.notna()
+    chunk = chunk.loc[m].copy()
+    chunk["lon_s"] = lon_s.loc[m].values
+    chunk["lat_s"] = lat_s.loc[m].values
+    chunk["lon"] = lon.loc[m].values
+    chunk["lat"] = lat.loc[m].values
+
+    chunk["hw"] = chunk["hw"].astype(str).str.strip().str.upper()
+    chunk["w_pop"] = pd.to_numeric(chunk["w_pop"].astype(str).str.replace(",",""), errors="coerce")
+    chunk["v_pop"] = pd.to_numeric(chunk["v_pop"].astype(str).str.replace(",",""), errors="coerce")
+
+    chunk = _chunk_map_gid(chunk).dropna(subset=["gid"])
+
+    grp = chunk.groupby(["gid","hw"], as_index=False).agg(sum_w=("w_pop","sum"), sum_v=("v_pop","sum"), cnt=("w_pop","size"))
+    for r in grp.itertuples(index=False):
+        k = (r.gid, r.hw)
+        if k not in acc:
+            acc[k] = [0.0, 0.0, 0]
+        acc[k][0] += 0.0 if pd.isna(r.sum_w) else float(r.sum_w)
+        acc[k][1] += 0.0 if pd.isna(r.sum_v) else float(r.sum_v)
+        acc[k][2] += int(r.cnt)
+
+rows = []
+for (gid, hw), (sw, sv, c) in acc.items():
+    if c > 0:
+        rows.append({"gid": gid, "hw": hw, "w_pop_mean": sw / c, "v_pop_mean": sv / c})
+z07 = pd.DataFrame(rows)
+
+wide07 = z07.pivot(index="gid", columns="hw", values=["w_pop_mean","v_pop_mean"]).reset_index()
+wide07.columns = [
+    "gid" if c == ("gid","") or c == "gid" else
+    ("w_pop_weekday_mean" if c == ("w_pop_mean","H") else
+     "w_pop_weekend_mean" if c == ("w_pop_mean","W") else
+     "v_pop_weekday_mean" if c == ("v_pop_mean","H") else
+     "v_pop_weekend_mean" if c == ("v_pop_mean","W") else str(c))
+    for c in wide07.columns
+]
+
+cols07 = ["w_pop_weekday_mean","w_pop_weekend_mean","v_pop_weekday_mean","v_pop_weekend_mean"]
+grid_master = grid_master.drop(columns=cols07, errors="ignore").merge(wide07[["gid"] + cols07], on="gid", how="left")
