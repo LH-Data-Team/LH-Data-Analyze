@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+"""
+18._횡단보도 전처리
+
+- 처리: lon/lat -> gid 매핑 후 gid별 개수(count) = crosswalk_cnt
+- 출력: grid_master.crosswalk_cnt (없으면 0)
+"""
+
+import pandas as pd
+import geopandas as gpd
+
+assert "grid_slim" in globals()
+assert "grid_master" in globals()
+
+df18 = pd.read_csv("18._횡단보도_위치정보.csv")
+df18["lon"] = pd.to_numeric(df18["lon"], errors="coerce")
+df18["lat"] = pd.to_numeric(df18["lat"], errors="coerce")
+df18 = df18.dropna(subset=["lon","lat"]).copy()
+
+g18 = gpd.GeoDataFrame(df18, geometry=gpd.points_from_xy(df18["lon"], df18["lat"]), crs="EPSG:4326")
+j18 = gpd.sjoin(g18, grid_slim, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+
+z18 = j18.dropna(subset=["gid"]).groupby("gid", as_index=False).size().rename(columns={"size": "crosswalk_cnt"})
+grid_master = grid_master.drop(columns=["crosswalk_cnt"], errors="ignore").merge(z18, on="gid", how="left")
+grid_master["crosswalk_cnt"] = grid_master["crosswalk_cnt"].fillna(0).astype(int)
