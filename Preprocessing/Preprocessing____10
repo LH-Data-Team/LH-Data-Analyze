@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+"""
+10 추정교통량 전처리 (v_link_id + timeslot)
+
+- 처리:
+  - timeslot 소수점 제거
+  - AADT 4개는 mean으로 중복 정리 후 round -> Int64(결측 허용 정수)
+- 출력: df10_ts
+"""
+
+import pandas as pd
+
+df10 = pd.read_csv("10._추정교통량.csv", dtype={"v_link_id": str})
+df10 = df10[["v_link_id","timeslot","ALL_AADT","PSCR_AADT","BUS_AADT","FGCR_AADT"]].copy()
+
+ts10 = df10["timeslot"].astype(str).str.extract(r"(\d+)")[0]
+df10["timeslot"] = pd.to_numeric(ts10, errors="coerce").astype("Int64")
+
+for c in ["ALL_AADT","PSCR_AADT","BUS_AADT","FGCR_AADT"]:
+    df10[c] = pd.to_numeric(df10[c], errors="coerce")
+
+df10_ts = (
+    df10.groupby(["v_link_id","timeslot"], as_index=False)
+        .agg(
+            ALL_AADT=("ALL_AADT","mean"),
+            PSCR_AADT=("PSCR_AADT","mean"),
+            BUS_AADT=("BUS_AADT","mean"),
+            FGCR_AADT=("FGCR_AADT","mean"),
+        )
+)
+for c in ["ALL_AADT","PSCR_AADT","BUS_AADT","FGCR_AADT"]:
+    df10_ts[c] = df10_ts[c].round().astype("Int64")
