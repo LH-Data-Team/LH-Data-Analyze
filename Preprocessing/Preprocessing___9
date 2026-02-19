@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+"""
+09 평균속도 전처리 (v_link_id + timeslot)
+
+- 처리:
+  - timeslot은 소수점 제거(7.0 -> 7)
+  - v_link_id+timeslot 중복은 velocity mean, probe sum으로 정리
+- 출력: df09_ts
+"""
+
+import pandas as pd
+
+df09 = pd.read_csv("09._평균속도.csv", dtype={"v_link_id": str})
+df09 = df09[["v_link_id","timeslot","velocity_AVRG","probe"]].copy()
+
+df09["velocity_AVRG"] = pd.to_numeric(df09["velocity_AVRG"], errors="coerce")
+df09["probe"] = pd.to_numeric(df09["probe"], errors="coerce").fillna(0)
+
+ts09 = df09["timeslot"].astype(str).str.extract(r"(\d+)")[0]
+df09["timeslot"] = pd.to_numeric(ts09, errors="coerce").astype("Int64")
+
+df09_ts = (
+    df09.groupby(["v_link_id","timeslot"], as_index=False)
+        .agg(
+            velocity_AVRG=("velocity_AVRG","mean"),
+            probe=("probe","sum"),
+        )
+)
