@@ -27,7 +27,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT_FILE = os.path.join(BASE_DIR, "sgis_grid_child_pop.csv")
+OUTPUT_FILE = os.path.join(BASE_DIR, "sgis_grid_child_pop_10to15.csv")
 
 TARGETS = [
     {"sido": "경기도", "sgg_keywords": ["성남", "하남", "화성"]},
@@ -323,6 +323,7 @@ def main():
 
     all_data = []
     seen_gids = set()
+    failed_list = []
     success_count = 0
     fail_count = 0
     start_time = time.time()
@@ -342,6 +343,7 @@ def main():
             if not drag_ok:
                 print(f"  {label}: 드래그 요소 없음 - 스킵")
                 fail_count += 1
+                failed_list.append({"sigungu": item["sigungu"], "emd": item["emd"], "reason": "드래그 요소 없음"})
                 continue
 
             # 새 데이터 대기 (이전과 다른 gid가 나올 때까지)
@@ -372,6 +374,7 @@ def main():
                 success_count += 1
             else:
                 fail_count += 1
+                failed_list.append({"sigungu": item["sigungu"], "emd": item["emd"], "reason": "새 격자 데이터 없음"})
 
             elapsed = time.time() - start_time
             rate = (idx + 1) / elapsed * 60 if elapsed > 0 else 0
@@ -383,6 +386,7 @@ def main():
         except Exception as e:
             print(f"  {label}: 에러 - {str(e)[:60]}")
             fail_count += 1
+            failed_list.append({"sigungu": item["sigungu"], "emd": item["emd"], "reason": str(e)[:80]})
 
         # 중간 저장 (20개마다)
         if (idx + 1) % 20 == 0 and all_data:
@@ -407,6 +411,19 @@ def main():
     print(f"  총 격자: {len(all_data)}개")
     print(f"  성공: {success_count}개 / 실패: {fail_count}개 읍면동")
     print(f"  소요시간: {elapsed_total/60:.1f}분")
+
+    # 실패 목록 저장
+    if failed_list:
+        failed_file = OUTPUT_FILE.replace(".csv", "_failed.csv")
+        with open(failed_file, "w", newline="", encoding="utf-8-sig") as f:
+            writer = csv.DictWriter(f, fieldnames=["sigungu", "emd", "reason"])
+            writer.writeheader()
+            writer.writerows(failed_list)
+        print(f"\n  실패 목록: {failed_file} ({len(failed_list)}개)")
+        for fl in failed_list:
+            print(f"    - {fl['sigungu']} > {fl['emd']}: {fl['reason']}")
+    else:
+        print("\n  실패한 읍면동 없음!")
 
     print("\n브라우저를 닫겠습니까? (y/n): ", end="")
     ans = input().strip().lower()
