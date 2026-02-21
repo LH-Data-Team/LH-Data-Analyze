@@ -11,11 +11,12 @@ from shapely.geometry import Point, shape
 from shapely.strtree import STRtree
 
 # 파일 경로 설정
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-GRID_FILE = os.path.join(BASE_DIR, '01._격자_(4개_시·구).geojson')
-CROSSWALK_FILE = os.path.join(BASE_DIR, '18._횡단보도_위치정보.csv')
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, 'data')
+GRID_FILE = os.path.join(DATA_DIR, '01._격자_(4개_시·구).geojson')
+CROSSWALK_FILE = os.path.join(DATA_DIR, '18._횡단보도_위치정보.csv')
 OUTPUT_DIR = os.path.join(BASE_DIR, 'output')
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, '횡단보도_격자매핑.csv')
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, '18._횡단보도_격자매핑.csv')
 
 
 def load_geojson(file_path):

@@ -10,17 +10,18 @@ import csv
 from collections import defaultdict
 
 # 파일 경로 설정
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, 'data')
 OUTPUT_DIR = os.path.join(BASE_DIR, 'output')
-GRID_FILE = os.path.join(BASE_DIR, '01._격자_(4개_시·구).geojson')
+GRID_FILE = os.path.join(DATA_DIR, '01._격자_(4개_시·구).geojson')
 
 # 입력 파일들
-ACCIDENT_FILE = os.path.join(OUTPUT_DIR, '교통사고_격자매핑.geojson')
-CROSSWALK_FILE = os.path.join(OUTPUT_DIR, '횡단보도_격자매핑.csv')
-CHILD_ZONE_FILE = os.path.join(OUTPUT_DIR, '어린이보호구역_격자매핑.csv')
-KINDERGARTEN_FILE = os.path.join(OUTPUT_DIR, '유치원현황_격자매핑.csv')
-DAYCARE_FILE = os.path.join(OUTPUT_DIR, '어린이집현황_격자매핑.csv')
-CCTV_FILE = os.path.join(OUTPUT_DIR, 'CCTV현황_격자매핑.csv')
+ACCIDENT_FILE = os.path.join(OUTPUT_DIR, '13._교통사고_격자매핑.geojson')
+CROSSWALK_FILE = os.path.join(OUTPUT_DIR, '18._횡단보도_격자매핑.csv')
+CHILD_ZONE_FILE = os.path.join(OUTPUT_DIR, '14._어린이보호구역_격자매핑.csv')
+KINDERGARTEN_FILE = os.path.join(OUTPUT_DIR, '16._유치원현황_격자매핑.csv')
+DAYCARE_FILE = os.path.join(OUTPUT_DIR, '17._어린이집현황_격자매핑.csv')
+CCTV_FILE = os.path.join(OUTPUT_DIR, '20._CCTV현황_격자매핑.csv')
 
 # 출력 파일
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, '격자별_통합데이터.csv')
