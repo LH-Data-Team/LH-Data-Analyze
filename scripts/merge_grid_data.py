@@ -1,6 +1,6 @@
 """
-격자 기준으로 7개 매핑 결과를 하나의 파일로 합치는 스크립트
-- 입력: output 폴더의 7개 매핑 파일
+격자 기준으로 9개 매핑 결과를 하나의 파일로 합치는 스크립트
+- 입력: output 폴더의 9개 매핑 파일
 - 출력: output/격자별_통합데이터.csv
 """
 
@@ -19,10 +19,12 @@ GRID_FILE = os.path.join(DATA_DIR, '01._격자_(4개_시·구).geojson')
 ACCIDENT_FILE = os.path.join(OUTPUT_DIR, '13._교통사고_격자매핑.geojson')
 CROSSWALK_FILE = os.path.join(OUTPUT_DIR, '18._횡단보도_격자매핑.csv')
 CHILD_ZONE_FILE = os.path.join(OUTPUT_DIR, '14._어린이보호구역_격자매핑.csv')
+SCHOOL_FILE = os.path.join(OUTPUT_DIR, '15._학교현황_격자매핑.csv')
 KINDERGARTEN_FILE = os.path.join(OUTPUT_DIR, '16._유치원현황_격자매핑.csv')
 DAYCARE_FILE = os.path.join(OUTPUT_DIR, '17._어린이집현황_격자매핑.csv')
 CCTV_FILE = os.path.join(OUTPUT_DIR, '20._CCTV현황_격자매핑.csv')
 SPEEDBUMP_FILE = os.path.join(OUTPUT_DIR, '21._과속방지턱_격자매핑.csv')
+BUS_STOP_FILE = os.path.join(OUTPUT_DIR, '19._버스정류장_위치정보_격자매핑.csv')
 
 # 출력 파일
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, '격자별_통합데이터.csv')
@@ -65,9 +67,11 @@ def main():
         'accident_cnt': 0,           # 교통사고 건수
         'crosswalk_cnt': 0,          # 횡단보도 개수
         'child_zone_cnt': 0,         # 어린이보호구역 개수
+        'school_cnt': 0,             # 학교 개수
         'kindergarten_cnt': 0,       # 유치원 개수
         'kindergarten_child_cnt': 0, # 유치원 원아수 (3~5세 합계)
         'daycare_cnt': 0,            # 어린이집 개수 (정상만)
+        'bus_stop_cnt': 0,           # 버스정류장 개수
         'cctv_cnt': 0,               # CCTV 설치 개수
         'cctv_cam_cnt': 0,           # CCTV 카메라 총 대수
         'speedbump_cnt': 0,          # 과속방지턱 총 개수
@@ -77,7 +81,7 @@ def main():
     })
     
     # 1. 교통사고 데이터 집계
-    print("\n[1/7] 교통사고 데이터 집계 중...")
+    print("\n[1/9] 교통사고 데이터 집계 중...")
     accident_data = load_geojson(ACCIDENT_FILE)
     for feature in accident_data['features']:
         gid = feature['properties'].get('grid_gid')
@@ -86,7 +90,7 @@ def main():
     print(f"  - 총 {len([f for f in accident_data['features'] if f['properties'].get('grid_gid')]):,}건 집계")
     
     # 2. 횡단보도 데이터 집계
-    print("\n[2/7] 횡단보도 데이터 집계 중...")
+    print("\n[2/9] 횡단보도 데이터 집계 중...")
     crosswalk_data = load_csv(CROSSWALK_FILE)
     for row in crosswalk_data:
         gid = row.get('grid_gid')
@@ -95,7 +99,7 @@ def main():
     print(f"  - 총 {len([r for r in crosswalk_data if r.get('grid_gid')]):,}건 집계")
     
     # 3. 어린이보호구역 데이터 집계
-    print("\n[3/7] 어린이보호구역 데이터 집계 중...")
+    print("\n[3/9] 어린이보호구역 데이터 집계 중...")
     child_zone_data = load_csv(CHILD_ZONE_FILE)
     for row in child_zone_data:
         gid = row.get('grid_gid')
@@ -103,8 +107,17 @@ def main():
             grid_data[gid]['child_zone_cnt'] += 1
     print(f"  - 총 {len([r for r in child_zone_data if r.get('grid_gid')]):,}건 집계")
     
-    # 4. 유치원 데이터 집계
-    print("\n[4/7] 유치원 데이터 집계 중...")
+    # 4. 학교 데이터 집계
+    print("\n[4/9] 학교 데이터 집계 중...")
+    school_data = load_csv(SCHOOL_FILE)
+    for row in school_data:
+        gid = row.get('grid_gid')
+        if gid:
+            grid_data[gid]['school_cnt'] += 1
+    print(f"  - 총 {len([r for r in school_data if r.get('grid_gid')]):,}건 집계")
+    
+    # 5. 유치원 데이터 집계
+    print("\n[5/9] 유치원 데이터 집계 중...")
     kindergarten_data = load_csv(KINDERGARTEN_FILE)
     for row in kindergarten_data:
         gid = row.get('grid_gid')
@@ -115,8 +128,8 @@ def main():
             grid_data[gid]['kindergarten_child_cnt'] += child_cnt
     print(f"  - 총 {len([r for r in kindergarten_data if r.get('grid_gid')]):,}건 집계")
     
-    # 5. 어린이집 데이터 집계 (정상인 것만)
-    print("\n[5/7] 어린이집 데이터 집계 중 (정상만)...")
+    # 6. 어린이집 데이터 집계 (정상인 것만)
+    print("\n[6/9] 어린이집 데이터 집계 중 (정상만)...")
     daycare_data = load_csv(DAYCARE_FILE)
     normal_cnt = 0
     for row in daycare_data:
@@ -126,8 +139,17 @@ def main():
             normal_cnt += 1
     print(f"  - 총 {normal_cnt:,}건 집계 (정상 운영)")
     
-    # 6. CCTV 데이터 집계
-    print("\n[6/7] CCTV 데이터 집계 중...")
+    # 7. 버스정류장 데이터 집계
+    print("\n[7/9] 버스정류장 데이터 집계 중...")
+    bus_stop_data = load_csv(BUS_STOP_FILE)
+    for row in bus_stop_data:
+        gid = row.get('grid_gid')
+        if gid:
+            grid_data[gid]['bus_stop_cnt'] += 1
+    print(f"  - 총 {len([r for r in bus_stop_data if r.get('grid_gid')]):,}건 집계")
+    
+    # 8. CCTV 데이터 집계
+    print("\n[8/9] CCTV 데이터 집계 중...")
     cctv_data = load_csv(CCTV_FILE)
     for row in cctv_data:
         gid = row.get('grid_gid')
@@ -137,8 +159,8 @@ def main():
             grid_data[gid]['cctv_cam_cnt'] += cam_cnt
     print(f"  - 총 {len([r for r in cctv_data if r.get('grid_gid')]):,}건 집계")
     
-    # 7. 과속방지턱 데이터 집계
-    print("\n[7/7] 과속방지턱 데이터 집계 중...")
+    # 9. 과속방지턱 데이터 집계
+    print("\n[9/9] 과속방지턱 데이터 집계 중...")
     speedbump_data = load_csv(SPEEDBUMP_FILE)
     for row in speedbump_data:
         gid = row.get('grid_gid')
@@ -165,9 +187,11 @@ def main():
             'accident_cnt': grid_data[gid]['accident_cnt'],
             'crosswalk_cnt': grid_data[gid]['crosswalk_cnt'],
             'child_zone_cnt': grid_data[gid]['child_zone_cnt'],
+            'school_cnt': grid_data[gid]['school_cnt'],
             'kindergarten_cnt': grid_data[gid]['kindergarten_cnt'],
             'kindergarten_child_cnt': grid_data[gid]['kindergarten_child_cnt'],
             'daycare_cnt': grid_data[gid]['daycare_cnt'],
+            'bus_stop_cnt': grid_data[gid]['bus_stop_cnt'],
             'cctv_cnt': grid_data[gid]['cctv_cnt'],
             'cctv_cam_cnt': grid_data[gid]['cctv_cam_cnt'],
             'speedbump_cnt': grid_data[gid]['speedbump_cnt'],
@@ -181,11 +205,13 @@ def main():
     fieldnames = [
         'grid_gid',
         'accident_cnt',
-        'crosswalk_cnt', 
+        'crosswalk_cnt',
         'child_zone_cnt',
+        'school_cnt',
         'kindergarten_cnt',
         'kindergarten_child_cnt',
         'daycare_cnt',
+        'bus_stop_cnt',
         'cctv_cnt',
         'cctv_cam_cnt',
         'speedbump_cnt',
@@ -204,9 +230,11 @@ def main():
     print(f"  - 교통사고 건수: {sum(r['accident_cnt'] for r in result):,}건")
     print(f"  - 횡단보도 개수: {sum(r['crosswalk_cnt'] for r in result):,}개")
     print(f"  - 어린이보호구역: {sum(r['child_zone_cnt'] for r in result):,}개")
+    print(f"  - 학교 개수: {sum(r['school_cnt'] for r in result):,}개")
     print(f"  - 유치원 개수: {sum(r['kindergarten_cnt'] for r in result):,}개")
     print(f"  - 유치원 원아수: {sum(r['kindergarten_child_cnt'] for r in result):,}명")
     print(f"  - 어린이집 개수: {sum(r['daycare_cnt'] for r in result):,}개")
+    print(f"  - 버스정류장 개수: {sum(r['bus_stop_cnt'] for r in result):,}개")
     print(f"  - CCTV 설치 개수: {sum(r['cctv_cnt'] for r in result):,}개")
     print(f"  - CCTV 카메라 수: {sum(r['cctv_cam_cnt'] for r in result):,}대")
     print(f"  - 과속방지턱 개수: {sum(r['speedbump_cnt'] for r in result):,}개")
