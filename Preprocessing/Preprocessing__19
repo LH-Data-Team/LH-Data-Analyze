@@ -1,0 +1,38 @@
+import pandas as pd
+import geopandas as gpd
+
+# 전제: grid_slim(= grid[["gid","geometry"]]) 또는 grid 가 이미 존재
+assert "grid_slim" in globals() or "grid" in globals()
+assert "grid_master" in globals()
+
+grid_use = grid_slim if "grid_slim" in globals() else grid[["gid","geometry"]]
+
+# 1) 19 로드
+df19 = pd.read_csv("19._버스정류장_위치정보.csv")  # <- 파일명 맞게
+
+# 2) 좌표 숫자화 + 결측 제거
+df19["lon"] = pd.to_numeric(df19["lon"], errors="coerce")
+df19["lat"] = pd.to_numeric(df19["lat"], errors="coerce")
+df19 = df19.dropna(subset=["lon","lat"]).copy()
+
+# 3) 포인트 생성
+g19 = gpd.GeoDataFrame(
+    df19,
+    geometry=gpd.points_from_xy(df19["lon"], df19["lat"]),
+    crs="EPSG:4326"
+)
+
+# 4) gid 매핑
+j19 = gpd.sjoin(g19, grid_use, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+j19 = j19.dropna(subset=["gid"])
+
+# 5) 격자 내 버스정류장 개수 (추천: bis_id 고유개수)
+z19 = (
+    j19.groupby("gid", as_index=False)
+       .agg(busstop_cnt=("bis_id", "nunique"))
+)
+
+# 6) grid_master에 붙이기
+grid_master = grid_master.drop(columns=["busstop_cnt"], errors="ignore")
+grid_master = grid_master.merge(z19, on="gid", how="left")
+grid_master["busstop_cnt"] = grid_master["busstop_cnt"].fillna(0).astype(int)
