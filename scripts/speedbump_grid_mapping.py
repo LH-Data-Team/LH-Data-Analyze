@@ -1,7 +1,8 @@
 """
 과속방지턱 현황 데이터를 격자에 매핑하는 스크립트
-- 입력: 01._격자_(4개_시·구).geojson, 21._과속방지턱_현황.csv
+- 입력: 01._격자_(4개_시·구).geojson, 21._과속방지턱_현황.csv, 21.1_과속방지턱_격자매핑.csv
 - 출력: output/21._과속방지턱_격자매핑.csv
+- 21번+21.1번 병합 후 중복(lon,lat) 제거
 - fac_hght(높이)를 nan/평균이하/평균초과로 분류
 """
 
@@ -16,6 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 GRID_FILE = os.path.join(DATA_DIR, '01._격자_(4개_시·구).geojson')
 SPEEDBUMP_FILE = os.path.join(DATA_DIR, '21._과속방지턱_현황.csv')
+SPEEDBUMP_21_1_FILE = os.path.join(DATA_DIR, '21.1_과속방지턱_격자매핑.csv')
 OUTPUT_DIR = os.path.join(BASE_DIR, 'output')
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, '21._과속방지턱_격자매핑.csv')
 
@@ -46,6 +48,48 @@ def save_csv(data, fieldnames, file_path):
         writer.writeheader()
         writer.writerows(data)
     print(f"저장 완료: {file_path}")
+
+
+def merge_and_deduplicate(data_21, data_21_1):
+    """21번과 21.1번 데이터를 병합하고 (lon, lat) 기준 중복 제거"""
+    BASE_COLS = ['gbn', 'addr', 'inst_plc', 'fac_hght', 'fac_wdth', 'sprtn', 'cntns', 'lon', 'lat']
+    seen = set()
+    merged = []
+    
+    def coord_key(row):
+        try:
+            lon = round(float(row.get('lon', 0)), 7)
+            lat = round(float(row.get('lat', 0)), 7)
+            return (lon, lat)
+        except (ValueError, TypeError):
+            return None
+    
+    def to_row(row, fill_addr_inst=False):
+        r = {k: row.get(k, '') for k in BASE_COLS}
+        if fill_addr_inst:
+            r['addr'] = r.get('addr', '')
+            r['inst_plc'] = r.get('inst_plc', '')
+        return r
+    
+    # 21번 데이터 먼저 추가
+    for row in data_21:
+        key = coord_key(row)
+        if key and key not in seen:
+            seen.add(key)
+            merged.append(to_row(row))
+    
+    # 21.1번 데이터 추가 (addr, inst_plc 없음 → 빈 값으로 보완)
+    for row in data_21_1:
+        key = coord_key(row)
+        if key and key not in seen:
+            seen.add(key)
+            r = to_row(row, fill_addr_inst=True)
+            r['addr'] = ''
+            r['inst_plc'] = ''
+            merged.append(r)
+    
+    print(f"병합 결과: 21번 {len(data_21):,}건 + 21.1번 {len(data_21_1):,}건 → 중복 제거 후 {len(merged):,}건")
+    return merged
 
 
 def create_grid_index(grid_data):
@@ -164,11 +208,13 @@ def main():
     print("과속방지턱 현황 격자 매핑 시작")
     print("=" * 50)
     
-    # 1. 데이터 로드
+    # 1. 데이터 로드 및 병합
     grid_data = load_geojson(GRID_FILE)
-    speedbump_data = load_csv(SPEEDBUMP_FILE)
+    data_21 = load_csv(SPEEDBUMP_FILE)
+    data_21_1 = load_csv(SPEEDBUMP_21_1_FILE) if os.path.exists(SPEEDBUMP_21_1_FILE) else []
     
-    print(f"과속방지턱 개수: {len(speedbump_data):,}개\n")
+    speedbump_data = merge_and_deduplicate(data_21, data_21_1)
+    print(f"과속방지턱 총 개수: {len(speedbump_data):,}개\n")
     
     # 2. fac_hght 평균 계산 (nan 제외)
     height_avg = calculate_height_avg(speedbump_data)

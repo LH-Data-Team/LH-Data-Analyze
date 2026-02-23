@@ -23,7 +23,8 @@ CCTV_FILE = os.path.join(OUTPUT_DIR, '20._CCTV현황_격자매핑.csv')
 SPEEDBUMP_FILE = os.path.join(OUTPUT_DIR, '21._과속방지턱_격자매핑.csv')
 
 # 출력 파일
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, '사고다발_상위50_격자.json')
+OUTPUT_JSON_FILE = os.path.join(OUTPUT_DIR, '사고다발_상위50_격자.json')
+OUTPUT_CSV_FILE = os.path.join(OUTPUT_DIR, '사고다발_상위50_격자.csv')
 
 
 def load_csv(file_path):
@@ -125,18 +126,20 @@ def main():
             'rank': i,
             'grid_gid': gid,
             'summary': {
-                'accident_cnt': int(row['accident_cnt']),
-                'crosswalk_cnt': int(row['crosswalk_cnt']),
-                'child_zone_cnt': int(row['child_zone_cnt']),
-                'kindergarten_cnt': int(row['kindergarten_cnt']),
-                'kindergarten_child_cnt': int(row['kindergarten_child_cnt']),
-                'daycare_cnt': int(row['daycare_cnt']),
-                'cctv_cnt': int(row['cctv_cnt']),
-                'cctv_cam_cnt': int(row['cctv_cam_cnt']),
-                'speedbump_cnt': int(row['speedbump_cnt']),
-                'speedbump_hght_nan': int(row['speedbump_hght_nan']),
-                'speedbump_hght_below': int(row['speedbump_hght_below']),
-                'speedbump_hght_above': int(row['speedbump_hght_above']),
+                'accident_cnt': int(row.get('accident_cnt', 0)),
+                'crosswalk_cnt': int(row.get('crosswalk_cnt', 0)),
+                'child_zone_cnt': int(row.get('child_zone_cnt', 0)),
+                'school_cnt': int(row.get('school_cnt', 0)),
+                'kindergarten_cnt': int(row.get('kindergarten_cnt', 0)),
+                'kindergarten_child_cnt': int(row.get('kindergarten_child_cnt', 0)),
+                'daycare_cnt': int(row.get('daycare_cnt', 0)),
+                'bus_stop_cnt': int(row.get('bus_stop_cnt', 0)),
+                'cctv_cnt': int(row.get('cctv_cnt', 0)),
+                'cctv_cam_cnt': int(row.get('cctv_cam_cnt', 0)),
+                'speedbump_cnt': int(row.get('speedbump_cnt', 0)),
+                'speedbump_hght_nan': int(row.get('speedbump_hght_nan', 0)),
+                'speedbump_hght_below': int(row.get('speedbump_hght_below', 0)),
+                'speedbump_hght_above': int(row.get('speedbump_hght_above', 0)),
             },
             'accidents': accidents_by_grid.get(gid, []),
             'crosswalks': crosswalks_by_grid.get(gid, []),
@@ -149,9 +152,19 @@ def main():
         result.append(grid_info)
     
     # 4. JSON 저장
-    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+    with open(OUTPUT_JSON_FILE, 'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
-    print(f"저장 완료: {OUTPUT_FILE}")
+    print(f"저장 완료: {OUTPUT_JSON_FILE}")
+    
+    # 4-1. CSV 저장 (상위 50 요약)
+    csv_fieldnames = ['grid_gid'] + list(result[0]['summary'].keys())
+    with open(OUTPUT_CSV_FILE, 'w', encoding='utf-8-sig', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=csv_fieldnames)
+        writer.writeheader()
+        for row in result:
+            csv_row = {'grid_gid': row['grid_gid'], **row['summary']}
+            writer.writerow(csv_row)
+    print(f"저장 완료: {OUTPUT_CSV_FILE}")
     
     # 5. 미리보기 (1위 격자)
     print("\n" + "=" * 60)
