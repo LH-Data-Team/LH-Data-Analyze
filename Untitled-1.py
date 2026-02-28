@@ -1,83 +1,86 @@
-# -*- coding: utf-8 -*-
-"""
-(19번) 버스정류장 -> gid 매핑 -> busstop_cnt 생성 -> (이미 21이 plus된) grid_master_plus21.csv에 추가(조인) -> 저장
-
-입력
-- grid_master_plus21.csv
-- 01._격자_(4개_시·구).geojson
-- 02._격자_(하남교산).geojson
-- 19._버스정류장_위치정보.csv  (컬럼: lon, lat, bis_id)
-
-출력
-- grid_master_plus21_plus19.csv
-"""
-
 import pandas as pd
 import geopandas as gpd
+import numpy as np
 
-# 0) 21까지 붙은 grid_master 로드
-grid_master = pd.read_csv("grid_master_plus21.csv")
-grid_master["gid"] = grid_master["gid"].astype(str).str.replace(r"\.0$", "", regex=True)
+BASE_DIR = r"C:\Users\eskao\OneDrive\바탕 화면\LH-Data-Analyze"
 
-# 1) grid_slim 생성 (gid + geometry)
-grid1 = gpd.read_file("01._격자_(4개_시·구).geojson")
-grid2 = gpd.read_file("02._격자_(하남교산).geojson")
+BASE_FILE = BASE_DIR + r"\1+18+19+20+21.csv"
+GRID_FILE = BASE_DIR + r"\01._격자_(4개_시·구).geojson"
+ACC13_FILE = BASE_DIR + r"\13._교통사고이력.geojson"
 
-grid = gpd.GeoDataFrame(
-    pd.concat([grid1, grid2], ignore_index=True),
-    geometry="geometry",
-)
-grid = grid.set_crs(epsg=4326, allow_override=True)
-grid = grid[["gid", "geometry"]].copy()
-grid["gid"] = grid["gid"].astype(str).str.replace(r"\.0$", "", regex=True)
+OUT_FILE = BASE_DIR + r"\1+13+18+19+20+21.csv"
 
-grid_slim = grid[["gid", "geometry"]].copy()
+# 0) 베이스 로드 (gid 있어야 함)
+base = pd.read_csv(BASE_FILE)
+base["gid"] = base["gid"].astype(str).str.replace(r"\.0$", "", regex=True).str.strip()
+base = base.drop_duplicates(subset=["gid"]).copy()
 
-# 2) 19 로드
-df19 = pd.read_csv("19._버스정류장_위치정보.csv")
+# 1) 격자 로드
+grid = gpd.read_file(GRID_FILE)[["gid", "geometry"]].copy()
+grid["gid"] = grid["gid"].astype(str).str.replace(r"\.0$", "", regex=True).str.strip()
 
-# 3) 좌표 숫자화 + 결측 제거
-df19["lon"] = pd.to_numeric(df19["lon"], errors="coerce")
-df19["lat"] = pd.to_numeric(df19["lat"], errors="coerce")
-df19 = df19.dropna(subset=["lon", "lat"]).copy()
+# 2) 13 사고 로드 (포인트라고 가정)
+acc13 = gpd.read_file(ACC13_FILE)
+# CRS 맞추기
+if acc13.crs is None:
+    acc13 = acc13.set_crs(grid.crs, allow_override=True)
+elif grid.crs is not None and acc13.crs != grid.crs:
+    acc13 = acc13.to_crs(grid.crs)
 
-# 4) 포인트 생성
-g19 = gpd.GeoDataFrame(
-    df19,
-    geometry=gpd.points_from_xy(df19["lon"], df19["lat"]),
-    crs="EPSG:4326",
-)
+# 3) 공간조인으로 gid 붙이기
+j13 = gpd.sjoin(acc13, grid, how="left", predicate="within").drop(columns=["index_right"], errors="ignore")
+j13 = j13.dropna(subset=["gid"]).copy()
+j13["gid"] = j13["gid"].astype(str).str.replace(r"\.0$", "", regex=True).str.strip()
 
-# 5) gid 매핑
-j19 = (
-    gpd.sjoin(g19, grid_slim, how="left", predicate="within")
-      .drop(columns=["index_right"], errors="ignore")
-)
-j19 = j19.dropna(subset=["gid"]).copy()
-j19["gid"] = j19["gid"].astype(str).str.replace(r"\.0$", "", regex=True)
+# 4) 네가 지정한 4개 컬럼만 "격자 내 합계"
+sum_cols = ["dprs_cnt", "sep_cnt", "slp_cnt", "inj_aplcnt_cnt"]
+for c in sum_cols:
+    if c in j13.columns:
+        j13[c] = pd.to_numeric(j13[c], errors="coerce").fillna(0)
+    else:
+        j13[c] = 0
 
-# 6) gid별 버스정류장 개수(고유 bis_id)
-z19 = (
-    j19.groupby("gid", as_index=False)
-       .agg(busstop_cnt=("bis_id", "nunique"))
-)
+z13_4 = j13.groupby("gid", as_index=False)[sum_cols].sum()
 
-# 7) grid_master_plus21에 추가(조인) + 저장
-grid_master_plus21_plus19 = (
-    grid_master
-    .drop(columns=["busstop_cnt"], errors="ignore")
-    .merge(z19, on="gid", how="left")
-)
+# 5) (검색용) 13번의 나머지 컬럼들도 gid별로 한 번에 집계해 둠
+# - 숫자형은 sum, 그 외는 mode(최빈값)로 1개만
+def mode1(s):
+    s = s.dropna()
+    if len(s) == 0:
+        return pd.NA
+    return s.mode().iloc[0]
 
-grid_master_plus21_plus19["busstop_cnt"] = (
-    grid_master_plus21_plus19["busstop_cnt"].fillna(0).astype(int)
-)
+agg_map = {}
+for c in j13.columns:
+    if c in ["geometry", "gid"]:
+        continue
+    if pd.api.types.is_numeric_dtype(j13[c]):
+        agg_map[c] = "sum"
+    else:
+        agg_map[c] = mode1
 
-grid_master_plus21_plus19.to_csv(
-    "grid_master_plus21_plus19.csv",
-    index=False,
-    encoding="utf-8-sig",
-)
+z13_all = j13.groupby("gid", as_index=False).agg(agg_map)
 
-print("saved: grid_master_plus21_plus19.csv")
-print(grid_master_plus21_plus19[["gid", "gbn", "busstop_cnt"]].head())
+def search_gid_13(gid: str):
+    """gid 넣으면 13번 집계값(전체 컬럼) 한 줄 반환"""
+    gid = str(gid).replace(".0", "").strip()
+    row = z13_all.loc[z13_all["gid"] == gid]
+    if row.empty:
+        print("해당 gid 없음:", gid)
+        return None
+    d = row.iloc[0].to_dict()
+    # 보기 좋게 출력
+    for k, v in d.items():
+        print(f"{k}: {v}")
+    return d
+
+# 6) 베이스에 13(4개)만 붙이고 저장 (geometry 없이)
+out = base.drop(columns=sum_cols, errors="ignore").merge(z13_4, on="gid", how="left")
+for c in sum_cols:
+    out[c] = out[c].fillna(0).astype(int)
+
+out.to_csv(OUT_FILE, index=False, encoding="utf-8-sig")
+print("saved:", OUT_FILE, "rows:", len(out))
+
+# ---- 사용 예시(검색 기능) ----
+# search_gid_13("12345")
