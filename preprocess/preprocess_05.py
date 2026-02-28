@@ -2,11 +2,13 @@
 """05._시간대별_직장인구 전처리"""
 
 import pandas as pd
+import geopandas as gpd
 import os
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 RAW_PATH = os.path.join(PROJECT_DIR, "05._시간대별_직장인구.csv")
+GRID_PATH = os.path.join(PROJECT_DIR, "01._격자_(4개_시·구).geojson")
 OUT_PATH = os.path.join(SCRIPT_DIR, "05._시간대별_직장인구_preprocessed.csv")
 
 df = pd.read_csv(RAW_PATH, encoding="utf-8-sig")
@@ -17,6 +19,16 @@ df = df[["gbn"] + tmst_cols + ["lon", "lat"]].copy()
 df[tmst_cols] = df[tmst_cols].fillna(0)
 df = df.dropna(subset=["lon", "lat"]).reset_index(drop=True)
 df[tmst_cols] = df[tmst_cols].clip(lower=0)
+
+# 좌표(lon/lat)가 속한 격자의 gid를 공간조인으로 매핑
+points_gdf = gpd.GeoDataFrame(
+    df,
+    geometry=gpd.points_from_xy(df["lon"], df["lat"]),
+    crs="EPSG:4326",
+)
+grid_gdf = gpd.read_file(GRID_PATH)[["gid", "geometry"]].to_crs(points_gdf.crs)
+joined = gpd.sjoin(points_gdf, grid_gdf, how="left", predicate="within")
+df = pd.DataFrame(joined.drop(columns=["geometry", "index_right"], errors="ignore"))
 
 outlier_info = []
 for c in tmst_cols:
