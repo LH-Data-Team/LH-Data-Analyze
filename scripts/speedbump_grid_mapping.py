@@ -20,6 +20,7 @@ SPEEDBUMP_FILE = os.path.join(DATA_DIR, '21._과속방지턱_현황.csv')
 SPEEDBUMP_21_1_FILE = os.path.join(DATA_DIR, '21.1_과속방지턱_격자매핑.csv')
 OUTPUT_DIR = os.path.join(BASE_DIR, 'output')
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, '21._과속방지턱_격자매핑.csv')
+ROAD_NETWORK_FILE = os.path.join(DATA_DIR, '08.상세도로망_네트워크.geojson')
 
 
 def load_geojson(file_path):
@@ -111,6 +112,30 @@ def create_grid_index(grid_data):
     return tree, polygons, gid_list
 
 
+def create_link_index(road_data):
+    """도로망 link_id R-tree 인덱스 생성"""
+    print("도로 링크 인덱스 생성 중...")
+    lines = []
+    link_ids = []
+    for feature in road_data['features']:
+        try:
+            lines.append(shape(feature['geometry']))
+            link_ids.append(feature['properties']['link_id'])
+        except Exception:
+            continue
+    tree = STRtree(lines)
+    print(f"도로 링크 개수: {len(link_ids):,}개")
+    return tree, link_ids
+
+
+def find_nearest_link(point, link_tree, link_ids):
+    """가장 가까운 도로 링크 link_id 반환"""
+    idx = link_tree.nearest(point)
+    if idx is not None:
+        return link_ids[idx]
+    return ''
+
+
 def calculate_height_avg(data):
     """fac_hght의 nan 제외 평균 계산"""
     heights = []
@@ -143,7 +168,7 @@ def classify_height(value, avg):
         return 'nan'
 
 
-def map_data_to_grid(data, tree, polygons, gid_list, height_avg):
+def map_data_to_grid(data, tree, polygons, gid_list, height_avg, link_tree, link_ids):
     """데이터 지점을 격자에 매핑하고 높이 분류 추가"""
     print("과속방지턱 데이터 격자 매핑 중...")
     
@@ -161,14 +186,16 @@ def map_data_to_grid(data, tree, polygons, gid_list, height_avg):
         
         if not lon_str or not lat_str:
             row['grid_gid'] = ''
+            row['link_id'] = ''
             unmapped_count += 1
             continue
-        
+
         try:
             lon = float(lon_str)
             lat = float(lat_str)
         except ValueError:
             row['grid_gid'] = ''
+            row['link_id'] = ''
             unmapped_count += 1
             continue
         
@@ -185,21 +212,22 @@ def map_data_to_grid(data, tree, polygons, gid_list, height_avg):
         
         # 매핑 결과 저장
         row['grid_gid'] = matched_gid if matched_gid else ''
-        
+        row['link_id'] = find_nearest_link(point, link_tree, link_ids)
+
         if matched_gid:
             mapped_count += 1
         else:
             unmapped_count += 1
-        
+
         # 진행 상황 출력 (10% 단위)
         if (i + 1) % (total // 10 + 1) == 0:
             progress = (i + 1) / total * 100
             print(f"  진행률: {progress:.0f}% ({i + 1:,}/{total:,})")
-    
+
     print(f"\n매핑 완료:")
     print(f"  - 매핑 성공: {mapped_count:,}건")
     print(f"  - 매핑 실패: {unmapped_count:,}건")
-    
+
     return data
 
 
@@ -210,20 +238,24 @@ def main():
     
     # 1. 데이터 로드 및 병합
     grid_data = load_geojson(GRID_FILE)
+    road_data = load_geojson(ROAD_NETWORK_FILE)
     data_21 = load_csv(SPEEDBUMP_FILE)
     data_21_1 = load_csv(SPEEDBUMP_21_1_FILE) if os.path.exists(SPEEDBUMP_21_1_FILE) else []
-    
+
     speedbump_data = merge_and_deduplicate(data_21, data_21_1)
     print(f"과속방지턱 총 개수: {len(speedbump_data):,}개\n")
-    
+
     # 2. fac_hght 평균 계산 (nan 제외)
     height_avg = calculate_height_avg(speedbump_data)
-    
+
     # 3. 격자 인덱스 생성
     tree, polygons, gid_list = create_grid_index(grid_data)
-    
-    # 4. 매핑 수행 및 높이 분류 추가
-    result = map_data_to_grid(speedbump_data, tree, polygons, gid_list, height_avg)
+
+    # 4. 도로 링크 인덱스 생성
+    link_tree, link_ids = create_link_index(road_data)
+
+    # 5. 매핑 수행 및 높이 분류 추가
+    result = map_data_to_grid(speedbump_data, tree, polygons, gid_list, height_avg, link_tree, link_ids)
     
     # 5. 높이 분류 통계 출력
     hght_stats = {'nan': 0, '평균이하': 0, '평균초과': 0}
@@ -235,7 +267,7 @@ def main():
     for k, v in hght_stats.items():
         print(f"  - {k}: {v:,}건")
     
-    # 6. 결과 저장
+    # 7. 결과 저장
     fieldnames = list(result[0].keys())
     save_csv(result, fieldnames, OUTPUT_FILE)
     

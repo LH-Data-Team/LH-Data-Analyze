@@ -17,6 +17,7 @@ GRID_FILE = os.path.join(DATA_DIR, '01._격자_(4개_시·구).geojson')
 CCTV_FILE = os.path.join(DATA_DIR, '20._CCTV_현황.csv')
 OUTPUT_DIR = os.path.join(BASE_DIR, 'output')
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, '20._CCTV현황_격자매핑.csv')
+ROAD_NETWORK_FILE = os.path.join(DATA_DIR, '08.상세도로망_네트워크.geojson')
 
 
 def load_geojson(file_path):
@@ -66,7 +67,31 @@ def create_grid_index(grid_data):
     return tree, polygons, gid_list
 
 
-def map_data_to_grid(data, tree, polygons, gid_list):
+def create_link_index(road_data):
+    """도로망 link_id R-tree 인덱스 생성"""
+    print("도로 링크 인덱스 생성 중...")
+    lines = []
+    link_ids = []
+    for feature in road_data['features']:
+        try:
+            lines.append(shape(feature['geometry']))
+            link_ids.append(feature['properties']['link_id'])
+        except Exception:
+            continue
+    tree = STRtree(lines)
+    print(f"도로 링크 개수: {len(link_ids):,}개")
+    return tree, link_ids
+
+
+def find_nearest_link(point, link_tree, link_ids):
+    """가장 가까운 도로 링크 link_id 반환"""
+    idx = link_tree.nearest(point)
+    if idx is not None:
+        return link_ids[idx]
+    return ''
+
+
+def map_data_to_grid(data, tree, polygons, gid_list, link_tree, link_ids):
     """데이터 지점을 격자에 매핑"""
     print("CCTV 데이터 격자 매핑 중...")
     
@@ -90,21 +115,22 @@ def map_data_to_grid(data, tree, polygons, gid_list):
         
         # 매핑 결과 저장
         row['grid_gid'] = matched_gid if matched_gid else ''
-        
+        row['link_id'] = find_nearest_link(point, link_tree, link_ids)
+
         if matched_gid:
             mapped_count += 1
         else:
             unmapped_count += 1
-        
+
         # 진행 상황 출력 (10% 단위)
         if (i + 1) % (total // 10 + 1) == 0:
             progress = (i + 1) / total * 100
             print(f"  진행률: {progress:.0f}% ({i + 1:,}/{total:,})")
-    
+
     print(f"\n매핑 완료:")
     print(f"  - 매핑 성공: {mapped_count:,}건")
     print(f"  - 매핑 실패: {unmapped_count:,}건")
-    
+
     return data
 
 
@@ -115,17 +141,21 @@ def main():
     
     # 1. 데이터 로드
     grid_data = load_geojson(GRID_FILE)
+    road_data = load_geojson(ROAD_NETWORK_FILE)
     cctv_data = load_csv(CCTV_FILE)
-    
+
     print(f"CCTV 개수: {len(cctv_data):,}개\n")
-    
+
     # 2. 격자 인덱스 생성
     tree, polygons, gid_list = create_grid_index(grid_data)
-    
-    # 3. 매핑 수행
-    result = map_data_to_grid(cctv_data, tree, polygons, gid_list)
-    
-    # 4. 결과 저장
+
+    # 3. 도로 링크 인덱스 생성
+    link_tree, link_ids = create_link_index(road_data)
+
+    # 4. 매핑 수행
+    result = map_data_to_grid(cctv_data, tree, polygons, gid_list, link_tree, link_ids)
+
+    # 5. 결과 저장
     fieldnames = list(result[0].keys())
     save_csv(result, fieldnames, OUTPUT_FILE)
     
