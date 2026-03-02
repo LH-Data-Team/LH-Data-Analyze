@@ -25,6 +25,19 @@ INFRA_COLS = [
     "cctv_cnt", "cctv_cam_cnt", "speedbump_cnt",
 ]
 
+# 인프라 공백 산출에 사용할 안전시설 6종
+# 교육시설(school, kindergarten, daycare)은 위험 유발 시설로
+# "없어도 공백이 아님" → 공백 지표에서 제외
+SAFETY_COLS = [
+    "crosswalk_cnt",   # 횡단보도    — 보행 안전 직결
+    "child_zone_cnt",  # 어린이보호구역 — 어린이 안전 직결
+    "speedbump_cnt",   # 과속방지턱  — 속도 억제
+    "cctv_cnt",        # CCTV 개소  — 감시·억제
+    "cctv_cam_cnt",    # CCTV 대수  — 감시·억제 보완
+    "bus_stop_cnt",    # 버스정류장  — 교통약자 집산지
+]
+MAX_GAP = len(SAFETY_COLS)   # 6
+
 HIGH_RISK_PERCENTILE = 75   # 상위 25%를 고위험으로 정의
 
 
@@ -143,8 +156,9 @@ def main():
         if epdo < threshold:
             continue
 
+        # 공백 산출: SAFETY_COLS 6종만 (교육시설 제외)
         gaps = []
-        for col in INFRA_COLS:
+        for col in SAFETY_COLS:
             val = float(r.get(col, 0) or 0)
             if val == 0:
                 gaps.append(f"{col}(없음)")
@@ -152,17 +166,20 @@ def main():
                 gaps.append(f"{col}(부족)")
 
         gap_result.append({
-            "grid_gid":       r["grid_gid"],
-            "epdo_total":     epdo,
-            "accident_cnt":   int(r["accident_cnt"]),
-            "사망_cnt":        int(r["사망_cnt"]),
-            "중상_cnt":        int(r["중상_cnt"]),
-            "crosswalk_cnt":  int(float(r["crosswalk_cnt"])),
-            "cctv_cnt":       int(float(r["cctv_cnt"])),
-            "speedbump_cnt":  int(float(r["speedbump_cnt"])),
-            "child_zone_cnt": int(float(r["child_zone_cnt"])),
-            "gap_cnt":        len(gaps),
-            "gap_items":      " | ".join(gaps) if gaps else "-",
+            "grid_gid":          r["grid_gid"],
+            "epdo_total":        epdo,
+            "accident_cnt":      int(r["accident_cnt"]),
+            "사망_cnt":           int(r["사망_cnt"]),
+            "중상_cnt":           int(r["중상_cnt"]),
+            "crosswalk_cnt":     int(float(r["crosswalk_cnt"])),
+            "cctv_cnt":          int(float(r["cctv_cnt"])),
+            "speedbump_cnt":     int(float(r["speedbump_cnt"])),
+            "child_zone_cnt":    int(float(r["child_zone_cnt"])),
+            # 학교인근 라벨 판단용 (교육시설은 공백 지표에서 제외했으나 라벨 부여에 활용)
+            "school_cnt":        int(float(r.get("school_cnt", 0) or 0)),
+            "kindergarten_cnt":  int(float(r.get("kindergarten_cnt", 0) or 0)),
+            "gap_cnt":           len(gaps),
+            "gap_items":         " | ".join(gaps) if gaps else "-",
         })
 
     gap_result.sort(key=lambda x: (-x["gap_cnt"], -x["epdo_total"]))
@@ -173,7 +190,7 @@ def main():
         w.writerows(gap_result)
 
     total_high  = len(gap_result)
-    many_gaps   = sum(1 for r in gap_result if r["gap_cnt"] >= len(INFRA_COLS) // 2)
+    many_gaps   = sum(1 for r in gap_result if r["gap_cnt"] >= MAX_GAP // 2)
     print(f"    고위험 격자: {total_high:,}개")
     print(f"    시설물 절반 이상 공백: {many_gaps:,}개 ({many_gaps/total_high*100:.1f}%)")
 
