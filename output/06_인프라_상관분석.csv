@@ -1,0 +1,10 @@
+﻿infra_col,pearson_r,spearman_r,infra_nonzero_cnt,infra_mean,해석
+crosswalk_cnt,0.146,0.1948,1975,0.779,EPDO 높을수록 시설 많음 (노출 효과)
+cctv_cam_cnt,0.0597,0.0933,2368,2.2086,상관 미미
+bus_stop_cnt,0.056,0.0833,1443,0.4097,상관 미미
+kindergarten_cnt,0.0309,0.0136,65,0.0113,상관 미미
+speedbump_cnt,0.0289,0.0401,654,0.4496,상관 미미
+child_zone_cnt,0.0255,0.007,78,0.014,상관 미미
+cctv_cnt,0.0231,0.0809,2368,1.2634,상관 미미
+daycare_cnt,0.0157,-0.0131,505,0.1276,상관 미미
+school_cnt,0.0078,-0.0169,51,0.0096,상관 미미
