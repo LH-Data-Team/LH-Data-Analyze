@@ -33,3 +33,9 @@
 
 - Open the project from this folder only
 - Confirm all layers load without extra path changes
+
+## Repository sharing tip (GitHub 100MB limit)
+
+- Use `02_data_analysis/grid_risk_top10.geojson` as the shared visualization layer.
+- Do not track `02_data_analysis/grid_risk_joined.*` in Git because these files can exceed GitHub's file size limit.
+- Keep `project.qgz` layer paths relative and point the risk layer to `../02_data_analysis/grid_risk_top10.geojson`.
