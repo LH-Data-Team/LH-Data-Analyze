@@ -1,0 +1,42 @@
+﻿grid_gid,사고건수,사망,중상,EPDO점수,entropy_composite_risk,위험등급,출처,핵심_인프라공백,제안시설
+다사738470,2,0,2,138,146.15,고위험,종합위험지수,child_zone_cnt / bus_stop_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 어린이보호구역 보강
+다사730463,1,0,0,8,140.47,고위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt,버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사757481,1,0,0,8,121.95,고위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사732479,1,0,0,8,121.85,고위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사746483,1,0,0,8,121.85,고위험,블록유형예측,child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 어린이보호구역 보강 + 지능형 CCTV
+다사750480,3,0,0,16,121.85,고위험,블록유형예측,child_zone_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 어린이보호구역 보강 + 지능형 CCTV
+다사753476,2,0,0,14,121.85,고위험,블록유형예측,crosswalk_cnt / child_zone_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사728472,3,0,1,85,96.34,중위험,종합위험지수,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사730476,2,0,0,16,94.65,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사734468,1,0,0,8,94.65,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사737480,2,0,0,9,94.65,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사729470,2,0,0,9,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강
+다사731470,1,0,0,8,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사732472,1,0,0,8,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt,버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사734470,1,0,0,8,94.14,중위험,블록유형예측,child_zone_cnt / bus_stop_cnt,버스정류장 연계 보행안전시설 + 어린이보호구역 보강
+다사734475,1,0,0,8,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사734476,1,0,0,6,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사735480,2,0,0,16,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사736470,1,0,0,8,94.14,중위험,블록유형예측,child_zone_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 어린이보호구역 보강 + 지능형 CCTV
+다사736479,1,0,0,0,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사736480,2,0,0,16,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강
+다사738468,1,0,0,8,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사743485,2,0,0,9,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사744476,1,0,0,8,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / cctv_cnt / cctv_cam_cnt,스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사747485,2,0,0,16,94.14,중위험,블록유형예측,child_zone_cnt / bus_stop_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 어린이보호구역 보강
+다사750488,1,0,0,0,94.14,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 스마트 횡단보도 + 어린이보호구역 보강
+다사754476,3,0,0,17,94.14,중위험,블록유형예측,child_zone_cnt / bus_stop_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 어린이보호구역 보강
+다사755484,1,0,0,8,94.14,중위험,블록유형예측,child_zone_cnt,어린이보호구역 보강
+다사756484,1,0,0,8,94.14,중위험,블록유형예측,child_zone_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 어린이보호구역 보강
+다사749482,1,0,0,8,89.76,중위험,블록유형예측,child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 어린이보호구역 보강 + 지능형 CCTV
+다사737481,1,0,0,8,89.58,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강
+다사744480,1,0,0,8,89.58,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사750478,3,0,0,24,89.58,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사756479,1,0,0,8,89.58,중위험,블록유형예측,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사745480,2,0,1,77,86.89,중위험,종합위험지수,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사757484,1,0,1,69,84.8,중위험,종합위험지수,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사731477,1,0,1,69,78.47,중위험,종합위험지수,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강
+다사751480,1,0,1,69,77.09,저위험,종합위험지수,child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt,버스정류장 연계 보행안전시설 + 어린이보호구역 보강 + 지능형 CCTV
+다사749487,1,0,1,69,73.96,저위험,종합위험지수,crosswalk_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt / speedbump_cnt,과속저감 패키지(방지턱+노면표시) + 버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 지능형 CCTV
+다사742474,1,0,1,69,73.13,저위험,종합위험지수,crosswalk_cnt / child_zone_cnt / bus_stop_cnt / cctv_cnt / cctv_cam_cnt,버스정류장 연계 보행안전시설 + 스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
+다사734465,1,0,1,69,72.77,저위험,종합위험지수,crosswalk_cnt / child_zone_cnt / cctv_cnt / cctv_cam_cnt,스마트 횡단보도 + 어린이보호구역 보강 + 지능형 CCTV
