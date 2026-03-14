@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build temp
+report_temp.md
+report_temp.html
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
