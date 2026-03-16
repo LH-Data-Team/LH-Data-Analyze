@@ -33,13 +33,43 @@
 <header id="title-block-header">
 <h1 class="title">LH</h1>
 </header>
-<h1
-id="lh-신도시-교통-인프라-데이터-분석을-통한-교통약자-안전-대안-도출">LH
-신도시 교통 인프라 데이터 분석을 통한 교통약자 안전 대안 도출</h1>
-<blockquote>
-<p>팀명: 천천히, 꾸준히<br />
-팀원: 고은성, 전창현, 최정인</p>
-</blockquote>
+<section
+id="lh-신도시-교통-인프라-데이터-분석을-통한-교통약자-안전-대안-도출"
+class="cover-page">
+<h1>LH 신도시 교통 인프라 데이터 분석을 통한<br>교통약자 안전 대안
+도출</h1>
+<p>팀명: 천천히, 꾸준히</p>
+</section>
+<section id="목차" class="newpage">
+<h2>목차</h2>
+<ol type="1">
+<li><a href="#과제-개요">과제 개요</a></li>
+<li><a href="#데이터-전처리-및-분석-과정">데이터 전처리 및 분석 과정</a>
+<ul>
+<li>2-1. 데이터 구성 및 사용 파일</li>
+<li>2-2. 정제/가공 절차</li>
+<li>2-2-1. 파생 변수 생성 과정</li>
+<li>2-2-2. 표기 원칙 (ECR / entropy_composite_risk / 종합위험지수)</li>
+<li>2-3. 인프라 변수 정의</li>
+<li>2-3-1. 인프라 공백 지표 정의 (<code>gap_cnt</code>)</li>
+</ul></li>
+<li><a href="#추가-수집-데이터-설명">추가 수집 데이터 설명</a></li>
+<li><a href="#최종-결과-도출-과정">최종 결과 도출 과정</a>
+<ul>
+<li>4-1. 모델링 프레임</li>
+<li>4-2. 통합 가중치 결과</li>
+<li>4-3. 종합 위험지수 산출</li>
+</ul></li>
+<li><a href="#최종-결과-및-해석">최종 결과 및 해석</a></li>
+<li><a href="#검증-결과">검증 결과</a>
+<ul>
+<li>재현성 점검 항목</li>
+</ul></li>
+<li><a href="#정책-적용-방안">정책 적용 방안</a></li>
+<li><a href="#한계-및-후속-과제">한계 및 후속 과제</a></li>
+</ol>
+</section>
+<hr />
 <h2 id="과제-개요">1. 과제 개요</h2>
 <p>본 보고서는 4개 신도시(동탄1·2, 위례, 하남미사, 판교)의
 교통사고·교통량·인프라·인구 데이터를 통합 분석하여, 교통약자(어린이·노인
@@ -123,6 +153,9 @@ id="lh-신도시-교통-인프라-데이터-분석을-통한-교통약자-안전
 </tr>
 </tbody>
 </table>
+<p><strong>데이터 기간:</strong> 교통사고이력 데이터는 2024년 1년치를
+사용하였다. 인구·인프라·교통량·혼잡 데이터는 동일 시점 또는 최근 시점
+기준으로 제공받았다.</p>
 <h4 id="분석-산출-파일">(2) 분석 산출 파일</h4>
 <ul>
 <li><code>00_교통사고_링크매핑.csv</code></li>
@@ -241,6 +274,7 @@ Only의 약자로, 사고의 심각도(사망·중상·경상 등)를 하나의 
 <li>도로(선 데이터)는 격자 칸과 겹치는지 여부로 연결하여, 데이터 누락을
 최소화했다.</li>
 </ul>
+<div class="newpage">
 <ol start="5" type="1">
 <li>품질 점검</li>
 </ol>
@@ -250,6 +284,7 @@ Only의 약자로, 사고의 심각도(사망·중상·경상 등)를 하나의 
 <li>값의 범위가 비정상적이지 않은지(음수 발생, 극단적 이상값 등)를
 점검했다.</li>
 </ul>
+</div>
 <h3 id="파생-변수-생성-과정">2-2-1. 파생 변수 생성 과정</h3>
 <p>본 연구에서는 제공받은 원시 데이터를 가공하여, 교통약자 위험도를
 설명할 수 있는 7개의 새로운 지표(파생 변수)를 만들었다.</p>
@@ -355,6 +390,35 @@ class="math inline">\(i\)</span>와 교차하는 도로 링크 집합 (avg_speed
 <li>인프라 공백 수 (<code>gap_cnt</code>) 아래 2-3-1절에서 별도로
 정의한다.</li>
 </ol>
+<h3 id="표기-원칙-ecr-entropy_composite_risk-종합위험지수">2-2-2. 표기
+원칙 (ECR / entropy_composite_risk / 종합위험지수)</h3>
+<p>본 보고서에서 <strong>종합위험지수</strong>, <strong>ECR</strong>,
+<strong>entropy_composite_risk</strong>는 동일한 지표를 가리킨다. 산식은
+<span class="math inline">\(\text{EPDO}_i \times (1 +
+\text{correction\_index}_i)\)</span>이며, 4-3-1절에서 상세히 정의한다.
+사용처에 따라 다음과 같이 표기한다.</p>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>사용처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>종합위험지수</td>
+<td>일반 설명, 정책 문맥</td>
+</tr>
+<tr>
+<td>ECR</td>
+<td>표·파일명·간단한 언급 (Entropy Composite Risk 약자)</td>
+</tr>
+<tr>
+<td>entropy_composite_risk</td>
+<td>산식·코드·CSV 컬럼명</td>
+</tr>
+</tbody>
+</table>
 <h3 id="인프라-변수-정의데이터-1421">2-3. 인프라 변수 정의(데이터
 14~21)</h3>
 <table>
@@ -410,8 +474,8 @@ class="math inline">\(i\)</span>와 교차하는 도로 링크 집합 (avg_speed
 </table>
 <p>해석: 각 격자 안에 안전시설이 얼마나 갖추어져 있는지를 나타내는
 지표로 사용하였다.</p>
-<h4 id="인프라-공백-지표-정의-gap_cnt">2-3-1. 인프라 공백 지표 정의
-(<code>gap_cnt</code>)</h4>
+<section id="인프라-공백-지표-정의-gap_cnt" class="newpage">
+<h4>2-3-1. 인프라 공백 지표 정의 (<code>gap_cnt</code>)</h4>
 <p>안전시설이 얼마나 부족한지를 숫자로 표현하기 위해, 안전시설 6종을
 대상으로 인프라 공백 지표를 정의하였다.</p>
 <p>대상 시설(안전시설):</p>
@@ -436,8 +500,8 @@ class="math inline">\(i\)</span>와 교차하는 도로 링크 집합 (avg_speed
 <td>과속방지턱</td>
 </tr>
 <tr>
-<td>cctv_cnt / cctv_cam_cnt</td>
-<td>CCTV</td>
+<td>cctv_cnt, cctv_cam_cnt</td>
+<td>CCTV 계열 인프라</td>
 </tr>
 <tr>
 <td>bus_stop_cnt</td>
@@ -469,6 +533,7 @@ I(x) = \begin{cases} 1 &amp; \text{시설 없음 또는 부족} \\ 0 &amp;
 공백으로 계산하며, gap_cnt의 범위는 0~6이다. 이 지표는 이후 종합
 위험지수의 보정계수(correction_index)와 시설 제안 로직에 직접
 활용된다.</p>
+</section>
 <hr />
 <h2 id="추가-수집-데이터-설명">3. 추가 수집 데이터 설명</h2>
 <p>본 제출본은 제공 데이터와 내부 전처리 산출물만 사용했다.</p>
@@ -556,7 +621,8 @@ over-dispersion) 이 나타났다.</p>
 <p>예측하려는 값(종속변수)은 격자별 사고 건수이며, 원인이 되는
 변수(독립변수)는 <code>2-2-1절</code>에서 정의한 7개 파생 변수를 평균
 0·표준편차 1로 맞춘 뒤(표준화) 투입하였다.</p>
-<h3 id="통합-가중치-결과">4-2. 통합 가중치 결과</h3>
+<section id="통합-가중치-결과" class="newpage">
+<h3>4-2. 통합 가중치 결과</h3>
 <p><code>10_통합가중치_최종.csv</code> 기준:</p>
 <table>
 <thead>
@@ -652,8 +718,9 @@ class="math inline">\(w\_{\text{corr}}\)</span> ) 각 변수가 사고
 <p><span class="math display">\[
 w\_{j} = \frac{|r\_{j}|}{\sum\_{j} |r\_{j}|}
 \]</span></p>
-<h4 id="통합-세-가중치를-하나로-합침">4-2-2. 통합 (세 가중치를 하나로
-합침)</h4>
+</section>
+<section id="통합-세-가중치를-하나로-합침" class="newpage">
+<h4>4-2-2. 통합 (세 가중치를 하나로 합침)</h4>
 <p><span class="math display">\[
 w\_{\text{raw},j} = (w\_{\text{nb},j} \times w\_{\text{corr},j} \times
 w\_{\text{entropy},j})^{1/3}
@@ -662,7 +729,21 @@ w\_{\text{entropy},j})^{1/3}
 w\_{\text{final},j} = \frac{w\_{\text{raw},j}}{\sum\_{j}
 w\_{\text{raw},j}}
 \]</span></p>
-<p>예) <code>vuln_peak_pop</code>: 0.4035 / 0.7908 = 0.5103 = 51.03%</p>
+<p>예) <code>vuln_peak_pop</code> 기하평균 계산 과정:</p>
+<ol type="1">
+<li>세 방법 가중치 곱의 세제곱근: <span
+class="math inline">\(w\_{\text{raw}} = (0.4719 \times 0.4005 \times
+0.3478)^{1/3} = 0.4035\)</span></li>
+<li>7개 인자 raw 합: <span class="math inline">\(\sum\_{j}
+w\_{\text{raw},j} = 0.7908\)</span></li>
+<li>정규화: <span class="math inline">\(0.4035 / 0.7908 = 0.5103 =
+51.03\%\)</span></li>
+</ol>
+<blockquote>
+<p>개별 raw 값은 아래 표의 NB회귀·EPDO상관·엔트로피 비율을 소수로 환산한
+뒤, 각 인자별로 곱한 값의 세제곱근이다. 전체 raw 합계(0.7908)로 나누면
+합이 100%가 된다.</p>
+</blockquote>
 <p>개별 가중치 상세표:</p>
 <table>
 <thead>
@@ -726,6 +807,7 @@ w\_{\text{raw},j}}
 </tr>
 </tbody>
 </table>
+</section>
 <h3 id="종합-위험지수-산출">4-3. 종합 위험지수 산출</h3>
 <p>격자별 최종 위험도는 <code>08_격자_종합위험지수.csv</code>의
 종합지수(<code>entropy_composite_risk</code>)를 기준으로 순위를
@@ -800,7 +882,6 @@ class="math inline">\(w\_{\text{entropy},j}\)</span> )</th>
 등) 위험 점수가 추가로 올라간다</li>
 <li>보정지수의 범위는 0~1이므로, 최대 2배까지 점수가 높아질 수 있다</li>
 </ul>
-<div class="newpage">
 <p>③ 산출 예시</p>
 <table>
 <thead>
@@ -836,8 +917,10 @@ class="math inline">\(w\_{\text{entropy},j}\)</span> )</th>
 </tr>
 </tbody>
 </table>
-</div>
 <p>위험등급 분류:</p>
+<p>4개 신도시 1,481개 격자의 종합위험지수를 점수 순으로 정렬했을 때,
+상위 25%에 드는 경계값이 111.12, 하위 25% 경계값이 77.38이다. 이를
+기준으로 등급을 나눴다.</p>
 <table>
 <thead>
 <tr>
@@ -848,15 +931,15 @@ class="math inline">\(w\_{\text{entropy},j}\)</span> )</th>
 <tbody>
 <tr>
 <td>고위험</td>
-<td>entropy_composite_risk ≥ 75th (111.12)</td>
+<td>111.12 이상 (상위 25%)</td>
 </tr>
 <tr>
 <td>중위험</td>
-<td>25th (77.38) ≤ entropy_composite_risk &lt; 75th</td>
+<td>77.38 이상 111.12 미만 (중간 50%)</td>
 </tr>
 <tr>
 <td>저위험</td>
-<td>entropy_composite_risk &lt; 25th (77.38)</td>
+<td>77.38 미만 (하위 25%)</td>
 </tr>
 </tbody>
 </table>
@@ -984,8 +1067,8 @@ class="math inline">\(w\_{\text{entropy},j}\)</span> )</th>
 (<code>08_격자_종합위험지수.csv</code>)
 <ul>
 <li>위험등급 분포: 고위험 371개 / 중위험 740개 / 저위험 370개</li>
-<li>등급 기준: <code>entropy_composite_risk</code> 75th(111.12) 이상 =
-고위험 / 25th(77.38)~75th = 중위험 / 25th 미만 = 저위험</li>
+<li>등급 기준: 111.12 이상 = 고위험(상위 25%) / 77.38~111.12 =
+중위험(중간 50%) / 77.38 미만 = 저위험(하위 25%)</li>
 <li><code>entropy_composite_risk</code> 정의: 격자별 사고 심각도(EPDO)에
 환경 보정을 곱한 종합 위험지수. 산식은 <span
 class="math inline">\(\text{EPDO}_i \times (1 +
@@ -1003,8 +1086,10 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 <li>하남교산 사고발생 격자 수: 41개
 (<code>08_하남교산_격자별_ECR_최종.csv</code>)
 <ul>
-<li>하남교산 격자(770개)와 교통사고이력을 공간조인(point-in-polygon)한
-결과, 실제 사고가 발생한 격자는 41개(총 118건)이다.</li>
+<li>추출 기준: <code>accident_cnt &gt; 0</code> (해당 격자에 교통사고가
+1건 이상 발생한 경우). 하남교산 격자(770개)와 교통사고이력을
+공간조인(point-in-polygon)한 결과, 실제 사고가 발생한 격자는 41개(총
+118건)이다.</li>
 <li>위험등급 분포(entropy_composite_risk 기준, 4개 신도시 동일 임계값
 적용): 고위험 9개 / 중위험 0개 / 저위험 32개</li>
 </ul></li>
@@ -1080,6 +1165,46 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 일치하여, 위험 지역을 정확하게 식별하고 있으며 정책 우선순위 도구로
 신뢰할 수 있다.</li>
 </ul>
+<section id="재현성-점검-항목" class="newpage">
+<h4>재현성 점검 항목</h4>
+<p>분석 재현 및 활용 시 아래 항목을 관리한다.</p>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr>
+<th>항목</th>
+<th>관리 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>입력 데이터</td>
+<td>01~21번 원시 파일, 버전·수집 시점 명시</td>
+</tr>
+<tr>
+<td>처리 순서</td>
+<td>2-2절 정제/가공 절차 순서 준수</td>
+</tr>
+<tr>
+<td>필터</td>
+<td>사고발생 격자: <code>accident_cnt &gt; 0</code></td>
+</tr>
+<tr>
+<td>임계값</td>
+<td>위험등급: 상위 25% 경계 111.12, 하위 25% 경계 77.38 (4개 신도시
+1,481격자 기준)</td>
+</tr>
+<tr>
+<td>검증 지표</td>
+<td>상위 5/10/20% 일치율, Spearman 순위 상관계수</td>
+</tr>
+</tbody>
+</table>
+<p>다른 지역·시점에 적용 시 임계값 재보정이 필요하다(8장 한계 참조).</p>
+</section>
 <hr />
 <h2 id="정책-적용-방안">7. 정책 적용 방안</h2>
 <h3 id="스마트-교통시설-설치-의사결정-규칙">7-1. 스마트 교통시설 설치
@@ -1108,7 +1233,7 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 </tr>
 <tr>
 <td>지능형 CCTV</td>
-<td>cctv_cnt 낮고 야간/주말 사고 비율 높음</td>
+<td>CCTV 계열 인프라 부족 + 야간/주말 사고 비율 높음</td>
 <td>교차로 진입부, 버스정류장 인접 격자</td>
 <td>위반 억제 및 사후 대응 강화</td>
 </tr>
@@ -1138,17 +1263,29 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 하남교산에 적용한 결과를 보여준다.</p>
 <p>하남교산 위험도 평가는 두 가지 기준으로 수행했다.</p>
 <p>① 사고 기반 분석 — 실제로 사고가 발생한 41개 격자를 대상으로, 4개
-신도시와 동일한 ECR 기준(75th=111.12, 25th=77.38) 적용<br />
+신도시와 동일한 ECR 기준(상위 25% 경계 111.12, 하위 25% 경계 77.38)
+적용<br />
 → 고위험 9개 / 중위험 0개 / 저위험 32개</p>
 <p>② 토지이용 유형 기반 예측 — 하남교산 전체 770개 격자를 대상으로, “4개
 신도시에서 같은 종류의 땅(주거지, 상업지 등)이 얼마나 위험했는지”를
 기준으로 예측<br />
 → 고위험 85개 / 중위험 558개 / 저위험 127개</p>
-<h4 id="분석대상지4개-신도시-고위험-격자-top-10-모델-산출-근거">(1)
-분석대상지(4개 신도시) 고위험 격자 Top 10 — 모델 산출 근거</h4>
+<p><strong>정책 적용 시 판단 기준:</strong> 사고가 발생한 격자(41개)는 ①
+사고 기반 결과를 우선 사용한다. 사고가 없는 격자(729개)는 ② 토지이용
+기반 예측 결과로만 평가한다. 즉, ①은 “실제 사고가 난 곳”의 위험도를, ②는
+“아직 사고는 없지만 유사 환경에서 위험했던 곳”의 예측 위험도를 보여준다.
+두 결과를 통합할 때는 ①의 41개 격자를 기준으로 즉시 개입하고, ②의 고위험
+85개 격자 중 41개와 겹치지 않는 구간은 선제 배치 후보로 활용한다.</p>
+<p><em>지도 1. 교통사고 발생구역의 위험도</em></p>
+<figure>
+<img src="assets/map1_위험도.png" alt="교통사고 발생 구역의 위험도" />
+<figcaption aria-hidden="true">교통사고 발생 구역의 위험도</figcaption>
+</figure>
+<section id="분석대상지4개-신도시-고위험-격자-top-10-모델-산출-근거"
+class="newpage">
+<h4>(1) 분석대상지(4개 신도시) 고위험 격자 Top 10 — 모델 산출 근거</h4>
 <p>출처: <code>08_격자_종합위험지수.csv</code> +
 <code>11_시설물설치_효과예측.csv</code></p>
-<div class="newpage">
 <table style="width:100%;">
 <colgroup>
 <col style="width: 14%" />
@@ -1221,7 +1358,7 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 <td>다사661445</td>
 <td>7</td>
 <td>657.67</td>
-<td>child_zone, cctv, cctv_cam 없음</td>
+<td>child_zone, CCTV 계열 인프라 없음</td>
 <td>지능형 CCTV + 보호구역 보강</td>
 <td>7</td>
 </tr>
@@ -1229,7 +1366,7 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 <td>다사645448</td>
 <td>8</td>
 <td>580.00</td>
-<td>child_zone, cctv, cctv_cam 없음</td>
+<td>child_zone, CCTV 계열 인프라 없음</td>
 <td>CCTV + 보호구역 보강</td>
 <td>8</td>
 </tr>
@@ -1237,7 +1374,7 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 <td>다바374949</td>
 <td>9</td>
 <td>578.53</td>
-<td>child_zone, speedbump, cctv, cctv_cam, bus_stop 없음</td>
+<td>child_zone, speedbump, CCTV 계열 인프라, bus_stop 없음</td>
 <td>CCTV + 과속저감 + 버스정류장 연계 보행정비</td>
 <td>9</td>
 </tr>
@@ -1251,7 +1388,7 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 </tr>
 </tbody>
 </table>
-</div>
+</section>
 <section id="하남교산-사고발생-격자-top-10-ecr-산출-결과"
 class="newpage">
 <h4>(2) 하남교산 사고발생 격자 Top 10 — ECR 산출 결과</h4>
@@ -1281,7 +1418,7 @@ class="newpage">
 <td>다사738470</td>
 <td>1</td>
 <td>310.16</td>
-<td>child_zone, speedbump, bus_stop, cctv_cam 부족</td>
+<td>child_zone, speedbump, bus_stop, CCTV 계열 인프라 부족</td>
 <td>방지턱+노면표시</td>
 <td>1</td>
 </tr>
@@ -1313,7 +1450,7 @@ class="newpage">
 <td>다사751480</td>
 <td>5</td>
 <td>159.48</td>
-<td>child_zone, cctv, cctv_cam, bus_stop 없음</td>
+<td>child_zone, CCTV 계열 인프라, bus_stop 없음</td>
 <td>지능형 CCTV</td>
 <td>5</td>
 </tr>
@@ -1321,7 +1458,7 @@ class="newpage">
 <td>다사749487</td>
 <td>6</td>
 <td>155.51</td>
-<td>crosswalk, speedbump, cctv, cctv_cam, bus_stop 없음</td>
+<td>crosswalk, speedbump, CCTV 계열 인프라, bus_stop 없음</td>
 <td>방지턱+노면표시</td>
 <td>6</td>
 </tr>
@@ -1337,7 +1474,7 @@ class="newpage">
 <td>다사742474</td>
 <td>8</td>
 <td>151.56</td>
-<td>crosswalk, child_zone, cctv, cctv_cam, bus_stop 없음</td>
+<td>crosswalk, child_zone, CCTV 계열 인프라, bus_stop 없음</td>
 <td>스마트 횡단보도</td>
 <td>8</td>
 </tr>
@@ -1345,7 +1482,7 @@ class="newpage">
 <td>다사734465</td>
 <td>9</td>
 <td>150.32</td>
-<td>crosswalk, child_zone, cctv, cctv_cam 없음</td>
+<td>crosswalk, child_zone, CCTV 계열 인프라 없음</td>
 <td>스마트 횡단보도</td>
 <td>9</td>
 </tr>
@@ -1360,11 +1497,18 @@ class="newpage">
 </tbody>
 </table>
 </section>
-<p>지도 설명 문장:</p>
-<ul>
-<li>고위험(상위 25%) 구역을 붉은색으로 표시, 공백시설 중첩 시 우선개입
-후보로 지정.</li>
-</ul>
+<div class="newpage">
+<p><em>지도 2. 적정 시설물 제안</em></p>
+<figure>
+<img src="assets/map2_시설물제안.png" alt="적정 시설물 제안" />
+<figcaption aria-hidden="true">적정 시설물 제안</figcaption>
+</figure>
+</div>
+<p><strong>지도·시각화 활용 가이드:</strong> 본 절 결과를 지도에 표시할
+경우, 4개 신도시·하남교산 각각에 대해 (1) 격자별 위험등급(고/중/저)을
+색상으로 구분하고, (2) 고위험 구역은 붉은색, 중위험은 주황색, 저위험은
+녹색 계열로 표시한다. (3) 인프라 공백이 중첩된 격자는 별도 마커 또는
+패턴으로 강조하여 우선개입 후보를 한눈에 식별할 수 있게 한다.</p>
 <h3 id="단계별-실행계획">7-3. 단계별 실행계획</h3>
 <p>1단계(즉시) — 고위험 격자 집중 해소</p>
 <ul>
@@ -1395,6 +1539,19 @@ class="newpage">
 것이 아니라 위험한 곳에 이미 설치되었기 때문이다.</li>
 <li>1개 연도 데이터만 사용하였으므로, 여러 해에 걸친 검증과 시설 설치
 전후 효과 비교가 필요하다.</li>
+<li><strong>임계값 재보정:</strong> 위험등급 경계값(111.12, 77.38)은 4개
+신도시 1,481격자 기준이다. 하남교산·다른 지역·다른 시점 데이터에 적용할
+때는 해당 데이터의 분포에 맞게 재산출이 필요하다.</li>
+<li><strong>행정 제약 반영:</strong> 예산·소유권·도로관리 주체 등 행정적
+제약이 시설 배치에 영향을 준다. 분석 결과는 우선순위 제시용이며, 실제
+배치 시 현장 조사·협의가 필요하다.</li>
+<li><strong>검증의 독립성 한계:</strong> 6장 검증은 ECR과 EPDO 순위
+일치율을 비교한다. 그런데 ECR 산식이 <span
+class="math inline">\(\text{EPDO} \times (1 +
+\text{correction\_index})\)</span>이므로, EPDO가 이미 ECR의 핵심
+입력이어서 높은 상관은 수식 구조상 당연한 결과에 가깝다. 특정 연도 제외
+후 예측 vs 실제, 또는 시설 설치 전후 효과 비교 같은 독립적 검증이 없으면
+검증의 의미가 제한적이다.</li>
 </ul>
 </body>
 </html>

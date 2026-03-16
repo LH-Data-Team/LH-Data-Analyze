@@ -14,6 +14,35 @@
 /* LH 제목 블록 제거 (중복) */
 #title-block-header { display: none !important; }
 
+/* 표지: 중앙 정렬, 여백 */
+.cover-page {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 48px 24px;
+  page-break-after: always;
+}
+.cover-page h1 {
+  font-size: 2.4em;
+  line-height: 1.4;
+  margin: 0 0 0.8em 0;
+  max-width: 95%;
+  border: none;
+  padding-bottom: 0.4em;
+  border-bottom: 3px solid var(--color-accent);
+  font-weight: 700;
+}
+.cover-page p {
+  font-size: 1.5em;
+  color: var(--color-primary);
+  margin: 0;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
 body {
   font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 11pt;
