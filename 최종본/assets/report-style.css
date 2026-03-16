@@ -1,0 +1,136 @@
+/* 공모전 제출용 보고서 스타일 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-primary: #1a365d;
+  --color-accent: #2c5282;
+  --color-text: #2d3748;
+  --color-muted: #718096;
+  --border-color: #e2e8f0;
+}
+
+* { box-sizing: border-box; }
+
+/* LH 제목 블록 제거 (중복) */
+#title-block-header { display: none !important; }
+
+/* 표지: 중앙 정렬, 여백 */
+.cover-page {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 48px 24px;
+  page-break-after: always;
+}
+.cover-page h1 {
+  font-size: 2.4em;
+  line-height: 1.4;
+  margin: 0 0 0.8em 0;
+  max-width: 95%;
+  border: none;
+  padding-bottom: 0.4em;
+  border-bottom: 3px solid var(--color-accent);
+  font-weight: 700;
+}
+.cover-page p {
+  font-size: 1.5em;
+  color: var(--color-primary);
+  margin: 0;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+body {
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11pt;
+  line-height: 1.7;
+  color: var(--color-text);
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1, h2, h3, h4 {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  page-break-after: avoid;
+}
+
+h1 { font-size: 1.5em; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.3em; }
+h2 { font-size: 1.25em; margin-top: 2em; }
+h3 { font-size: 1.1em; }
+h4 { font-size: 1em; }
+
+p { margin: 0.8em 0; }
+
+/* 표: 레이아웃 고정, 글자 깨짐 방지 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  table-layout: auto;
+}
+
+th, td {
+  border: 1px solid var(--border-color);
+  padding: 8px 10px;
+  text-align: left;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  vertical-align: top;
+}
+
+th {
+  background: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+tr:nth-child(even) { background: #f7fafc; }
+
+/* 새 페이지 시작 (표+설명 한눈에) */
+.newpage { page-break-before: always; padding-top: 0.5em; }
+
+/* 7-2 대형 표: 폰트 축소 */
+.newpage table { font-size: 8pt; }
+
+blockquote {
+  margin: 1em 0;
+  padding: 12px 20px;
+  background: #edf2f7;
+  border-left: 4px solid var(--color-accent);
+  color: var(--color-muted);
+}
+
+hr { border: none; border-top: 1px solid var(--border-color); margin: 2em 0; }
+
+code {
+  background: #edf2f7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* 수식: 노란 형광펜 제거 */
+.MathJax, .mjx-chtml, mjx-container {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.MathJax { font-size: 110% !important; }
+
+@media print {
+  body { padding: 12px; }
+  table { box-shadow: none; }
+  h4 { page-break-after: avoid; }
+}
