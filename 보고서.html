@@ -386,7 +386,6 @@ Only의 약자로, 사고의 심각도(사망·중상·경상 등)를 하나의 
 \frac{\text{weekend\_visit}}{\text{weekday\_visit} +
 \text{weekend\_visit}}
 \]</span></p>
-<div class="newpage">
 <ol start="5" type="1">
 <li>격자 평균 속도 (<code>grid_avg_speed</code>)
 <code>08_상세도로망_네트워크.geojson</code>에서 각 도로 구간이 어떤 격자
@@ -427,9 +426,9 @@ class="math inline">\(i\)</span>와 교차하는 도로 링크 집합 (avg_speed
 <li>인프라 공백 수 (<code>gap_cnt</code>) 아래 2-3-1절에서 별도로
 정의한다.</li>
 </ol>
-</div>
-<h3 id="표기-원칙-ecr-entropy_composite_risk-종합위험지수">2-2-2. 표기
-원칙 (ECR / entropy_composite_risk / 종합위험지수)</h3>
+<section id="표기-원칙-ecr-entropy_composite_risk-종합위험지수"
+class="newpage">
+<h3>2-2-2. 표기 원칙 (ECR / entropy_composite_risk / 종합위험지수)</h3>
 <p>본 보고서에서 <strong>종합위험지수</strong>, <strong>ECR</strong>,
 <strong>entropy_composite_risk</strong>는 동일한 지표를 가리킨다. 산식은
 <span class="math inline">\(\text{EPDO}_i \times (1 +
@@ -457,8 +456,9 @@ class="math inline">\(i\)</span>와 교차하는 도로 링크 집합 (avg_speed
 </tr>
 </tbody>
 </table>
-<section id="인프라-변수-정의데이터-1421" class="newpage">
-<h3>2-3. 인프라 변수 정의(데이터 14~21)</h3>
+</section>
+<h3 id="인프라-변수-정의데이터-1421">2-3. 인프라 변수 정의(데이터
+14~21)</h3>
 <table>
 <thead>
 <tr>
@@ -512,7 +512,6 @@ class="math inline">\(i\)</span>와 교차하는 도로 링크 집합 (avg_speed
 </table>
 <p>해석: 각 격자 안에 안전시설이 얼마나 갖추어져 있는지를 나타내는
 지표로 사용하였다.</p>
-</section>
 <section id="인프라-공백-지표-정의-gap_cnt" class="newpage">
 <h4>2-3-1. 인프라 공백 지표 정의 (<code>gap_cnt</code>)</h4>
 <p>안전시설이 얼마나 부족한지를 숫자로 표현하기 위해, 안전시설 6종을
@@ -1096,7 +1095,9 @@ class="math inline">\(w\_{\text{entropy},j}\)</span> )</th>
 속하는지를 판별하여 도출했으며, 위험등급은 4개 신도시와 동일한 기준을
 적용했다.</p>
 </blockquote>
-<hr />
+<div style="page-break-before: always;">
+
+</div>
 <h2 id="최종-결과-및-해석">5. 최종 결과 및 해석</h2>
 <h3 id="주요-수치-결과">5-1. 주요 수치 결과</h3>
 <ul>
@@ -1105,16 +1106,17 @@ class="math inline">\(w\_{\text{entropy},j}\)</span> )</th>
 <li>종합위험지수 산출 격자 수(4개 신도시): 1,481개
 (<code>08_격자_종합위험지수.csv</code>)
 <ul>
-<li>위험등급 분포: 고위험 371개 / 중위험 740개 / 저위험 370개</li>
-<li>등급 기준: 111.12 이상 = 고위험(상위 25%) / 77.38~111.12 =
-중위험(중간 50%) / 77.38 미만 = 저위험(하위 25%)</li>
-<li><code>entropy_composite_risk</code> 정의: 격자별 사고 심각도(EPDO)에
-환경 보정을 곱한 종합 위험지수. 산식은 <span
+<li><p>위험등급 분포: 고위험 371개 / 중위험 740개 / 저위험
+370개</p></li>
+<li><p>등급 기준: 111.12 이상 = 고위험(상위 25%) / 77.38~111.12 =
+중위험(중간 50%) / 77.38 미만 = 저위험(하위 25%)</p></li>
+<li><p><code>entropy_composite_risk</code> 정의: 격자별 사고
+심각도(EPDO)에 환경 보정을 곱한 종합 위험지수. 산식은 <span
 class="math inline">\(\text{EPDO}_i \times (1 +
 \text{correction\_index}_i)\)</span>이며,
 <code>correction_index</code>는 7개 파생 변수(노인 비율, 취약시간대 인구
 등)를 min-max 정규화한 뒤 엔트로피 가중치로 가중합산한 값이다. 상세
-로직은 4-3-1절 참조.</li>
+로직은 4-3-1절 참조.</p></li>
 </ul></li>
 <li>하남교산 블록유형 기반 예측 격자 수: 770개
 (<code>08_하남교산_예측위험도.csv</code>)
@@ -1133,10 +1135,9 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 적용): 고위험 9개 / 중위험 0개 / 저위험 32개</li>
 </ul></li>
 <li><strong>하남교산 적정 시설물 제안</strong>
-(<code>08_하남교산_사고격자_시설제안.csv</code>,
-<code>12_facility_recommendation</code>): 41개 격자에 격자별 시설 제안
-도출. 방지턱+노면표시 26개소, 어린이보호구역 보강 4개소, 스마트 횡단보도
-4개소, 지능형 CCTV 1개소 등. 7-2절 지도 2 참조.</li>
+(<code>08_하남교산_사고격자_시설제안.csv</code>): 41개 격자에 격자별
+시설 제안 도출. 방지턱+노면표시 26개소, 어린이보호구역 보강 4개소,
+스마트 횡단보도 4개소, 지능형 CCTV 1개소 등. 7-2절 지도 2 참조.</li>
 </ul>
 <h3 id="해석">5-2. 해석</h3>
 <ol type="1">
@@ -1162,8 +1163,8 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 <li><code>elderly_res_ratio</code>가 엔트로피 기준 핵심 변수로 확인되며,
 고령자 보행 동선 중심 정책 설계가 필요하다.</li>
 </ul>
-<hr />
-<h2 id="검증-결과">6. 검증 결과</h2>
+<section id="검증-결과" class="newpage">
+<h2>6. 검증 결과</h2>
 <p>단순 사고 심각도(EPDO) 순위와 종합 위험지수(entropy_composite_risk)
 순위가 얼마나 일치하는지를 비교하여, 종합 위험지수가 실제 사고 위험을 잘
 반영하는지 검증하였다 (4개 신도시 1,481개 격자 대상).</p>
@@ -1209,8 +1210,7 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 일치하여, 위험 지역을 정확하게 식별하고 있으며 정책 우선순위 도구로
 신뢰할 수 있다.</li>
 </ul>
-<section id="재현성-점검-항목" class="newpage">
-<h4>재현성 점검 항목</h4>
+<h4 id="재현성-점검-항목">재현성 점검 항목</h4>
 <p>분석 재현 및 활용 시 아래 항목을 관리한다.</p>
 <table>
 <colgroup>
@@ -1249,8 +1249,8 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 </table>
 <p>다른 지역·시점에 적용 시 임계값 재보정이 필요하다(8장 한계 참조).</p>
 </section>
-<hr />
-<h2 id="정책-적용-방안">7. 정책 적용 방안</h2>
+<section id="정책-적용-방안" class="newpage">
+<h2>7. 정책 적용 방안</h2>
 <h3 id="스마트-교통시설-설치-의사결정-규칙">7-1. 스마트 교통시설 설치
 의사결정 규칙</h3>
 <table>
@@ -1316,6 +1316,8 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 신도시에서 같은 종류의 땅(주거지, 상업지 등)이 얼마나 위험했는지”를
 기준으로 예측<br />
 → 고위험 85개 / 중위험 558개 / 저위험 127개</p>
+</section>
+<div class="newpage">
 <p><strong>정책 적용 시 판단 기준:</strong> 사고가 발생한 격자(41개)는 ①
 사고 기반 결과를 우선 사용한다. 사고가 없는 격자(729개)는 ② 토지이용
 기반 예측 결과로만 평가한다. 즉, ①은 “실제 사고가 난 곳”의 위험도를, ②는
@@ -1327,6 +1329,7 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 <img src="assets/map1_위험도.png" alt="교통사고 발생 구역의 위험도" />
 <figcaption aria-hidden="true">교통사고 발생 구역의 위험도</figcaption>
 </figure>
+</div>
 <section id="분석대상지4개-신도시-고위험-격자-top-10-모델-산출-근거"
 class="newpage">
 <h4>(1) 분석대상지(4개 신도시) 고위험 격자 Top 10 — 모델 산출 근거</h4>
