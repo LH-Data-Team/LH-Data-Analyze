@@ -1,0 +1,1482 @@
+install_priority,grid_gid,epdo_before,accident_cnt,사망_cnt,중상_cnt,gap_cnt,missing_facilities,total_reduction_pct,epdo_after,epdo_saved,efficiency,entropy_rank,entropy_risk
+1,다사685437,569.0,8,1,2,1,child_zone_cnt,25.0,426.75,142.25,142.25,4,713.68
+2,다사675380,622.0,7,1,3,2,child_zone_cnt | crosswalk_cnt,36.25,396.52,225.48,112.74,2,790.36
+3,다사633451,407.0,3,1,0,1,child_zone_cnt,25.0,305.25,101.75,101.75,31,463.03
+4,다사476042,461.0,3,1,1,2,child_zone_cnt | speedbump_cnt,40.0,276.6,184.4,92.2,19,503.69
+5,다사672369,558.0,13,1,2,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,284.58,273.42,91.14,5,662.32
+6,다사671371,535.0,22,0,6,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,295.32,239.68,79.8933,3,735.16
+7,다사672368,531.0,25,0,6,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,293.11,237.89,79.2967,1,854.04
+8,다사661445,606.0,5,1,3,3,cctv_cam_cnt | cctv_cnt | child_zone_cnt,37.3,379.96,226.04,75.3467,7,657.67
+9,다사661436,484.0,5,1,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,267.17,216.83,72.2767,10,538.13
+10,다사752493,460.0,2,1,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,253.92,206.08,68.6933,21,492.18
+11,다사729514,439.0,9,1,0,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,242.33,196.67,65.5567,15,512.85
+12,다사662432,416.0,5,1,0,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,229.63,186.37,62.1233,11,532.2
+13,다사690383,415.0,4,1,0,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,229.08,185.92,61.9733,12,524.34
+14,다사684434,415.0,4,1,0,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,229.08,185.92,61.9733,17,508.29
+15,다사645448,485.0,6,1,1,3,cctv_cam_cnt | cctv_cnt | child_zone_cnt,37.3,304.1,180.9,60.3,8,580.0
+16,다사696385,585.0,10,1,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,229.47,355.53,59.255,6,661.12
+17,다사399111,391.0,1,1,0,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,215.83,175.17,58.39,39,436.35
+18,다사738493,231.0,8,0,3,1,child_zone_cnt,25.0,173.25,57.75,57.75,87,258.89
+19,다바374949,529.0,3,1,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,244.12,284.88,56.976,9,578.53
+20,다사693442,399.0,2,1,0,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,234.01,164.99,54.9967,22,490.62
+21,다사687300,391.0,1,1,0,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,229.32,161.68,53.8933,24,473.54
+22,다사735489,391.0,1,1,0,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,229.32,161.68,53.8933,20,494.76
+23,다사645348,423.0,5,1,0,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,212.18,210.82,52.705,30,465.65
+24,다사669422,261.0,11,0,3,2,child_zone_cnt | speedbump_cnt,40.0,156.6,104.4,52.2,72,304.1
+25,다사673366,391.0,1,1,0,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,183.46,207.54,51.885,23,474.7
+26,다사544113,391.0,1,1,0,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,183.46,207.54,51.885,47,427.19
+27,다사644123,256.0,12,0,3,2,child_zone_cnt | speedbump_cnt,40.0,153.6,102.4,51.2,80,268.72
+28,다사312118,468.0,3,1,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,215.97,252.03,50.406,16,511.48
+29,다사591123,399.0,2,1,0,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,200.14,198.86,49.715,27,470.86
+30,다사654266,391.0,1,1,0,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,196.13,194.87,48.7175,37,437.33
+31,다사652396,391.0,1,1,0,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,196.13,194.87,48.7175,48,426.9
+32,다사670371,405.0,3,1,0,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,212.38,192.62,48.155,18,505.97
+33,다사670419,321.0,19,0,3,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,177.19,143.81,47.9367,64,353.34
+34,다사733496,239.0,7,0,3,2,child_zone_cnt | speedbump_cnt,40.0,143.4,95.6,47.8,85,260.74
+35,다사660436,231.0,6,0,3,2,child_zone_cnt | speedbump_cnt,40.0,138.6,92.4,46.2,92,249.33
+36,다사662446,292.0,6,0,4,2,bus_stop_cnt | child_zone_cnt,31.0,201.48,90.52,45.26,67,344.05
+37,다사710359,391.0,1,1,0,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,166.71,224.29,44.858,50,422.35
+38,다사455003,391.0,1,1,0,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,166.71,224.29,44.858,56,414.74
+39,다사489061,391.0,1,1,0,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,166.71,224.29,44.858,36,440.54
+40,다사370008,391.0,1,1,0,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,166.71,224.29,44.858,59,402.84
+41,다사653311,348.0,13,0,4,4,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,51.55,168.61,179.39,44.8475,61,379.96
+42,다사657444,415.0,4,1,0,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,191.51,223.49,44.698,14,515.29
+43,다사685378,178.0,7,0,2,1,child_zone_cnt,25.0,133.5,44.5,44.5,131,196.58
+44,다사671372,286.0,17,0,3,2,bus_stop_cnt | child_zone_cnt,31.0,197.34,88.66,44.33,68,327.66
+45,다사726482,424.0,6,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,166.31,257.69,42.9483,28,470.08
+46,다사657450,391.0,1,1,0,2,bus_stop_cnt | crosswalk_cnt,21.8,305.76,85.24,42.62,33,460.13
+47,다사671358,339.0,14,0,4,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,170.04,168.96,42.24,63,363.04
+48,다사649463,391.0,1,1,0,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,180.44,210.56,42.112,32,460.41
+49,다사664462,391.0,1,1,0,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,180.44,210.56,42.112,53,419.18
+50,다사667411,391.0,1,1,0,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,180.44,210.56,42.112,54,418.23
+51,다사667452,391.0,1,1,0,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,180.44,210.56,42.112,57,411.67
+52,다사718504,391.0,1,1,0,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,180.44,210.56,42.112,40,435.67
+53,다사670413,210.0,11,0,2,2,child_zone_cnt | speedbump_cnt,40.0,126.0,84.0,42.0,101,231.59
+54,다사724512,292.0,6,0,4,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,166.44,125.56,41.8533,71,311.94
+55,다사678380,230.0,7,0,3,2,child_zone_cnt | crosswalk_cnt,36.25,146.62,83.38,41.69,75,287.67
+56,다사734492,207.0,3,0,3,2,child_zone_cnt | speedbump_cnt,40.0,124.2,82.8,41.4,84,261.6
+57,다사669386,397.0,2,1,0,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,194.65,202.35,40.47,13,515.44
+58,다사584129,399.0,2,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,156.51,242.49,40.415,35,445.31
+59,다사684373,391.0,1,1,0,4,bus_stop_cnt | cctv_cam_cnt | crosswalk_cnt | speedbump_cnt,40.57,232.38,158.62,39.655,29,467.02
+60,다사667347,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,52,421.72
+61,다사665307,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,25,472.99
+62,다사658331,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,26,472.04
+63,다사657359,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,45,429.31
+64,다사668410,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,44,432.18
+65,다사544081,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,41,435.21
+66,다사405115,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,51,421.81
+67,다사407137,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,38,436.93
+68,다사469215,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,58,406.46
+69,다사409194,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,55,414.84
+70,다사501021,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,49,425.21
+71,다사443099,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,42,435.11
+72,다사501163,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,46,427.81
+73,다사438091,391.0,1,1,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,153.37,237.63,39.605,43,432.24
+74,다사671375,230.0,7,0,3,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,117.3,112.7,37.5667,77,283.94
+75,다사645097,251.0,10,0,3,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,138.55,112.45,37.4833,82,265.42
+76,다사637450,146.0,3,0,2,1,child_zone_cnt,25.0,109.5,36.5,36.5,179,175.11
+77,다사635446,146.0,3,0,2,1,child_zone_cnt,25.0,109.5,36.5,36.5,212,166.66
+78,다사683445,146.0,3,0,2,1,child_zone_cnt,25.0,109.5,36.5,36.5,197,171.39
+79,다사739488,182.0,9,0,2,2,child_zone_cnt | speedbump_cnt,40.0,109.2,72.8,36.4,95,246.53
+80,다사661423,322.0,10,0,4,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,148.59,173.41,34.682,65,349.27
+81,다사671348,191.0,11,0,2,2,child_zone_cnt | crosswalk_cnt,36.25,121.76,69.24,34.62,88,255.58
+82,다사665425,171.0,7,0,2,2,child_zone_cnt | speedbump_cnt,40.0,102.6,68.4,34.2,134,192.03
+83,다사652297,170.0,7,0,2,2,child_zone_cnt | speedbump_cnt,40.0,102.0,68.0,34.0,120,205.08
+84,다사667426,310.0,10,0,4,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,143.06,166.94,33.388,66,347.86
+85,다사640459,164.0,14,0,1,2,child_zone_cnt | speedbump_cnt,40.0,98.4,65.6,32.8,171,177.81
+86,다사664433,163.0,7,0,2,2,child_zone_cnt | speedbump_cnt,40.0,97.8,65.2,32.6,153,186.17
+87,다사676386,162.0,6,0,2,2,child_zone_cnt | speedbump_cnt,40.0,97.2,64.8,32.4,115,206.89
+88,다사727520,162.0,6,0,2,2,child_zone_cnt | speedbump_cnt,40.0,97.2,64.8,32.4,182,174.6
+89,다사569119,162.0,5,0,2,2,child_zone_cnt | speedbump_cnt,40.0,97.2,64.8,32.4,175,176.81
+90,다사586121,162.0,6,0,2,2,child_zone_cnt | speedbump_cnt,40.0,97.2,64.8,32.4,86,259.3
+91,다사654462,207.0,19,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,142.83,64.17,32.085,93,249.31
+92,다사647460,160.0,5,0,2,2,child_zone_cnt | speedbump_cnt,40.0,96.0,64.0,32.0,129,197.69
+93,다사620105,160.0,6,0,2,2,child_zone_cnt | speedbump_cnt,40.0,96.0,64.0,32.0,178,175.14
+94,다사659112,212.0,13,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,117.02,94.98,31.66,102,224.57
+95,다사646460,293.0,14,0,3,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,135.21,157.79,31.558,60,394.62
+96,다사673440,407.0,3,1,0,3,bus_stop_cnt | cctv_cam_cnt | cctv_cnt,23.09,313.03,93.97,31.3233,34,451.7
+97,다사726520,261.0,10,0,3,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,136.87,124.13,31.0325,76,284.49
+98,다사658443,286.0,14,0,3,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,131.98,154.02,30.804,70,313.57
+99,다사677443,154.0,4,0,2,2,child_zone_cnt | speedbump_cnt,40.0,92.4,61.6,30.8,127,199.64
+100,다사669449,154.0,4,0,2,2,child_zone_cnt | speedbump_cnt,40.0,92.4,61.6,30.8,148,187.32
+101,다사588122,154.0,4,0,2,2,child_zone_cnt | speedbump_cnt,40.0,92.4,61.6,30.8,204,168.66
+102,다사646129,232.0,7,0,3,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,108.85,123.15,30.7875,90,251.93
+103,다사633458,201.0,11,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,110.95,90.05,30.0167,97,242.71
+104,다사696384,249.0,18,0,2,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,130.58,118.42,29.605,62,376.76
+105,다사669455,147.0,4,0,2,2,child_zone_cnt | speedbump_cnt,40.0,88.2,58.8,29.4,210,167.33
+106,다사682376,189.0,12,0,2,2,bus_stop_cnt | child_zone_cnt,31.0,130.41,58.59,29.295,108,219.01
+107,다사587122,195.0,13,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,107.64,87.36,29.12,107,220.82
+108,다사653461,194.0,9,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,107.09,86.91,28.97,103,224.56
+109,다사653447,192.0,9,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,105.98,86.02,28.6733,78,281.14
+110,다사590126,191.0,10,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,105.43,85.57,28.5233,111,213.45
+111,다사692382,254.0,17,0,2,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,113.22,140.78,28.156,69,317.14
+112,다사654434,186.0,8,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,102.67,83.33,27.7767,128,198.26
+113,다사758483,222.0,13,0,2,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,111.36,110.64,27.66,96,243.84
+114,다사718530,138.0,2,0,2,2,child_zone_cnt | speedbump_cnt,40.0,82.8,55.2,27.6,219,161.34
+115,다사651450,109.0,7,0,1,1,child_zone_cnt,25.0,81.75,27.25,27.25,288,134.55
+116,다사558115,187.0,9,0,2,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,106.59,80.41,26.8033,117,205.51
+117,다사627132,215.0,4,0,3,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,107.84,107.16,26.79,99,238.35
+118,다사671345,263.0,11,0,3,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,103.16,159.84,26.64,74,291.86
+119,다사676469,178.0,7,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,98.26,79.74,26.58,135,191.41
+120,다사649439,178.0,7,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,98.26,79.74,26.58,146,187.5
+121,다사623120,177.0,15,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,97.7,79.3,26.4333,137,190.42
+122,다사656307,237.0,7,0,3,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,105.64,131.36,26.272,89,252.31
+123,다사663325,202.0,12,0,2,4,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,51.55,97.87,104.13,26.0325,106,221.28
+124,다사662438,240.0,8,0,3,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,110.75,129.25,25.85,73,292.65
+125,다사617103,171.0,7,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,94.39,76.61,25.5367,116,206.78
+126,다사616111,171.0,14,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,94.39,76.61,25.5367,166,179.9
+127,다사660314,178.0,7,0,2,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,101.46,76.54,25.5133,121,204.18
+128,다사681453,240.0,8,0,3,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt,42.32,138.44,101.56,25.39,83,264.27
+129,다사685379,229.0,6,0,3,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,102.07,126.93,25.386,79,269.56
+130,다사627459,169.0,17,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,93.29,75.71,25.2367,133,192.08
+131,다사626451,162.0,5,0,2,2,bus_stop_cnt | child_zone_cnt,31.0,111.78,50.22,25.11,192,172.12
+132,다사662453,162.0,6,0,2,2,bus_stop_cnt | child_zone_cnt,31.0,111.78,50.22,25.11,125,200.35
+133,다사684381,125.0,9,0,1,2,child_zone_cnt | speedbump_cnt,40.0,75.0,50.0,25.0,236,157.2
+134,다사634456,125.0,8,0,1,2,child_zone_cnt | speedbump_cnt,40.0,75.0,50.0,25.0,246,151.6
+135,다사593129,125.0,8,0,1,2,child_zone_cnt | speedbump_cnt,40.0,75.0,50.0,25.0,168,178.7
+136,다사666430,231.0,8,0,3,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,106.6,124.4,24.88,81,265.64
+137,다사671459,231.0,6,0,3,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,106.6,124.4,24.88,94,247.72
+138,다사671347,99.0,7,0,1,1,child_zone_cnt,25.0,74.25,24.75,24.75,301,129.86
+139,다사629452,99.0,5,0,1,1,child_zone_cnt,25.0,74.25,24.75,24.75,340,117.07
+140,다사653264,223.0,6,0,3,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,99.4,123.6,24.72,98,241.02
+141,다사676430,123.0,8,0,1,2,child_zone_cnt | speedbump_cnt,40.0,73.8,49.2,24.6,247,151.55
+142,다사720500,123.0,8,0,1,2,child_zone_cnt | speedbump_cnt,40.0,73.8,49.2,24.6,279,139.28
+143,다사644109,162.0,5,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,89.42,72.58,24.1933,158,184.42
+144,다사656117,162.0,7,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,89.42,72.58,24.1933,195,171.47
+145,다사655121,162.0,5,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,89.42,72.58,24.1933,205,168.57
+146,다사670379,148.0,12,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,75.48,72.52,24.1733,145,187.59
+147,다사652452,160.0,5,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,88.32,71.68,23.8933,149,187.27
+148,다사729513,119.0,9,0,1,2,child_zone_cnt | speedbump_cnt,40.0,71.4,47.6,23.8,293,132.09
+149,다사654458,179.0,8,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,83.99,95.01,23.7525,105,223.55
+150,다사658317,232.0,7,0,3,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,91.0,141.0,23.5,91,251.35
+151,다사727512,117.0,7,0,1,2,child_zone_cnt | speedbump_cnt,40.0,70.2,46.8,23.4,303,128.94
+152,다사638445,93.0,4,0,1,1,child_zone_cnt,25.0,69.75,23.25,23.25,390,109.02
+153,다사653451,155.0,5,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,85.56,69.44,23.1467,170,178.0
+154,다사592128,115.0,7,0,1,2,child_zone_cnt | speedbump_cnt,40.0,69.0,46.0,23.0,291,133.19
+155,다사666488,154.0,4,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,85.01,68.99,22.9967,113,209.84
+156,다사621121,154.0,4,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,85.01,68.99,22.9967,189,172.79
+157,다사651453,160.0,5,0,2,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,91.2,68.8,22.9333,162,182.15
+158,다사741491,153.0,5,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,84.46,68.54,22.8467,126,199.77
+159,다사644463,211.0,12,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,97.37,113.63,22.726,100,237.45
+160,다사654463,152.0,4,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,83.9,68.1,22.7,169,178.1
+161,다사673382,146.0,3,0,2,2,bus_stop_cnt | child_zone_cnt,31.0,100.74,45.26,22.63,147,187.33
+162,다사755477,138.0,2,0,2,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,70.38,67.62,22.54,265,146.04
+163,다사543138,138.0,2,0,2,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,70.38,67.62,22.54,207,167.92
+164,다사616112,138.0,2,0,2,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,70.38,67.62,22.54,230,158.19
+165,다사638123,149.0,13,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,82.25,66.75,22.25,218,163.44
+166,다사620457,141.0,10,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,97.29,43.71,21.855,254,149.92
+167,다사699380,146.0,3,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,80.59,65.41,21.8033,157,184.82
+168,다사723506,146.0,3,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,80.59,65.41,21.8033,234,157.54
+169,다사694383,109.0,6,0,1,2,child_zone_cnt | speedbump_cnt,40.0,65.4,43.6,21.8,201,170.54
+170,다사692381,163.0,6,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,76.48,86.52,21.63,173,177.01
+171,다사663437,173.0,9,0,2,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,86.78,86.22,21.555,122,203.5
+172,다사733495,86.0,4,0,1,1,child_zone_cnt,25.0,64.5,21.5,21.5,410,106.67
+173,다사740488,162.0,5,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,76.01,85.99,21.4975,123,202.26
+174,다사664441,138.0,2,0,2,2,bus_stop_cnt | child_zone_cnt,31.0,95.22,42.78,21.39,163,181.06
+175,다사667428,138.0,2,0,2,2,bus_stop_cnt | child_zone_cnt,31.0,95.22,42.78,21.39,186,173.49
+176,다사669298,85.0,3,0,1,1,child_zone_cnt,25.0,63.75,21.25,21.25,514,97.94
+177,다사687444,85.0,3,0,1,1,child_zone_cnt,25.0,63.75,21.25,21.25,363,111.86
+178,다사668459,85.0,3,0,1,1,child_zone_cnt,25.0,63.75,21.25,21.25,329,119.83
+179,다사651451,170.0,6,0,2,3,cctv_cam_cnt | cctv_cnt | child_zone_cnt,37.3,106.59,63.41,21.1367,141,188.5
+180,다사671448,169.0,7,0,2,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,84.77,84.23,21.0575,143,187.73
+181,다사650082,195.0,10,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,89.99,105.01,21.002,109,216.25
+182,다사656435,140.0,4,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,77.28,62.72,20.9067,248,151.25
+183,다사664439,138.0,2,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,76.18,61.82,20.6067,224,159.91
+184,다사735514,138.0,2,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,76.18,61.82,20.6067,258,147.42
+185,다사603115,138.0,2,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,76.18,61.82,20.6067,264,146.13
+186,다사402114,138.0,2,0,2,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,76.18,61.82,20.6067,231,158.14
+187,다사624109,103.0,7,0,1,1,speedbump_cnt,20.0,82.4,20.6,20.6,380,109.97
+188,다사673371,126.0,16,0,0,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,64.26,61.74,20.58,226,158.86
+189,다사654338,154.0,4,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,72.26,81.74,20.435,181,174.61
+190,다사667430,154.0,4,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,72.26,81.74,20.435,161,182.47
+191,다사479029,154.0,4,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,72.26,81.74,20.435,124,201.53
+192,다사666486,101.0,5,0,1,2,child_zone_cnt | speedbump_cnt,40.0,60.6,40.4,20.2,306,128.45
+193,다사694387,146.0,3,0,2,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,85.63,60.37,20.1233,159,183.52
+194,다사657338,179.0,8,0,2,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,79.79,99.21,19.842,132,193.01
+195,다사657330,178.0,8,0,2,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,79.34,98.66,19.732,118,205.41
+196,다사661463,147.0,4,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,68.97,78.03,19.5075,130,197.45
+197,다사634448,147.0,4,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,68.97,78.03,19.5075,202,170.47
+198,다사695384,156.0,6,0,2,3,cctv_cam_cnt | cctv_cnt | child_zone_cnt,37.3,97.81,58.19,19.3967,188,173.07
+199,다사729481,146.0,3,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,68.5,77.5,19.375,222,160.85
+200,다사403113,179.0,8,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,82.6,96.4,19.28,119,205.18
+201,다사671369,118.0,9,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,60.18,57.82,19.2733,249,151.17
+202,다사667456,77.0,2,0,1,1,child_zone_cnt,25.0,57.75,19.25,19.25,764,86.43
+203,다사733493,77.0,2,0,1,1,child_zone_cnt,25.0,57.75,19.25,19.25,504,98.46
+204,다사670397,144.0,3,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,67.56,76.44,19.11,184,173.55
+205,다사671368,117.0,8,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,59.67,57.33,19.11,172,177.07
+206,다사618124,177.0,8,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,81.68,95.32,19.064,140,189.44
+207,다사660324,138.0,2,0,2,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,80.94,57.06,19.02,176,175.86
+208,다사741488,138.0,2,0,2,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,80.94,57.06,19.02,190,172.32
+209,다사685445,76.0,3,0,1,1,child_zone_cnt,25.0,57.0,19.0,19.0,518,97.72
+210,다사633461,178.0,7,0,2,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt,42.32,102.68,75.32,18.83,112,211.55
+211,다사652463,151.0,13,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,75.74,75.26,18.815,191,172.28
+212,다사656457,94.0,5,0,1,2,child_zone_cnt | speedbump_cnt,40.0,56.4,37.6,18.8,386,109.29
+213,다사638454,125.0,10,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,69.0,56.0,18.6667,280,139.13
+214,다사695382,93.0,4,0,1,2,child_zone_cnt | speedbump_cnt,40.0,55.8,37.2,18.6,327,120.17
+215,다사644453,93.0,4,0,1,2,child_zone_cnt | speedbump_cnt,40.0,55.8,37.2,18.6,463,101.5
+216,다사739489,93.0,5,0,1,2,child_zone_cnt | speedbump_cnt,40.0,55.8,37.2,18.6,322,122.66
+217,다사368117,93.0,4,0,1,2,child_zone_cnt | speedbump_cnt,40.0,55.8,37.2,18.6,477,100.5
+218,다사642452,139.0,3,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,65.22,73.78,18.445,221,161.15
+219,다사635450,92.0,5,0,1,2,child_zone_cnt | speedbump_cnt,40.0,55.2,36.8,18.4,369,111.08
+220,다사647359,157.0,12,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,83.67,73.33,18.3325,200,170.73
+221,다사655308,147.0,4,0,2,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,73.74,73.26,18.315,151,186.9
+222,다사690379,138.0,2,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,64.75,73.25,18.3125,208,167.7
+223,다사407119,138.0,2,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,64.75,73.25,18.3125,241,154.78
+224,다사582119,138.0,2,0,2,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,64.75,73.25,18.3125,250,151.08
+225,다사722519,170.0,6,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,78.45,91.55,18.31,160,182.74
+226,다사542113,170.0,6,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,78.45,91.55,18.31,156,185.04
+227,다사652458,91.0,4,0,1,2,child_zone_cnt | speedbump_cnt,40.0,54.6,36.4,18.2,491,99.5
+228,다사583123,91.0,4,0,1,2,child_zone_cnt | speedbump_cnt,40.0,54.6,36.4,18.2,277,140.88
+229,다사722501,153.0,15,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,80.23,72.77,18.1925,211,167.11
+230,다사663280,146.0,3,0,2,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,73.23,72.77,18.1925,238,155.79
+231,다사685438,117.0,7,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,80.73,36.27,18.135,273,142.58
+232,다사657465,90.0,6,0,1,2,child_zone_cnt | speedbump_cnt,40.0,54.0,36.0,18.0,473,100.68
+233,다사666279,162.0,5,0,2,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,72.21,89.79,17.958,164,180.39
+234,다사676373,176.0,7,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,86.3,89.7,17.94,138,190.16
+235,다사646461,143.0,12,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,71.73,71.27,17.8175,174,176.84
+236,다사704401,155.0,5,0,2,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,66.09,88.91,17.782,206,168.19
+237,다사669394,154.0,4,0,2,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,65.66,88.34,17.668,185,173.53
+238,다사664428,154.0,4,0,2,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,65.66,88.34,17.668,139,189.84
+239,다사637452,70.0,2,0,1,1,child_zone_cnt,25.0,52.5,17.5,17.5,843,84.39
+240,다사396132,117.0,7,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,64.58,52.42,17.4733,307,128.34
+241,다사728517,87.0,5,0,1,2,child_zone_cnt | speedbump_cnt,40.0,52.2,34.8,17.4,581,94.24
+242,다사663438,139.0,3,0,2,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,69.72,69.28,17.32,155,185.1
+243,다사679343,69.0,1,0,1,1,child_zone_cnt,25.0,51.75,17.25,17.25,1447,72.4
+244,다사635449,69.0,1,0,1,1,child_zone_cnt,25.0,51.75,17.25,17.25,1023,79.26
+245,다사677437,69.0,1,0,1,1,child_zone_cnt,25.0,51.75,17.25,17.25,742,86.8
+246,다사671454,69.0,1,0,1,1,child_zone_cnt,25.0,51.75,17.25,17.25,624,91.76
+247,다사678446,69.0,1,0,1,1,child_zone_cnt,25.0,51.75,17.25,17.25,1357,73.81
+248,다사631320,170.0,6,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,66.68,103.32,17.22,150,187.22
+249,다사667318,170.0,6,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,66.68,103.32,17.22,114,207.75
+250,다사657445,86.0,4,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.6,34.4,17.2,532,96.97
+251,다사653275,138.0,2,0,2,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,69.22,68.78,17.195,263,146.19
+252,다사670448,138.0,3,0,2,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,69.22,68.78,17.195,229,158.49
+253,다사667412,138.0,2,0,2,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,69.22,68.78,17.195,253,150.17
+254,다사609117,138.0,2,0,2,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,69.22,68.78,17.195,252,150.36
+255,다사664316,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,516,97.78
+256,다사701379,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,385,109.42
+257,다사697374,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,336,117.97
+258,다사637453,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,375,110.71
+259,다사656455,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,378,110.1
+260,다사571119,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,631,91.53
+261,다사337127,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,616,92.08
+262,다사591130,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,471,100.81
+263,다사644118,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,675,89.35
+264,다사611123,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,542,96.26
+265,다사541078,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,393,108.53
+266,다바395986,85.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,51.0,34.0,17.0,290,133.78
+267,다사699371,131.0,11,0,1,4,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,51.55,63.47,67.53,16.8825,267,145.49
+268,다사647461,103.0,7,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,52.53,50.47,16.8233,269,144.61
+269,다사661454,156.0,6,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,71.99,84.01,16.802,187,173.21
+270,다사673367,84.0,4,0,1,2,child_zone_cnt | speedbump_cnt,40.0,50.4,33.6,16.8,432,104.02
+271,다사588129,84.0,4,0,1,2,child_zone_cnt | speedbump_cnt,40.0,50.4,33.6,16.8,522,97.56
+272,다사655309,146.0,3,0,2,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,62.25,83.75,16.75,183,174.1
+273,다사670416,146.0,3,0,2,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,62.25,83.75,16.75,220,161.17
+274,다사653359,102.0,6,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,52.02,49.98,16.66,381,109.92
+275,다사514133,83.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,49.8,33.2,16.6,536,96.71
+276,다사625097,83.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,49.8,33.2,16.6,717,87.86
+277,다사683383,125.0,10,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,58.65,66.35,16.5875,256,149.0
+278,다사725520,154.0,5,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,71.07,82.93,16.586,110,213.73
+279,다사595126,154.0,4,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,71.07,82.93,16.586,217,163.63
+280,다사657325,101.0,5,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,51.51,49.49,16.4967,308,128.07
+281,다사674372,162.0,5,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,63.54,98.46,16.41,136,190.72
+282,다사689463,162.0,5,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,63.54,98.46,16.41,104,223.82
+283,다사738470,138.0,2,0,2,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,72.37,65.63,16.4075,266,146.02
+284,다사659468,124.0,10,0,1,2,bus_stop_cnt | speedbump_cnt,26.4,91.26,32.74,16.37,289,133.78
+285,다사680373,161.0,6,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,63.15,97.85,16.3083,142,187.81
+286,다사659462,109.0,6,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,60.17,48.83,16.2767,310,127.52
+287,다사623321,147.0,4,0,2,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt,44.28,81.9,65.1,16.275,203,169.18
+288,다사651075,151.0,13,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,69.68,81.32,16.264,215,165.17
+289,다사668371,146.0,3,0,2,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,65.08,80.92,16.184,242,154.55
+290,다사721500,99.0,6,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,50.49,48.51,16.17,355,113.14
+291,다사648461,108.0,7,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,59.62,48.38,16.1267,255,149.47
+292,다사662084,121.0,8,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,56.77,64.23,16.0575,302,129.12
+293,다사680382,107.0,6,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,59.06,47.94,15.98,298,130.73
+294,다사737491,144.0,3,0,2,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt,44.28,80.23,63.77,15.9425,199,170.82
+295,다사669390,138.0,2,0,2,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,58.84,79.16,15.832,225,159.37
+296,다사669426,146.0,3,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,67.37,78.63,15.726,223,160.52
+297,다사758484,146.0,3,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,67.37,78.63,15.726,228,158.53
+298,다사661440,109.0,6,0,1,2,cctv_cam_cnt | child_zone_cnt,28.75,77.66,31.34,15.67,286,136.03
+299,다사672366,141.0,10,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,62.85,78.15,15.63,152,186.5
+300,다사661357,78.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.8,31.2,15.6,940,82.26
+301,다사595129,78.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.8,31.2,15.6,674,89.46
+302,다사620120,78.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.8,31.2,15.6,691,88.92
+303,다사665315,117.0,7,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,54.9,62.1,15.525,274,141.46
+304,다사661078,144.0,3,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,66.45,77.55,15.51,235,157.26
+305,다사657329,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,530,97.04
+306,다사688384,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,506,98.38
+307,다사675385,77.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,512,98.01
+308,다사647444,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,545,95.85
+309,다사663462,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,633,91.51
+310,다사649461,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,382,109.83
+311,다사740506,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,922,82.56
+312,다사400111,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,780,85.73
+313,다사395123,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,792,85.57
+314,다사460167,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,860,83.91
+315,다사606149,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,868,83.72
+316,다사617122,77.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,46.2,30.8,15.4,746,86.67
+317,다사690350,77.0,2,0,1,1,speedbump_cnt,20.0,61.6,15.4,15.4,926,82.43
+318,다사651328,152.0,4,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,59.62,92.38,15.3967,214,165.58
+319,다사702398,152.0,4,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,59.62,92.38,15.3967,167,179.56
+320,다사672345,102.0,6,0,1,1,crosswalk_cnt,15.0,86.7,15.3,15.3,365,111.47
+321,다사664349,115.0,7,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,53.96,61.04,15.26,318,124.13
+322,다사645462,133.0,10,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,56.71,76.29,15.258,227,158.57
+323,다사731522,102.0,7,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,56.3,45.7,15.2333,384,109.62
+324,다사653304,93.0,5,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,47.43,45.57,15.19,486,99.91
+325,다사685350,93.0,4,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,47.43,45.57,15.19,508,98.32
+326,다사700378,93.0,5,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,47.43,45.57,15.19,335,118.47
+327,다사662437,141.0,10,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,65.07,75.93,15.186,194,171.7
+328,다사653310,132.0,10,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,56.28,75.72,15.144,268,145.4
+329,다사639459,101.0,6,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,55.75,45.25,15.0833,357,112.86
+330,다사684418,101.0,5,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,55.75,45.25,15.0833,323,122.5
+331,다사760488,101.0,5,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,55.75,45.25,15.0833,397,108.2
+332,다사737488,109.0,6,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,63.93,45.07,15.0233,270,144.45
+333,다사657318,146.0,3,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,71.59,74.41,14.882,233,157.56
+334,다사660312,138.0,2,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,63.68,74.32,14.864,232,158.1
+335,다사666461,138.0,2,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,63.68,74.32,14.864,259,147.19
+336,다사668438,138.0,2,0,2,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,63.68,74.32,14.864,196,171.42
+337,다사648304,146.0,3,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,57.27,88.73,14.7883,216,165.01
+338,다사651301,146.0,3,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,57.27,88.73,14.7883,144,187.61
+339,다사653330,146.0,3,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,57.27,88.73,14.7883,154,185.28
+340,다사663432,146.0,3,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,57.27,88.73,14.7883,198,171.37
+341,다사572110,146.0,3,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,57.27,88.73,14.7883,209,167.51
+342,다사726519,99.0,5,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,54.65,44.35,14.7833,350,114.18
+343,다사656112,99.0,5,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,54.65,44.35,14.7833,354,113.64
+344,다사684350,133.0,9,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,59.28,73.72,14.744,276,141.0
+345,다사698384,102.0,6,0,1,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,58.14,43.86,14.62,284,137.37
+346,다사678372,144.0,3,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,56.48,87.52,14.5867,180,175.09
+347,다사607125,144.0,3,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,56.48,87.52,14.5867,237,155.8
+348,다사647458,117.0,7,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,58.69,58.31,14.5775,278,139.59
+349,다사647314,109.0,6,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,51.14,57.86,14.465,304,128.69
+350,다사663439,93.0,4,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,64.17,28.83,14.415,349,114.63
+351,다사669413,115.0,7,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,57.68,57.32,14.33,292,132.16
+352,다사643123,132.0,10,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,60.91,71.09,14.218,262,146.29
+353,다사610123,131.0,10,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,60.45,70.55,14.11,243,154.33
+354,다사627458,118.0,8,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,61.88,56.12,14.03,261,146.73
+355,다사621122,118.0,9,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,61.88,56.12,14.03,312,126.46
+356,다사702390,70.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,42.0,28.0,14.0,712,88.0
+357,다사636450,70.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,42.0,28.0,14.0,1123,76.96
+358,다사512134,70.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,42.0,28.0,14.0,595,93.1
+359,다사568119,70.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,42.0,28.0,14.0,1091,77.39
+360,다사646334,138.0,2,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,54.13,83.87,13.9783,244,153.66
+361,다사665334,138.0,2,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,54.13,83.87,13.9783,213,165.96
+362,다사647306,138.0,2,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,54.13,83.87,13.9783,245,153.55
+363,다사616323,138.0,2,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,54.13,83.87,13.9783,251,151.01
+364,다사660439,138.0,2,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,54.13,83.87,13.9783,257,147.95
+365,다사584143,138.0,2,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,54.13,83.87,13.9783,272,143.18
+366,다사482028,138.0,2,0,2,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,54.13,83.87,13.9783,177,175.75
+367,다사655330,77.0,2,0,1,2,child_zone_cnt | crosswalk_cnt,36.25,49.09,27.91,13.955,707,88.17
+368,다사727513,117.0,7,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,61.35,55.65,13.9125,283,138.04
+369,다사654441,93.0,4,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,51.34,41.66,13.8867,468,101.22
+370,다사687438,93.0,4,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,51.34,41.66,13.8867,334,118.59
+371,다사642448,93.0,4,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,51.34,41.66,13.8867,376,110.56
+372,다사612126,93.0,4,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,51.34,41.66,13.8867,503,98.49
+373,다사570119,93.0,4,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,51.34,41.66,13.8867,457,101.7
+374,다사651123,93.0,4,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,51.34,41.66,13.8867,498,98.9
+375,다사666317,85.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,43.35,41.65,13.8833,408,106.93
+376,다사632458,85.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,43.35,41.65,13.8833,428,104.57
+377,다사543119,85.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,43.35,41.65,13.8833,572,94.7
+378,다사677345,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1025,79.17
+379,다사647302,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1162,76.45
+380,다사703395,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,799,85.3
+381,다사675429,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1300,74.36
+382,다사680423,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1449,72.3
+383,다사665421,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1343,74.02
+384,다사671437,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,684,89.16
+385,다사723531,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1451,72.19
+386,다사746489,69.0,2,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1104,77.19
+387,다사725512,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1400,73.25
+388,다사698432,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,815,85.06
+389,다사764438,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1116,77.03
+390,다사538105,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1390,73.43
+391,다사529131,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,945,82.1
+392,다사474017,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1374,73.55
+393,다사643120,69.0,3,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1338,74.06
+394,다사468036,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,817,85.04
+395,다사652064,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1218,75.55
+396,다사413089,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1479,70.49
+397,다사650074,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1258,74.86
+398,다사640074,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1263,74.82
+399,다사270080,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1466,71.76
+400,다바401988,69.0,1,0,1,2,child_zone_cnt | speedbump_cnt,40.0,41.4,27.6,13.8,1345,73.96
+401,다사668365,84.0,4,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,42.84,41.16,13.72,696,88.66
+402,다사690397,115.0,7,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,60.31,54.69,13.6725,309,127.66
+403,다사670378,95.0,6,0,1,2,cctv_cam_cnt | child_zone_cnt,28.75,67.69,27.31,13.655,311,127.1
+404,다사473038,91.0,4,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,50.23,40.77,13.59,271,143.54
+405,다사666322,102.0,6,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,47.86,54.14,13.535,324,120.69
+406,다사650075,125.0,8,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,57.68,67.32,13.464,282,138.42
+407,다사653274,101.0,5,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,47.39,53.61,13.4025,240,154.83
+408,다사679367,101.0,6,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,47.39,53.61,13.4025,317,125.36
+409,다사684382,97.0,5,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,56.89,40.11,13.37,332,119.03
+410,다사658468,93.0,4,0,1,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,53.01,39.99,13.33,472,100.8
+411,다사672367,120.0,16,0,0,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,53.49,66.51,13.302,287,135.26
+412,다사682374,115.0,7,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,49.03,65.97,13.194,281,138.43
+413,다사664453,85.0,3,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,58.65,26.35,13.175,531,97.0
+414,다사684438,85.0,3,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,58.65,26.35,13.175,373,110.8
+415,다사626132,99.0,5,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,46.45,52.55,13.1375,359,112.51
+416,다사614110,105.0,7,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,52.67,52.33,13.0825,353,113.9
+417,다사640067,87.0,5,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,48.02,38.98,12.9933,569,94.87
+418,다사662312,117.0,7,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,52.15,64.85,12.97,314,126.23
+419,다사677450,71.0,3,0,1,2,child_zone_cnt | crosswalk_cnt,36.25,45.26,25.74,12.87,705,88.28
+420,다사660303,127.0,10,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,49.82,77.18,12.8633,285,137.2
+421,다사616120,119.0,9,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,54.92,64.08,12.816,294,131.63
+422,다사682404,99.0,6,0,1,4,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,51.55,47.97,51.03,12.7575,415,105.83
+423,다사679382,78.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.78,38.22,12.74,446,102.29
+424,다사671384,78.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.78,38.22,12.74,481,100.22
+425,다사699393,78.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.78,38.22,12.74,823,84.89
+426,다사688380,78.0,4,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.78,38.22,12.74,769,86.3
+427,다사672371,109.0,6,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,58.09,50.91,12.7275,239,155.27
+428,다사663420,118.0,8,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,54.45,63.55,12.71,305,128.61
+429,다사585124,118.0,8,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,54.45,63.55,12.71,260,146.8
+430,다사699372,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,422,105.3
+431,다사655464,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,626,91.73
+432,다사676455,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,654,90.79
+433,다사664481,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,685,89.09
+434,다사719519,85.0,4,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,644,91.03
+435,다사745499,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,525,97.43
+436,다사728497,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,550,95.62
+437,다사732522,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,657,90.69
+438,다사514136,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,617,92.05
+439,다사487037,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,574,94.54
+440,다사620114,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,495,99.09
+441,다바476988,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,607,92.39
+442,다사650085,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,668,89.85
+443,다사622107,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,596,93.09
+444,다사511134,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,582,94.09
+445,다사597127,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,593,93.38
+446,다사401112,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,567,94.91
+447,다사593128,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,450,102.11
+448,다사583113,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,659,90.45
+449,다사641106,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,46.92,38.08,12.6933,620,91.94
+450,다사658459,110.0,9,0,1,3,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt,34.45,72.1,37.9,12.6333,296,131.34
+451,다사663371,117.0,7,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,53.99,63.01,12.602,315,126.2
+452,다사644464,117.0,7,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,53.99,63.01,12.602,299,130.45
+453,다사678306,101.0,5,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,50.66,50.34,12.585,346,115.22
+454,다사661473,101.0,5,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,50.66,50.34,12.585,383,109.74
+455,다사727497,101.0,5,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,50.66,50.34,12.585,356,112.94
+456,다사657334,77.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,846,84.33
+457,다사671328,77.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,878,83.48
+458,다사653268,77.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,699,88.54
+459,다사659310,77.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,752,86.59
+460,다사683342,77.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,647,91.01
+461,다사687380,77.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,710,88.07
+462,다사678386,77.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,576,94.53
+463,다사704390,77.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,521,97.57
+464,다사698381,77.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,547,95.81
+465,다사674464,77.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,837,84.53
+466,다바421970,77.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,952,81.97
+467,다사651076,77.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,740,86.83
+468,다사474039,77.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,326,120.29
+469,다사446140,77.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,39.27,37.73,12.5767,920,82.56
+470,다사728516,109.0,7,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,46.47,62.53,12.506,331,119.18
+471,다사667301,69.0,1,0,1,2,child_zone_cnt | crosswalk_cnt,36.25,43.99,25.01,12.505,1001,79.97
+472,다사679310,69.0,1,0,1,2,child_zone_cnt | crosswalk_cnt,36.25,43.99,25.01,12.505,1193,75.92
+473,다사679387,69.0,1,0,1,2,child_zone_cnt | crosswalk_cnt,36.25,43.99,25.01,12.505,719,87.76
+474,다사660462,69.0,1,0,1,2,child_zone_cnt | crosswalk_cnt,36.25,43.99,25.01,12.505,988,80.32
+475,다사657459,69.0,1,0,1,2,child_zone_cnt | crosswalk_cnt,36.25,43.99,25.01,12.505,808,85.21
+476,다사759483,69.0,1,0,1,2,child_zone_cnt | crosswalk_cnt,36.25,43.99,25.01,12.505,1215,75.59
+477,다사674381,76.0,3,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,38.76,37.24,12.4133,470,100.89
+478,다사672453,83.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,45.82,37.18,12.3933,442,102.67
+479,다사663446,117.0,7,0,1,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt,42.32,67.49,49.51,12.3775,313,126.41
+480,다사703386,93.0,4,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,43.64,49.36,12.34,352,114.01
+481,다사480036,93.0,4,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,43.64,49.36,12.34,485,99.92
+482,다사704372,77.0,2,0,1,2,crosswalk_cnt | speedbump_cnt,32.0,52.36,24.64,12.32,560,95.15
+483,다사643446,75.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,38.25,36.75,12.25,811,85.19
+484,다사675304,93.0,4,0,1,3,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt,39.44,56.32,36.68,12.2267,401,107.61
+485,다사652462,102.0,7,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,53.49,48.51,12.1275,325,120.65
+486,다사660476,78.0,3,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,53.82,24.18,12.09,660,90.44
+487,다사643447,78.0,3,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,53.82,24.18,12.09,575,94.53
+488,다사602147,93.0,4,0,1,4,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,51.55,45.06,47.94,11.985,479,100.39
+489,다사644337,118.0,8,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,46.29,71.71,11.9517,295,131.34
+490,다사645449,77.0,2,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,53.13,23.87,11.935,673,89.68
+491,다사649454,77.0,2,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,53.13,23.87,11.935,904,82.96
+492,다사666434,77.0,2,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,53.13,23.87,11.935,482,100.14
+493,다사631453,77.0,2,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,53.13,23.87,11.935,578,94.5
+494,다사665454,77.0,2,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,53.13,23.87,11.935,627,91.71
+495,다사747502,77.0,2,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,53.13,23.87,11.935,982,80.86
+496,다사742491,77.0,2,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,53.13,23.87,11.935,723,87.44
+497,다사671370,102.0,6,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,54.36,47.64,11.91,275,141.4
+498,다사679417,110.0,7,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,50.76,59.24,11.848,319,123.31
+499,다사469033,110.0,7,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,50.76,59.24,11.848,338,117.52
+500,다사666440,95.0,6,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,47.65,47.35,11.8375,404,107.22
+501,다사686444,79.0,4,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,43.61,35.39,11.7967,467,101.28
+502,다사687443,79.0,5,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,43.61,35.39,11.7967,449,102.16
+503,다사673381,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,49.85,35.15,11.7167,372,110.83
+504,다사659458,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,49.85,35.15,11.7167,419,105.44
+505,다사722500,85.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,49.85,35.15,11.7167,571,94.79
+506,다사672447,78.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,43.06,34.94,11.6467,887,83.35
+507,다사537131,78.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,43.06,34.94,11.6467,785,85.69
+508,다사658119,78.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,43.06,34.94,11.6467,810,85.2
+509,다사662444,75.0,2,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,51.75,23.25,11.625,669,89.83
+510,다사485036,101.0,5,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,43.06,57.94,11.588,364,111.66
+511,다사669412,93.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,46.65,46.35,11.5875,316,125.52
+512,다사616147,93.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,46.65,46.35,11.5875,429,104.46
+513,다사614126,93.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,46.65,46.35,11.5875,505,98.42
+514,다사650290,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,841,84.43
+515,다사701395,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,484,100.1
+516,다사657468,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,801,85.26
+517,다사652473,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,806,85.23
+518,다사669419,77.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,745,86.72
+519,다사685425,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,874,83.55
+520,다사658442,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,899,83.08
+521,다사745488,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,483,100.1
+522,다사727501,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,833,84.64
+523,다사393124,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,358,112.65
+524,다사630118,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,933,82.32
+525,다사636082,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,831,84.72
+526,다사414139,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,869,83.58
+527,다사656085,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,840,84.44
+528,다사648075,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,891,83.27
+529,다사549120,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,813,85.13
+530,다사534132,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,708,88.16
+531,다바392983,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,879,83.45
+532,다사407109,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,847,84.27
+533,다사323129,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,42.5,34.5,11.5,795,85.39
+534,다사674452,92.0,5,0,1,3,cctv_cam_cnt | cctv_cnt | child_zone_cnt,37.3,57.68,34.32,11.44,490,99.53
+535,다사679345,70.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.7,34.3,11.4333,1261,74.83
+536,다사589133,70.0,2,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.7,34.3,11.4333,1052,78.08
+537,다사650338,103.0,7,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,45.91,57.09,11.418,343,115.91
+538,다사690381,88.0,6,0,1,4,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,51.55,42.64,45.36,11.34,370,110.95
+539,다사537129,91.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,45.65,45.35,11.3375,465,101.47
+540,다사655326,85.0,3,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,39.88,45.12,11.28,360,112.29
+541,다사620303,85.0,3,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,39.88,45.12,11.28,655,90.76
+542,다사677384,85.0,3,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,39.88,45.12,11.28,395,108.3
+543,다사690394,85.0,3,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,39.88,45.12,11.28,623,91.81
+544,다사630456,85.0,3,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,39.88,45.12,11.28,478,100.39
+545,다사649453,85.0,3,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,39.88,45.12,11.28,519,97.65
+546,다사532094,85.0,3,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,39.88,45.12,11.28,597,93.03
+547,다사647320,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1107,77.15
+548,다사662316,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1369,73.61
+549,다사665329,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,924,82.48
+550,다사654327,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,756,86.56
+551,다사679349,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,876,83.5
+552,다사660290,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,999,79.98
+553,다사642333,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1442,72.54
+554,다사665268,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,937,82.3
+555,다사674378,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,679,89.22
+556,다사697401,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,702,88.32
+557,다사673380,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,944,82.15
+558,다사647362,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1110,77.09
+559,다사698383,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,895,83.11
+560,다사683365,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,649,90.97
+561,다사707401,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,630,91.59
+562,다사509162,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1155,76.54
+563,다사634103,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1188,76.0
+564,다사603116,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1237,75.27
+565,다사408104,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1350,73.89
+566,다사512037,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1115,77.04
+567,다사384073,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1122,76.96
+568,다사622119,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1148,76.64
+569,다사671116,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1441,72.54
+570,다사370100,69.0,1,0,1,3,child_zone_cnt | crosswalk_cnt | speedbump_cnt,49.0,35.19,33.81,11.27,1182,76.1
+571,다사677312,101.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,45.02,55.98,11.196,371,110.87
+572,다사669423,89.0,7,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,44.64,44.36,11.09,423,105.25
+573,다사686440,93.0,4,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,48.77,44.23,11.0575,433,103.95
+574,다사621118,93.0,4,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,48.77,44.23,11.0575,379,109.97
+575,다사431144,109.0,6,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,42.76,66.24,11.04,333,118.87
+576,다사675375,138.0,2,0,2,1,bus_stop_cnt,8.0,126.96,11.04,11.04,165,180.33
+577,다사600123,77.0,2,0,1,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,43.89,33.11,11.0367,614,92.16
+578,다사654278,83.0,3,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,38.94,44.06,11.015,554,95.39
+579,다사683381,83.0,3,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,38.94,44.06,11.015,448,102.16
+580,다사728505,102.0,6,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,47.07,54.93,10.986,339,117.19
+581,다사557112,102.0,6,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,47.07,54.93,10.986,366,111.4
+582,다사626465,99.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,44.13,54.87,10.974,399,107.86
+583,다사654311,108.0,7,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,42.36,65.64,10.94,328,120.08
+584,다사673463,73.0,10,0,0,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,40.3,32.7,10.9,751,86.61
+585,다사693381,101.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,46.61,54.39,10.878,297,130.95
+586,다사661081,101.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,46.61,54.39,10.878,388,109.13
+587,다사670427,70.0,2,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,48.3,21.7,10.85,925,82.48
+588,다사637454,86.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,43.14,42.86,10.715,424,104.94
+589,다사693384,69.0,1,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,47.61,21.39,10.695,1200,75.77
+590,다사696392,69.0,1,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,47.61,21.39,10.695,893,83.22
+591,다사669369,69.0,1,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,47.61,21.39,10.695,721,87.56
+592,다사663483,69.0,1,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,47.61,21.39,10.695,850,84.25
+593,다사663443,69.0,1,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,47.61,21.39,10.695,686,89.07
+594,다사660449,69.0,1,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,47.61,21.39,10.695,875,83.52
+595,다사662441,69.0,1,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,47.61,21.39,10.695,753,86.58
+596,다사659481,69.0,1,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,47.61,21.39,10.695,1016,79.51
+597,다사735491,69.0,1,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,47.61,21.39,10.695,692,88.91
+598,다사735486,69.0,1,0,1,2,bus_stop_cnt | child_zone_cnt,31.0,47.61,21.39,10.695,722,87.48
+599,다사669346,93.0,4,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,39.65,53.35,10.67,341,116.86
+600,다사659464,93.0,4,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,39.65,53.35,10.67,443,102.53
+601,다사674317,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,45.16,31.84,10.6133,882,83.39
+602,다사664306,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,45.16,31.84,10.6133,646,91.02
+603,다사690415,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,45.16,31.84,10.6133,743,86.79
+604,다사677380,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,45.16,31.84,10.6133,523,97.5
+605,다사645447,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,45.16,31.84,10.6133,640,91.25
+606,다사642451,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,45.16,31.84,10.6133,716,87.91
+607,다사683444,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,45.16,31.84,10.6133,509,98.15
+608,다사686442,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,45.16,31.84,10.6133,598,92.98
+609,다사735483,77.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,45.16,31.84,10.6133,540,96.4
+610,다사660471,71.0,3,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,39.19,31.81,10.6033,1171,76.35
+611,다사697384,85.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,42.64,42.36,10.59,361,112.03
+612,다사659430,85.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,42.64,42.36,10.59,579,94.44
+613,다사663429,85.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,42.64,42.36,10.59,396,108.29
+614,다사641443,85.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,42.64,42.36,10.59,639,91.29
+615,다사735490,85.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,42.64,42.36,10.59,347,115.21
+616,다사720504,85.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,42.64,42.36,10.59,502,98.53
+617,다사742486,85.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,42.64,42.36,10.59,414,106.43
+618,다사728504,85.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,42.64,42.36,10.59,604,92.6
+619,다사648123,85.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,42.64,42.36,10.59,632,91.52
+620,다사684446,70.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.64,31.36,10.4533,676,89.3
+621,다사681446,70.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.64,31.36,10.4533,877,83.49
+622,다사636451,70.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.64,31.36,10.4533,967,81.35
+623,다사683418,70.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.64,31.36,10.4533,776,85.92
+624,다사740492,70.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.64,31.36,10.4533,762,86.48
+625,다사568120,70.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.64,31.36,10.4533,1192,75.93
+626,다사580122,87.0,6,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,45.62,41.38,10.345,565,94.98
+627,다사740489,75.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,43.99,31.01,10.3367,541,96.34
+628,다사669345,83.0,3,0,1,3,cctv_cam_cnt | cctv_cnt | child_zone_cnt,37.3,52.04,30.96,10.32,407,106.98
+629,다사666341,93.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,41.45,51.55,10.31,337,117.76
+630,다사726515,93.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,41.45,51.55,10.31,391,109.01
+631,다사659266,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,939,82.27
+632,다사637324,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1186,76.03
+633,다사671313,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1080,77.53
+634,다사694444,69.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,761,86.51
+635,다사624450,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1280,74.61
+636,다사669448,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1007,79.8
+637,다사662442,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1022,79.31
+638,다사689424,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,969,81.28
+639,다사742494,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1293,74.48
+640,다사728515,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1031,78.81
+641,다사763441,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1084,77.51
+642,다사689427,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1404,73.2
+643,다사728513,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1044,78.28
+644,다사725499,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1045,78.27
+645,다사730527,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1370,73.6
+646,다사501114,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1124,76.95
+647,다사590130,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1292,74.49
+648,다사264099,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1381,73.51
+649,다사398116,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1050,78.09
+650,다사653094,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1312,74.23
+651,다사475037,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,389,109.13
+652,다사607141,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1120,76.98
+653,다사644069,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1341,74.03
+654,다사349084,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1349,73.9
+655,다사505151,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1143,76.7
+656,다사608140,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1235,75.31
+657,다사593126,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1301,74.35
+658,다사480021,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1231,75.37
+659,다사653116,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1226,75.44
+660,다사293080,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,704,88.3
+661,다사590122,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,834,84.59
+662,다사273087,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1467,71.74
+663,다바403990,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1454,72.09
+664,다사599114,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1438,72.6
+665,다사619112,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1266,74.76
+666,다사635108,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1204,75.71
+667,다사592119,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,910,82.79
+668,다사318129,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1134,76.77
+669,다사656118,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1405,73.2
+670,다사587119,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1355,73.82
+671,다사461028,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1322,74.17
+672,다사509134,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1026,79.05
+673,다사508140,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1245,75.14
+674,다사404115,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1243,75.19
+675,다사588126,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1118,76.99
+676,다사638114,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1131,76.81
+677,다사643121,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1207,75.68
+678,다사657085,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1336,74.07
+679,다사635111,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1330,74.09
+680,다사489015,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1210,75.64
+681,다사481017,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1267,74.73
+682,다사651080,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1392,73.37
+683,다사620113,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,997,80.08
+684,다사412121,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1427,72.79
+685,다사475007,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | speedbump_cnt,44.8,38.09,30.91,10.3033,1439,72.59
+686,다사681375,101.0,6,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,49.52,51.48,10.296,345,115.5
+687,다사664329,101.0,5,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,39.62,61.38,10.23,320,123.07
+688,다사648314,101.0,5,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,39.62,61.38,10.23,342,116.33
+689,다사664093,101.0,5,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,39.62,61.38,10.23,392,108.96
+690,다사674315,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,671,89.79
+691,다사658301,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,665,89.98
+692,다사651334,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,734,87.07
+693,다사656268,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,927,82.4
+694,다사675378,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,474,100.65
+695,다사673379,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,493,99.28
+696,다사697373,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,441,103.1
+697,다사701373,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,608,92.36
+698,다사677368,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,570,94.84
+699,다사684377,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,884,83.37
+700,다사697434,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,934,82.31
+701,다사647452,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,713,87.99
+702,다사630457,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,689,88.93
+703,다사726509,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,1003,79.94
+704,다사721502,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,720,87.67
+705,다사732497,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,824,84.89
+706,다사592129,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,730,87.17
+707,다사665097,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,936,82.3
+708,다사639123,77.0,3,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,949,82.04
+709,다사646125,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,825,84.89
+710,다사534131,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,929,82.37
+711,다사657119,77.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,36.13,40.87,10.2175,838,84.5
+712,다사664480,87.0,5,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,46.37,40.63,10.1575,534,96.82
+713,다사671357,100.0,6,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,39.23,60.77,10.1283,402,107.28
+714,다사663317,94.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,43.38,50.62,10.124,406,106.98
+715,다사629457,94.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,43.38,50.62,10.124,374,110.8
+716,다사676444,94.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,43.38,50.62,10.124,455,101.73
+717,다사619463,94.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,43.38,50.62,10.124,453,101.98
+718,다사669436,94.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,43.38,50.62,10.124,394,108.46
+719,다사723514,94.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,43.38,50.62,10.124,462,101.52
+720,다사626129,94.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,43.38,50.62,10.124,447,102.28
+721,다사652304,77.0,2,0,1,3,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt,39.44,46.63,30.37,10.1233,851,84.22
+722,다사657327,85.0,3,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,44.57,40.43,10.1075,377,110.54
+723,다사727510,85.0,3,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,44.57,40.43,10.1075,507,98.34
+724,다사655119,85.0,3,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,44.57,40.43,10.1075,619,91.96
+725,다사613121,85.0,3,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,44.57,40.43,10.1075,602,92.77
+726,다사600112,85.0,3,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,44.57,40.43,10.1075,456,101.72
+727,다사522155,85.0,3,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,44.57,40.43,10.1075,587,93.68
+728,다사671356,86.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,45.83,40.17,10.0425,612,92.26
+729,다사646464,70.0,2,0,1,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,39.9,30.1,10.0333,1009,79.7
+730,다사631456,99.0,5,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,38.83,60.17,10.0283,321,122.97
+731,다사472032,99.0,5,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,38.83,60.17,10.0283,416,105.74
+732,다사669388,93.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,42.92,50.08,10.016,387,109.24
+733,다사650455,93.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,42.92,50.08,10.016,418,105.48
+734,다사669430,93.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,42.92,50.08,10.016,351,114.12
+735,다사653467,93.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,42.92,50.08,10.016,403,107.24
+736,다사528132,93.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,42.92,50.08,10.016,488,99.81
+737,다사598131,93.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,42.92,50.08,10.016,445,102.3
+738,다사684403,75.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,35.19,39.81,9.9525,994,80.11
+739,다사648133,75.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,35.19,39.81,9.9525,992,80.18
+740,다사654337,77.0,2,0,1,4,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,51.55,37.31,39.69,9.9225,656,90.7
+741,다사703398,77.0,3,0,1,4,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,51.55,37.31,39.69,9.9225,454,101.97
+742,다사680449,92.0,5,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,42.46,49.54,9.908,367,111.34
+743,다사736512,69.0,1,0,1,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,39.33,29.67,9.89,1198,75.84
+744,다사324130,69.0,1,0,1,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,39.33,29.67,9.89,1240,75.23
+745,다사602123,69.0,1,0,1,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,39.33,29.67,9.89,1303,74.32
+746,다사545134,69.0,1,0,1,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,39.33,29.67,9.89,1321,74.17
+747,다사512131,69.0,1,0,1,3,cctv_cam_cnt | child_zone_cnt | speedbump_cnt,43.0,39.33,29.67,9.89,1399,73.28
+748,다사727530,83.0,3,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,43.53,39.47,9.8675,538,96.55
+749,다사649279,89.0,12,0,0,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,39.67,49.33,9.866,501,98.57
+750,다사647283,86.0,4,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,36.67,49.33,9.866,562,95.1
+751,다사673341,86.0,4,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,36.67,49.33,9.866,603,92.64
+752,다사665440,85.0,3,0,1,3,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt,34.45,55.72,29.28,9.76,400,107.81
+753,다사663341,85.0,3,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,36.24,48.76,9.752,436,103.86
+754,다사647328,85.0,3,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,36.24,48.76,9.752,546,95.83
+755,다사667094,85.0,3,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,36.24,48.76,9.752,489,99.67
+756,다사669397,78.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,39.12,38.88,9.72,698,88.58
+757,다사640458,78.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,39.12,38.88,9.72,553,95.4
+758,다사743490,78.0,4,0,1,3,cctv_cam_cnt | cctv_cnt | child_zone_cnt,37.3,48.91,29.09,9.6967,697,88.6
+759,다사703378,83.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,44.23,38.77,9.6925,413,106.49
+760,다사668337,70.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,41.05,28.95,9.65,1270,74.7
+761,다사677377,70.0,2,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,41.05,28.95,9.65,701,88.42
+762,다사668334,84.0,4,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,35.81,48.19,9.638,615,92.09
+763,다사671359,95.0,6,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,37.26,57.74,9.6233,420,105.43
+764,다사682453,77.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,38.62,38.38,9.595,856,84.06
+765,다사655467,77.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,38.62,38.38,9.595,964,81.5
+766,다사700443,77.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,38.62,38.38,9.595,894,83.21
+767,다사743504,77.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,38.62,38.38,9.595,880,83.45
+768,다사550094,77.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,38.62,38.38,9.595,812,85.15
+769,다사590125,77.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,38.62,38.38,9.595,827,84.84
+770,다사659111,77.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,38.62,38.38,9.595,966,81.37
+771,다사620110,77.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,38.62,38.38,9.595,703,88.32
+772,다사522154,77.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,38.62,38.38,9.595,871,83.55
+773,다사661080,89.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,41.07,47.93,9.586,515,97.78
+774,다사660455,77.0,2,0,1,3,cctv_cam_cnt | cctv_cnt | child_zone_cnt,37.3,48.28,28.72,9.5733,589,93.51
+775,다사651300,86.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,38.33,47.67,9.534,398,108.18
+776,다사647274,83.0,3,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,35.39,47.61,9.522,677,89.28
+777,다사653266,94.0,5,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.87,57.13,9.5217,434,103.94
+778,다사653281,94.0,5,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.87,57.13,9.5217,344,115.63
+779,다사684376,94.0,5,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.87,57.13,9.5217,300,129.93
+780,다사647471,94.0,5,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.87,57.13,9.5217,425,104.88
+781,다사654302,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,1318,74.18
+782,다사676348,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,974,81.15
+783,다사675302,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,1455,72.09
+784,다사650301,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,767,86.33
+785,다사682297,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,975,81.09
+786,다사653318,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,1412,73.09
+787,다사669380,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,898,83.08
+788,다사639344,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,1302,74.33
+789,다사696388,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,754,86.58
+790,다사677376,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,822,84.89
+791,다사692385,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,779,85.81
+792,다사687389,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,951,82.01
+793,다사688382,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,928,82.37
+794,다사670369,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,738,86.89
+795,다사699374,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,872,83.55
+796,다사650452,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,1029,78.91
+797,다사657455,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,1049,78.09
+798,다사641451,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,1032,78.78
+799,다사740518,69.0,1,0,1,3,bus_stop_cnt | child_zone_cnt | crosswalk_cnt,41.35,40.47,28.53,9.51,1327,74.1
+800,다사652300,71.0,10,0,0,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,33.31,37.69,9.4225,1014,79.55
+801,다사660283,93.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.48,56.52,9.42,480,100.37
+802,다사648299,93.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.48,56.52,9.42,427,104.7
+803,다사657266,93.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.48,56.52,9.42,496,99.06
+804,다사673372,93.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.48,56.52,9.42,348,114.97
+805,다사680374,93.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.48,56.52,9.42,435,103.88
+806,다사660437,93.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.48,56.52,9.42,417,105.68
+807,다사690463,93.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.48,56.52,9.42,459,101.6
+808,다사706495,93.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.48,56.52,9.42,426,104.78
+809,다사604126,93.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.48,56.52,9.42,469,101.13
+810,다사641117,93.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,36.48,56.52,9.42,451,102.02
+811,다사659487,75.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,37.62,37.38,9.345,932,82.32
+812,다사679379,70.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.84,37.16,9.29,666,89.95
+813,다사402117,70.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.84,37.16,9.29,1159,76.5
+814,다사676369,91.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,44.62,46.38,9.276,368,111.29
+815,다사677367,86.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.69,46.31,9.262,411,106.64
+816,다사667488,86.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.69,46.31,9.262,667,89.95
+817,다사648068,86.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.69,46.31,9.262,634,91.47
+818,다사730521,91.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,35.69,55.31,9.2183,520,97.61
+819,다사664321,69.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1085,77.5
+820,다사682298,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1020,79.4
+821,다사654272,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,901,83.05
+822,다사659300,69.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,461,101.58
+823,다사667326,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1278,74.63
+824,다사661274,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1028,78.93
+825,다사667350,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1371,73.58
+826,다사687344,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,862,83.9
+827,다사680378,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,748,86.65
+828,다사684404,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1194,75.89
+829,다사672394,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1190,75.94
+830,다사680391,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,844,84.35
+831,다사648367,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1180,76.16
+832,다사677389,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,907,82.91
+833,다사681389,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,867,83.74
+834,다사684383,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,648,90.99
+835,다사680379,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,888,83.34
+836,다사703390,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,725,87.42
+837,다사691368,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,784,85.69
+838,다사704396,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,775,85.95
+839,다사704382,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,606,92.42
+840,다사702373,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,978,80.98
+841,다사705391,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,735,87.07
+842,다사710388,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1002,79.95
+843,다사664445,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1100,77.24
+844,다사648471,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1161,76.47
+845,다사653441,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,870,83.56
+846,다사661452,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,755,86.57
+847,다사672427,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,845,84.34
+848,다사653454,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,892,83.22
+849,다사644445,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1015,79.51
+850,다사663447,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1255,74.98
+851,다사641454,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,772,86.2
+852,다사630464,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1256,74.93
+853,다사672418,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1209,75.65
+854,다사683417,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,683,89.18
+855,다사646445,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,919,82.56
+856,다사683453,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1332,74.08
+857,다사731477,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1047,78.13
+858,다사684461,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1423,72.91
+859,다사740485,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,690,88.92
+860,다사742502,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1253,75.04
+861,다사747513,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1311,74.23
+862,다사709478,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1393,73.36
+863,다사689451,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1385,73.48
+864,다사688454,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1460,71.95
+865,다사704463,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1317,74.18
+866,다사587114,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,914,82.68
+867,다사568123,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,980,80.94
+868,다사408118,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1413,73.07
+869,다사651074,69.0,2,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1225,75.44
+870,다사422035,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1090,77.43
+871,다사454114,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1153,76.57
+872,다사408105,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1411,73.12
+873,다사657113,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1034,78.68
+874,다사451017,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1379,73.53
+875,다사494073,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1128,76.88
+876,다사402121,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1421,72.92
+877,다사541111,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1283,74.57
+878,다사499106,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1281,74.6
+879,다사379120,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1158,76.5
+880,다사451079,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1213,75.63
+881,다사601125,69.0,1,0,1,4,bus_stop_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,53.08,32.37,36.63,9.1575,1012,79.57
+882,다사683375,77.0,3,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,40.38,36.62,9.155,549,95.65
+883,다사646449,77.0,2,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,40.38,36.62,9.155,706,88.21
+884,다사653278,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,430,104.31
+885,다사669407,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,539,96.48
+886,다사662474,85.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,600,92.88
+887,다사662423,85.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,584,93.9
+888,다사672461,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,643,91.04
+889,다사660441,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,405,107.21
+890,다사672438,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,444,102.5
+891,다사726518,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,524,97.44
+892,다사470032,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,672,89.72
+893,다사401116,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,556,95.35
+894,다사407127,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,638,91.3
+895,다사590113,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,431,104.16
+896,다사643118,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,39.23,45.77,9.154,561,95.13
+897,다사592125,69.0,1,0,1,2,bus_stop_cnt | speedbump_cnt,26.4,50.78,18.22,9.11,1250,75.07
+898,다사610120,69.0,1,0,1,2,bus_stop_cnt | speedbump_cnt,26.4,50.78,18.22,9.11,985,80.38
+899,다사675308,78.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,41.57,36.43,9.1075,475,100.57
+900,다사655463,78.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,41.57,36.43,9.1075,658,90.45
+901,다사684439,78.0,3,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,41.57,36.43,9.1075,510,98.15
+902,다사665341,79.0,5,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,33.68,45.32,9.064,439,103.48
+903,다사652451,84.0,14,0,0,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,38.76,45.24,9.048,464,101.47
+904,다사617120,84.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,38.76,45.24,9.048,601,92.8
+905,다사628453,85.0,3,0,1,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt,42.32,49.03,35.97,8.9925,500,98.67
+906,다사733497,85.0,3,0,1,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt,42.32,49.03,35.97,8.9925,590,93.5
+907,다사626459,83.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,38.3,44.7,8.94,642,91.13
+908,다사687413,69.0,1,0,1,4,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,51.55,33.43,35.57,8.8925,1346,73.95
+909,다사698358,69.0,1,0,1,4,cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,51.55,33.43,35.57,8.8925,1337,74.06
+910,다사658296,71.0,4,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,35.61,35.39,8.8475,793,85.56
+911,다사647287,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,796,85.37
+912,다사637365,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,852,84.2
+913,다사678407,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,828,84.82
+914,다사685402,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,956,81.76
+915,다사705397,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,526,97.32
+916,다사706370,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,758,86.53
+917,다사671413,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,917,82.62
+918,다사653460,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,765,86.42
+919,다사660440,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,711,88.01
+920,다사625451,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,909,82.81
+921,다사672458,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,599,92.96
+922,다사673446,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,981,80.86
+923,다사698465,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,900,83.07
+924,다사688417,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,650,90.96
+925,다사485042,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,965,81.48
+926,다사502106,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,954,81.86
+927,다사656082,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,918,82.58
+928,다사398105,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,763,86.44
+929,다사649123,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,886,83.35
+930,다사659113,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,861,83.91
+931,다사528112,77.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,32.83,44.17,8.834,963,81.59
+932,다사635324,86.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,42.17,43.83,8.766,559,95.19
+933,다사659461,75.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,39.97,35.03,8.7575,750,86.62
+934,다사658333,86.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.73,52.27,8.7117,583,94.07
+935,다사645336,86.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.73,52.27,8.7117,511,98.03
+936,다사671365,86.0,5,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.73,52.27,8.7117,533,96.82
+937,다사669416,86.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.73,52.27,8.7117,577,94.51
+938,다사728534,86.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.73,52.27,8.7117,609,92.32
+939,다사726483,86.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.73,52.27,8.7117,527,97.21
+940,다사501103,86.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.73,52.27,8.7117,529,97.16
+941,다사633074,86.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.73,52.27,8.7117,588,93.53
+942,다사687412,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,41.68,43.32,8.664,636,91.45
+943,다사744489,85.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,41.68,43.32,8.664,362,111.89
+944,다사668303,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,544,95.89
+945,다사670329,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,458,101.66
+946,다사652294,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,409,106.9
+947,다사654269,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,555,95.38
+948,다사692390,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,492,99.48
+949,다사648363,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,564,95.06
+950,다사626360,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,557,95.26
+951,다사696369,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,652,90.95
+952,다사681373,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,460,101.58
+953,다사666368,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,535,96.81
+954,다사657476,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,635,91.46
+955,다사665430,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,421,105.41
+956,다사723501,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,610,92.31
+957,다사728472,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,548,95.7
+958,다사698434,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,663,90.12
+959,다사585122,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,580,94.32
+960,다사458080,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,552,95.42
+961,다사442103,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,573,94.6
+962,다사597143,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,628,91.66
+963,다사663105,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,611,92.27
+964,다사472168,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,594,93.33
+965,다사459080,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,438,103.61
+966,다사656108,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,662,90.19
+967,다사554068,85.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,33.34,51.66,8.61,543,95.99
+968,다사656453,69.0,1,0,1,3,bus_stop_cnt | crosswalk_cnt | speedbump_cnt,37.44,43.17,25.83,8.61,987,80.33
+969,다사730485,69.0,1,0,1,3,bus_stop_cnt | crosswalk_cnt | speedbump_cnt,37.44,43.17,25.83,8.61,1387,73.47
+970,다사468037,69.0,1,0,1,3,bus_stop_cnt | crosswalk_cnt | speedbump_cnt,37.44,43.17,25.83,8.61,1477,70.9
+971,다사646336,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1197,75.85
+972,다사649334,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1334,74.07
+973,다사669383,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,681,89.2
+974,다사655441,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1342,74.02
+975,다사665483,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,670,89.82
+976,다사650439,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1436,72.63
+977,다사734506,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1326,74.11
+978,다사756494,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1232,75.35
+979,다사730523,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1394,73.33
+980,다사731520,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1373,73.55
+981,다사745495,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,989,80.28
+982,다사685420,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1178,76.2
+983,다사721520,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1269,74.7
+984,다사761489,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1440,72.56
+985,다사718525,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,931,82.33
+986,다사639070,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1166,76.42
+987,다사625131,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1191,75.93
+988,다사651095,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1177,76.21
+989,다사477022,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1017,79.48
+990,다사502111,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1395,73.31
+991,다사601137,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1378,73.53
+992,다사413119,69.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1434,72.69
+993,다사274103,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1252,75.05
+994,다바333936,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1475,71.07
+995,다사408120,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1352,73.87
+996,다사502110,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,49.84,34.61,34.39,8.5975,1389,73.43
+997,다사672439,69.0,1,0,1,3,cctv_cam_cnt | cctv_cnt | child_zone_cnt,37.3,43.26,25.74,8.58,1211,75.64
+998,다사721503,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,34.32,42.68,8.536,774,85.96
+999,다사743506,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,34.32,42.68,8.536,957,81.68
+1000,다사648297,84.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,32.95,51.05,8.5083,563,95.09
+1001,다사665094,84.0,4,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,32.95,51.05,8.5083,613,92.22
+1002,다사719525,79.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,36.46,42.54,8.508,859,84.01
+1003,다사656308,83.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,32.56,50.44,8.4067,497,99.03
+1004,다사738492,83.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,32.56,50.44,8.4067,412,106.5
+1005,다사609112,83.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,32.56,50.44,8.4067,682,89.19
+1006,다사633459,78.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.99,42.01,8.402,586,93.79
+1007,다사659443,78.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.99,42.01,8.402,802,85.25
+1008,다사665482,78.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.99,42.01,8.402,791,85.58
+1009,다사668315,77.0,2,0,1,2,bus_stop_cnt | crosswalk_cnt,21.8,60.21,16.79,8.395,728,87.29
+1010,다사660463,87.0,5,0,1,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | speedbump_cnt,38.47,53.53,33.47,8.3675,528,97.18
+1011,다사698454,77.0,2,0,1,4,cctv_cam_cnt | cctv_cnt | crosswalk_cnt | speedbump_cnt,43.15,43.77,33.23,8.3075,863,83.88
+1012,다사650294,77.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,782,85.7
+1013,다사663339,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,585,93.89
+1014,다사669337,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,1000,79.97
+1015,다사644448,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,625,91.73
+1016,다사674445,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,976,81.06
+1017,다사679421,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,915,82.68
+1018,다사676456,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,853,84.2
+1019,다사646457,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,832,84.7
+1020,다사668450,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,566,94.91
+1021,다사662433,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,513,97.95
+1022,다사721521,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,797,85.33
+1023,다사735505,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,864,83.79
+1024,다사719530,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,622,91.87
+1025,다사725524,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,637,91.31
+1026,다사730511,77.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,913,82.71
+1027,다사726516,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,700,88.48
+1028,다사749493,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,494,99.09
+1029,다사627103,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,941,82.25
+1030,다사643117,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,979,80.97
+1031,다사626125,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,946,82.07
+1032,다사606130,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,848,84.26
+1033,다사483023,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,1018,79.45
+1034,다사619115,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,629,91.6
+1035,다사644100,77.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,938,82.28
+1036,다사659062,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,35.53,41.47,8.294,821,84.91
+1037,다사647449,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,36.18,32.82,8.205,1010,79.6
+1038,다사673432,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,36.18,32.82,8.205,1157,76.52
+1039,다사741499,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,36.18,32.82,8.205,798,85.32
+1040,다사722521,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,36.18,32.82,8.205,1139,76.71
+1041,다사510135,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,36.18,32.82,8.205,1273,74.68
+1042,다사614120,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,36.18,32.82,8.205,1056,78.0
+1043,다사514130,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | speedbump_cnt,47.56,36.18,32.82,8.205,1401,73.25
+1044,다사654074,75.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,34.61,40.39,8.078,950,82.04
+1045,다사681299,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,36.77,32.23,8.0575,960,81.61
+1046,다사668298,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,36.77,32.23,8.0575,1055,78.04
+1047,다사674326,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,36.77,32.23,8.0575,1259,74.84
+1048,다사680367,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,36.77,32.23,8.0575,757,86.54
+1049,다사734465,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,46.71,36.77,32.23,8.0575,1435,72.69
+1050,다사628459,70.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.85,40.15,8.03,962,81.59
+1051,다사673439,70.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.85,40.15,8.03,1078,77.59
+1052,다사660492,70.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.85,40.15,8.03,1359,73.76
+1053,다사654131,70.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.85,40.15,8.03,1117,77.03
+1054,다사682444,69.0,1,0,1,3,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt,34.45,45.23,23.77,7.9233,766,86.36
+1055,다사733491,69.0,1,0,1,3,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt,34.45,45.23,23.77,7.9233,718,87.82
+1056,다사676344,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,961,81.6
+1057,다사659296,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,972,81.18
+1058,다사662325,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,729,87.22
+1059,다사671301,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1077,77.61
+1060,다사649296,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1035,78.66
+1061,다사649327,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1106,77.15
+1062,다사676314,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1101,77.23
+1063,다사620304,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1279,74.61
+1064,다사666293,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1135,76.75
+1065,다사650268,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1201,75.76
+1066,다사670380,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,771,86.2
+1067,다사637343,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1222,75.48
+1068,다사691399,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1361,73.72
+1069,다사637342,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1306,74.31
+1070,다사705396,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,741,86.8
+1071,다사696354,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1214,75.61
+1072,다사697376,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1244,75.14
+1073,다사688420,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1208,75.66
+1074,다사662491,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1228,75.39
+1075,다사668402,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1083,77.51
+1076,다사713484,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1414,73.07
+1077,다사732506,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,865,83.77
+1078,다사764445,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1187,76.0
+1079,다사728526,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,873,83.55
+1080,다사599130,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1111,77.08
+1081,다사657115,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1429,72.77
+1082,다사583116,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1013,79.57
+1083,다사281031,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1353,73.86
+1084,다바480966,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1108,77.14
+1085,다사598112,69.0,2,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1408,73.16
+1086,다사609123,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1062,77.91
+1087,다사450109,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1403,73.2
+1088,다사528137,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1446,72.44
+1089,다바426947,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1165,76.42
+1090,다사652082,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1448,72.37
+1091,다사345125,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1219,75.51
+1092,다사404112,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1095,77.31
+1093,다사644122,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1459,71.95
+1094,다사476036,69.0,1,0,1,5,cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,57.36,29.42,39.58,7.916,1105,77.17
+1095,다사648283,78.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.6,47.4,7.9,709,88.14
+1096,다사693359,78.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.6,47.4,7.9,805,85.23
+1097,다사658476,78.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.6,47.4,7.9,881,83.43
+1098,다사727535,78.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.6,47.4,7.9,906,82.91
+1099,다사719492,78.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.6,47.4,7.9,714,87.97
+1100,다사729512,78.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.6,47.4,7.9,618,92.0
+1101,다사641087,78.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.6,47.4,7.9,747,86.66
+1102,다사668345,77.0,4,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,37.75,39.25,7.85,476,100.51
+1103,다사660357,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,37.75,39.25,7.85,1008,79.77
+1104,다사669378,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,37.75,39.25,7.85,437,103.67
+1105,다사680366,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,37.75,39.25,7.85,487,99.87
+1106,다사658458,77.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,37.75,39.25,7.85,537,96.63
+1107,다사660269,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,1004,79.9
+1108,다사664318,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,621,91.91
+1109,다사679307,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,678,89.25
+1110,다사666294,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,911,82.78
+1111,다사649286,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,839,84.44
+1112,다사675316,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,912,82.75
+1113,다사644338,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,804,85.23
+1114,다사675349,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,651,90.95
+1115,다사619324,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,790,85.59
+1116,다사647300,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,777,85.9
+1117,다사666339,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,551,95.47
+1118,다사645337,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,737,86.9
+1119,다사649305,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,788,85.63
+1120,다사649284,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,836,84.53
+1121,다사665316,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,693,88.75
+1122,다사648291,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,731,87.16
+1123,다사668407,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,800,85.28
+1124,다사689393,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,558,95.21
+1125,다사680375,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,466,101.28
+1126,다사664360,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,818,85.03
+1127,다사666365,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,739,86.85
+1128,다사679363,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,883,83.38
+1129,다사682364,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,905,82.91
+1130,다사665368,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,814,85.09
+1131,다사670368,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,452,101.99
+1132,다사701382,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,653,90.85
+1133,다사681417,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,688,88.96
+1134,다사671457,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,661,90.41
+1135,다사663431,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,568,94.89
+1136,다사664430,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,499,98.8
+1137,다사676422,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,778,85.89
+1138,다사672413,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,889,83.33
+1139,다사618466,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,770,86.29
+1140,다사660422,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,991,80.21
+1141,다사714464,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,726,87.37
+1142,다사760495,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,902,83.03
+1143,다사717529,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,664,90.11
+1144,다사728481,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,787,85.66
+1145,다사705473,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,995,80.1
+1146,다사745480,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,759,86.52
+1147,다사583119,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,842,84.43
+1148,다사529097,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,855,84.12
+1149,다사615126,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,947,82.06
+1150,다사443101,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,781,85.72
+1151,다사635098,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,971,81.19
+1152,다바456972,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,803,85.24
+1153,다사624072,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,1011,79.59
+1154,다사630132,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,943,82.17
+1155,다사314121,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,807,85.22
+1156,다사658085,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,733,87.11
+1157,다사542114,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,921,82.56
+1158,다사650079,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,958,81.67
+1159,다사398107,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,768,86.3
+1160,다사567115,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,857,84.03
+1161,다사464197,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,783,85.69
+1162,다사605133,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,732,87.16
+1163,다사473067,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,760,86.52
+1164,다사453090,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,749,86.64
+1165,다사464024,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,858,84.02
+1166,다바462997,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,968,81.33
+1167,다사633086,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,866,83.76
+1168,다사641105,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,786,85.67
+1169,다사456086,77.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,30.2,46.8,7.8,744,86.73
+1170,다사261075,70.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,31.2,38.8,7.76,1391,73.42
+1171,다사620126,76.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,29.81,46.19,7.6983,930,82.34
+1172,다사650271,71.0,3,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,32.76,38.24,7.648,1173,76.3
+1173,다사668342,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,903,83.01
+1174,다사732520,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1368,73.61
+1175,다사727500,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1419,72.97
+1176,다사656080,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1362,73.72
+1177,다사452017,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1406,73.18
+1178,다바369971,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1473,71.3
+1179,다사572119,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1144,76.67
+1180,다사615104,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1019,79.44
+1181,다사356123,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1376,73.54
+1182,다사466016,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1472,71.36
+1183,다사264160,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1195,75.87
+1184,다사414043,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1402,73.22
+1185,다사623139,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,55.43,30.76,38.24,7.648,1063,77.9
+1186,다사651449,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | child_zone_cnt | crosswalk_cnt,44.28,38.45,30.55,7.6375,990,80.27
+1187,다사661474,72.0,11,0,0,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt,42.32,41.53,30.47,7.6175,1030,78.9
+1188,다사672421,69.0,1,0,1,3,cctv_cam_cnt | cctv_cnt | speedbump_cnt,33.12,46.15,22.85,7.6167,1079,77.54
+1189,다사664315,75.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,29.42,45.58,7.5967,955,81.82
+1190,다사394209,75.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,29.42,45.58,7.5967,942,82.18
+1191,다사616116,75.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,29.42,45.58,7.5967,724,87.42
+1192,다사651338,70.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,32.3,37.7,7.54,1033,78.72
+1193,다사650440,70.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,32.3,37.7,7.54,854,84.16
+1194,다사677445,70.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,32.3,37.7,7.54,1246,75.13
+1195,다사678454,70.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,32.3,37.7,7.54,983,80.69
+1196,다사729503,70.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,32.3,37.7,7.54,1125,76.94
+1197,다사610138,70.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,32.3,37.7,7.54,1036,78.66
+1198,다사589124,70.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,32.3,37.7,7.54,687,89.0
+1199,다사691370,69.0,1,0,1,2,bus_stop_cnt | crosswalk_cnt,21.8,53.96,15.04,7.52,1331,74.09
+1200,다사655452,69.0,1,0,1,2,bus_stop_cnt | crosswalk_cnt,21.8,53.96,15.04,7.52,977,81.02
+1201,다사511145,69.0,1,0,1,4,cctv_cam_cnt | cctv_cnt | crosswalk_cnt | speedbump_cnt,43.15,39.23,29.77,7.4425,1296,74.43
+1202,다사699384,93.0,4,0,1,1,bus_stop_cnt,8.0,85.56,7.44,7.44,330,119.7
+1203,다사676352,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,816,85.04
+1204,다사656264,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1409,73.15
+1205,다사662318,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1236,75.29
+1206,다사647367,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1102,77.2
+1207,다사687416,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1375,73.54
+1208,다사709380,69.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1114,77.04
+1209,다사715372,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1290,74.5
+1210,다사711376,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1239,75.24
+1211,다사640454,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,897,83.09
+1212,다사664490,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1450,72.24
+1213,다사661435,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,645,91.02
+1214,다사668441,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1006,79.88
+1215,다사691437,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1265,74.79
+1216,다사638463,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,959,81.67
+1217,다사661427,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1227,75.4
+1218,다사653468,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,715,87.94
+1219,다사668473,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1340,74.03
+1220,다사731521,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1297,74.4
+1221,다사719527,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1456,72.08
+1222,다사726528,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,993,80.18
+1223,다사716519,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1481,70.01
+1224,다사751491,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,695,88.7
+1225,다사705494,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1043,78.28
+1226,다사481018,69.0,2,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1217,75.55
+1227,다사643107,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1295,74.46
+1228,다사583050,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1396,73.31
+1229,다사491042,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1294,74.46
+1230,다사482020,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1220,75.5
+1231,다사463168,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1251,75.05
+1232,다사536130,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1096,77.31
+1233,다사649096,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1407,73.16
+1234,다사635090,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1291,74.49
+1235,다사316134,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1205,75.69
+1236,다사530145,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1126,76.93
+1237,다사617119,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,996,80.1
+1238,다사354083,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1323,74.15
+1239,다사502141,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1335,74.07
+1240,다사655095,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1203,75.72
+1241,다사665077,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1248,75.08
+1242,다사656086,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1351,73.88
+1243,다사604112,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1076,77.62
+1244,다사443154,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1398,73.3
+1245,다사379170,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | speedbump_cnt,53.85,31.84,37.16,7.432,1333,74.07
+1246,다사674345,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt,42.32,39.8,29.2,7.3,680,89.21
+1247,다사659450,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt,42.32,39.8,29.2,7.3,826,84.86
+1248,다사678449,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt,42.32,39.8,29.2,7.3,830,84.77
+1249,다사751480,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt,42.32,39.8,29.2,7.3,1132,76.8
+1250,다사648359,72.0,9,0,0,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,28.24,43.76,7.2933,1037,78.61
+1251,다사676366,70.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.46,42.54,7.09,517,97.77
+1252,다사707495,70.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.46,42.54,7.09,1024,79.19
+1253,다사773490,70.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.46,42.54,7.09,1053,78.05
+1254,다사631123,70.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.46,42.54,7.09,1199,75.77
+1255,다사503112,70.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.46,42.54,7.09,1260,74.83
+1256,다사447122,70.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.46,42.54,7.09,1094,77.32
+1257,다사657315,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,33.83,35.17,7.034,1230,75.38
+1258,다사653292,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,33.83,35.17,7.034,1457,72.02
+1259,다사601296,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,33.83,35.17,7.034,1426,72.83
+1260,다사679348,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,33.83,35.17,7.034,890,83.29
+1261,다사686343,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,33.83,35.17,7.034,820,84.92
+1262,다사654288,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,33.83,35.17,7.034,1458,71.96
+1263,다사662393,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,33.83,35.17,7.034,1288,74.53
+1264,다사692396,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,33.83,35.17,7.034,896,83.1
+1265,다사639444,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,33.83,35.17,7.034,885,83.37
+1266,다사742474,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt,50.97,33.83,35.17,7.034,1417,72.99
+1267,다사678414,69.0,1,0,1,4,bus_stop_cnt | cctv_cam_cnt | crosswalk_cnt | speedbump_cnt,40.57,41.01,27.99,6.9975,1286,74.56
+1268,다사634349,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1212,75.63
+1269,다사660304,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,986,80.35
+1270,다사647329,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1054,78.04
+1271,다사648300,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1058,77.99
+1272,다사618320,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1185,76.06
+1273,다사666347,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1428,72.78
+1274,다사663324,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1247,75.1
+1275,다사662319,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1264,74.81
+1276,다사618289,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1422,72.91
+1277,다사665326,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1216,75.56
+1278,다사610325,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1320,74.17
+1279,다사649326,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1093,77.34
+1280,다사662266,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,809,85.21
+1281,다사657340,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1005,79.89
+1282,다사670319,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1141,76.7
+1283,다사667298,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,953,81.91
+1284,다사654296,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1277,74.64
+1285,다사647327,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1041,78.33
+1286,다사647305,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1138,76.71
+1287,다사627332,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1087,77.48
+1288,다사667296,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,948,82.04
+1289,다사677343,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,829,84.78
+1290,다사647286,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1147,76.64
+1291,다사686412,69.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,908,82.89
+1292,다사628371,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1324,74.14
+1293,다사631341,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1474,71.19
+1294,다사662385,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1471,71.48
+1295,다사668400,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1042,78.3
+1296,다사642396,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1202,75.75
+1297,다사620368,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1113,77.04
+1298,다사663400,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1181,76.13
+1299,다사635340,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1234,75.31
+1300,다사656343,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1099,77.25
+1301,다사647356,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1287,74.54
+1302,다사642347,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1089,77.44
+1303,다사691367,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,773,86.05
+1304,다사716368,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1365,73.65
+1305,다사716366,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1388,73.45
+1306,다사693377,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1424,72.9
+1307,다사688350,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,998,80.04
+1308,다사700349,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,916,82.65
+1309,다사688366,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,641,91.22
+1310,다사670367,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1097,77.26
+1311,다사711380,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1431,72.7
+1312,다사672355,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1027,78.95
+1313,다사668359,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1310,74.24
+1314,다사711371,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1179,76.16
+1315,다사655432,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1382,73.5
+1316,다사658488,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1347,73.93
+1317,다사658436,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1363,73.7
+1318,다사655431,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1384,73.48
+1319,다사670436,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,789,85.63
+1320,다사678430,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1067,77.82
+1321,다사648473,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1367,73.64
+1322,다사621467,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1416,73.0
+1323,다사636453,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,923,82.48
+1324,다사657426,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1136,76.73
+1325,다사635466,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1463,71.79
+1326,다사677444,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,835,84.54
+1327,다사656440,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1149,76.64
+1328,다사661472,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1257,74.89
+1329,다사682466,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1229,75.39
+1330,다사661426,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1285,74.56
+1331,다사638460,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1038,78.51
+1332,다사630446,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1437,72.61
+1333,다사633462,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,970,81.25
+1334,다사708495,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1048,78.13
+1335,다사717531,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1284,74.56
+1336,다사727509,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,984,80.41
+1337,다사737502,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,591,93.49
+1338,다사767432,69.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1051,78.08
+1339,다사698491,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1480,70.21
+1340,다사758454,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1160,76.49
+1341,다사711482,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1372,73.55
+1342,다사722498,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1452,72.09
+1343,다사752471,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1152,76.57
+1344,다사757484,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,849,84.25
+1345,다사718517,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,736,87.04
+1346,다사754489,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,727,87.37
+1347,다사731516,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1088,77.44
+1348,다사780487,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1070,77.75
+1349,다사725521,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,605,92.5
+1350,다사729532,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1241,75.22
+1351,다사731525,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1364,73.68
+1352,다사692460,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1184,76.07
+1353,다사771427,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1174,76.29
+1354,다사742495,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,819,85.02
+1355,다사417033,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1175,76.28
+1356,다사552028,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1469,71.59
+1357,다사425116,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1354,73.83
+1358,다사574133,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1348,73.92
+1359,다사626083,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1366,73.65
+1360,다바500971,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1380,73.52
+1361,다사340156,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1133,76.78
+1362,다사588117,69.0,3,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1169,76.39
+1363,다사637085,69.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1176,76.21
+1364,다사320129,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1221,75.48
+1365,다사440134,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1444,72.47
+1366,다사462147,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1238,75.26
+1367,다사480063,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1082,77.52
+1368,다사418072,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1249,75.08
+1369,다사389043,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1410,73.12
+1370,다사469214,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1464,71.78
+1371,다사655082,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1271,74.69
+1372,다사419185,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1425,72.88
+1373,다사643063,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1468,71.64
+1374,다사449044,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1046,78.2
+1375,다사391027,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1121,76.96
+1376,다바428973,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1140,76.7
+1377,다바547981,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1206,75.68
+1378,다사626119,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1274,74.68
+1379,다사450158,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1275,74.65
+1380,다사583041,69.0,2,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1073,77.71
+1381,다사642132,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1164,76.42
+1382,다사430134,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1305,74.31
+1383,다사621142,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1233,75.33
+1384,다사385212,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1418,72.98
+1385,다사573112,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1254,74.99
+1386,다사578133,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1445,72.47
+1387,다사547092,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1145,76.65
+1388,다사464195,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1146,76.64
+1389,다사584122,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1272,74.69
+1390,다사419012,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1316,74.18
+1391,다사451097,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1066,77.86
+1392,다사448059,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1130,76.85
+1393,다사618125,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1223,75.47
+1394,다사470071,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,694,88.73
+1395,다사419073,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1344,73.97
+1396,다사475170,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1462,71.86
+1397,다바414988,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1308,74.29
+1398,다사398020,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1151,76.57
+1399,다사467205,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1068,77.8
+1400,다바478972,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1268,74.72
+1401,다사390084,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1072,77.71
+1402,다사417187,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1415,73.05
+1403,다사544011,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1314,74.21
+1404,다사426079,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1339,74.04
+1405,다사568121,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1242,75.21
+1406,다사642110,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,935,82.31
+1407,다바340940,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1443,72.51
+1408,다사643104,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1276,74.64
+1409,다사555073,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1119,76.98
+1410,다사449054,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1168,76.39
+1411,다사452168,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1086,77.49
+1412,다사402051,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1386,73.47
+1413,다사280024,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1356,73.81
+1414,다사602141,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1315,74.21
+1415,다사658108,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1262,74.83
+1416,다사562123,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1358,73.8
+1417,다사465048,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1329,74.09
+1418,다사410094,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1476,71.05
+1419,다사522137,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1064,77.89
+1420,다사474019,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1313,74.22
+1421,다사401150,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1039,78.46
+1422,다사445064,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1098,77.25
+1423,다사399206,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,973,81.15
+1424,다사656114,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1299,74.38
+1425,다사580139,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1057,77.99
+1426,다사315127,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1430,72.76
+1427,다사458021,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1383,73.48
+1428,다사535048,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1453,72.09
+1429,다사421140,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1304,74.31
+1430,다바376978,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1150,76.6
+1431,다사372092,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1282,74.59
+1432,다사406100,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1103,77.19
+1433,다사483041,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1465,71.76
+1434,다사453076,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1432,72.7
+1435,다사411008,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1092,77.35
+1436,다사669085,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1319,74.17
+1437,다바456971,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1170,76.37
+1438,다사582134,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1065,77.87
+1439,다사463170,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1129,76.87
+1440,다사399200,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1167,76.42
+1441,다사417167,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1397,73.3
+1442,다사426033,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1061,77.94
+1443,다사620123,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1021,79.38
+1444,다사583129,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1112,77.06
+1445,다사589150,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1433,72.69
+1446,다사524134,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1081,77.52
+1447,다사459075,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1040,78.42
+1448,다사449057,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1075,77.62
+1449,다사639109,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1461,71.91
+1450,다바509981,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1109,77.13
+1451,다바467992,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1142,76.7
+1452,다사380071,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1478,70.49
+1453,다바364986,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1074,77.63
+1454,다사664101,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1224,75.45
+1455,다사444139,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1156,76.52
+1456,다사547093,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1137,76.72
+1457,다사483171,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1183,76.08
+1458,다사476165,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1325,74.12
+1459,다사586042,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1071,77.75
+1460,다바432965,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1154,76.56
+1461,다사509143,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1189,75.98
+1462,다사304079,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1328,74.1
+1463,다사490159,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1420,72.92
+1464,다사651085,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1307,74.3
+1465,다사556037,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1127,76.9
+1466,다사397158,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1059,77.98
+1467,다사645088,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1289,74.5
+1468,다사523113,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1172,76.3
+1469,다사502104,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1060,77.98
+1470,다사392211,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1377,73.53
+1471,다사657111,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1163,76.44
+1472,다사466028,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1196,75.85
+1473,다사352118,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1309,74.27
+1474,다사597148,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1298,74.39
+1475,다사401117,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1069,77.76
+1476,다사476205,69.0,1,0,1,6,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | child_zone_cnt | crosswalk_cnt | speedbump_cnt,60.77,27.07,41.93,6.9883,1470,71.51
+1477,다사664485,77.0,2,0,1,4,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | crosswalk_cnt,34.62,50.34,26.66,6.665,592,93.44
+1478,다사662476,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | crosswalk_cnt | speedbump_cnt,47.7,36.09,32.91,6.582,794,85.54
+1479,다사749487,69.0,1,0,1,5,bus_stop_cnt | cctv_cam_cnt | cctv_cnt | crosswalk_cnt | speedbump_cnt,47.7,36.09,32.91,6.582,1360,73.75
+1480,다사679378,138.0,2,0,2,0,,0.0,138.0,0.0,0.0,193,172.05
+1481,다사689442,85.0,3,0,1,0,,0.0,85.0,0.0,0.0,440,103.28
