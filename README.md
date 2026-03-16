@@ -9,12 +9,12 @@
 COMPAS 환경에서 아래 순서대로 실행합니다.
 
 ```
-00 → 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09 → 10 → 11 → join_grid_risk
+00 → 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09 → 10 → 11 → 12
 ```
 
 - STEP 05, 07은 STEP 00 결과에 의존하므로 00 수정 시 05 → 07도 재실행 필요
 - STEP 01, 03은 00의 링크매핑 결과에 의존
-- `COMPAS_join_grid_risk`는 STEP 11 완료 후 단독 실행 (08_격자_종합위험지수.csv → grid_entropy_risk.geojson 변환)
+- `COMPAS_12_join_grid_risk`는 STEP 11 완료 후 단독 실행 (08_격자_종합위험지수.csv → grid_entropy_risk.geojson 변환)
 
 ---
 
@@ -34,7 +34,8 @@ LH-Data-Analyze/
 │   ├── COMPAS_08_grid_composite_risk.ipynb
 │   ├── COMPAS_09_entropy_weight.ipynb
 │   ├── COMPAS_10_nb_regression_weight.ipynb
-│   └── COMPAS_11_facility_effect.ipynb
+│   ├── COMPAS_11_facility_effect.ipynb
+│   └── COMPAS_12_join_grid_risk.ipynb
 ├── data/                            # 입력 원시 데이터 
 │   
 └── output/                          # 각 STEP 산출 결과
@@ -311,6 +312,20 @@ entropy_composite_risk = EPDO × (1 + 엔트로피 가중치 적용 보정지수
 
 ---
 
+### STEP 12 — 격자 위험도 GeoJSON 변환 (`COMPAS_12_join_grid_risk.ipynb`)
+
+**로직**
+- `08_격자_종합위험지수.csv`의 entropy_composite_risk, entropy_rank를 격자 GeoJSON에 조인
+- gid 컬럼명 자동 감지 (gid / grid_gid / grid_id 순으로 탐색)
+- 결과를 GeoJSON으로 저장 (지도 시각화용)
+
+**산출 파일**
+| 파일 | 내용 |
+|------|------|
+| `grid_entropy_risk.geojson` | 격자별 entropy_composite_risk, entropy_rank 포함 GeoJSON |
+
+---
+
 ## Output 파일 요약
 
 | 파일 | 행 수 | 주요 컬럼 |
@@ -330,6 +345,7 @@ entropy_composite_risk = EPDO × (1 + 엔트로피 가중치 적용 보정지수
 | `09_엔트로피_가중치.csv` | 7 | 인자, 엔트로피, 편차, 가중치(%) |
 | `10_통합가중치_최종.csv` | 7 | NB/Corr/엔트로피 가중치, 통합가중치, 합의도 |
 | `11_시설물설치_효과예측.csv` | 5,723 | install_priority, epdo_saved, efficiency |
+| `grid_entropy_risk.geojson` | — | grid_gid, entropy_composite_risk, entropy_rank |
 
 ---
 
