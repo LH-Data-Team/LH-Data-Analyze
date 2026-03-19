@@ -215,12 +215,12 @@ class="cover-page">
 <li><code>06_인프라공백_고위험격자.csv</code></li>
 <li><code>07_링크_속도혼잡_보강.csv</code></li>
 <li><code>08_격자_종합위험지수.csv</code></li>
-<li><code>08_하남교산_예측위험도(zone code).csv</code></li>
+<li><code>08_하남교산_예측위험도.csv</code></li>
 <li><code>09_엔트로피_가중치.csv</code></li>
-<li><code>10_통합가중치_최종.csv</code></li>
-<li><code>11_시설물설치_효과예측.csv</code></li>
-<li><code>13_하남교산_격자별_ECR_최종.csv</code></li>
-<li><code>14_하남교산_예측위험도(격자).csv</code></li>
+<li><code>09_통합가중치_최종.csv</code></li>
+<li><code>10_시설물설치_효과예측.csv</code></li>
+<li><code>12_하남교산_격자별_ECR_최종.csv</code></li>
+<li><code>13_하남교산_예측위험도.csv</code></li>
 <li><code>17_시설추천.csv</code></li>
 </ul>
 <h4 id="제출-파일-구성">(3) 제출 파일 구성</h4>
@@ -319,22 +319,22 @@ class="cover-page">
 <td></td>
 </tr>
 <tr>
-<td><code>10_통합가중치_최종.csv</code></td>
+<td><code>09_통합가중치_최종.csv</code></td>
 <td>✅ 승인</td>
 <td></td>
 </tr>
 <tr>
-<td><code>11_시설물설치_효과예측.csv</code></td>
+<td><code>10_시설물설치_효과예측.csv</code></td>
 <td>✅ 승인</td>
 <td></td>
 </tr>
 <tr>
-<td><code>13_하남교산_격자별_ECR_최종.csv</code></td>
+<td><code>12_하남교산_격자별_ECR_최종.csv</code></td>
 <td>✅ 승인</td>
 <td></td>
 </tr>
 <tr>
-<td><code>14_하남교산_예측위험도(격자).csv</code></td>
+<td><code>13_하남교산_예측위험도.csv</code></td>
 <td>✅ 승인</td>
 <td></td>
 </tr>
@@ -360,7 +360,7 @@ class="cover-page">
 <td>GeoJSON</td>
 </tr>
 <tr>
-<td><code>08_하남교산_예측위험도(zone code).csv</code></td>
+<td><code>08_하남교산_예측위험도.csv</code></td>
 <td>CSV</td>
 </tr>
 <tr>
@@ -453,8 +453,9 @@ Only의 약자로, 사고의 심각도(사망·중상·경상 등)를 하나의 
 사고 심각도 비율(<code>epdo_rate</code>)을 산출했다.</li>
 <li>이를 통해 “교통량이 많아서 사고 건수가 많아 보이는 도로”와 “진짜
 위험한 도로”를 구분했다.</li>
+<li>원인 분석 대상은 <code>epdo_rate</code> 기준 상위 20개 링크로 한정하되, 극단값 방지를 위해 사고 3건 미만 링크는 제외하였다.</li>
 </ul>
-<div class="newpage">
+<div class=”newpage”>
 <ol start="3" type="1">
 <li>격자 단위 통합</li>
 </ol>
@@ -564,6 +565,13 @@ class="math inline">\(i\)</span>와 교차하는 도로 링크 집합 (avgspeed
 <p>속도 측정 기록이 없는 격자는, 해당 격자를 지나는 도로의
 등급(고속도로/국도/지방도 등)에 따른 전체 평균속도를 대신
 사용하였다.</p>
+<p><code>grid_avg_speed</code>는 보정위험도 산출에 활용되며, 속도 가중치(<code>speed_weight</code>)는 다음과 같이 정의한다.</p>
+<p><span class="math display">\[
+\text{speedweight}_{i} = \frac{\text{gridavgspeed}_{i}}{60}
+\]</span></p>
+<ul>
+<li>기준속도 60 km/h: 도시부 일반 제한속도를 기준으로 정규화한 것으로, 1 이상이면 해당 격자의 평균속도가 기준을 초과함을 의미한다.</li>
+</ul>
 <ol start="6" type="1">
 <li>격자 혼잡위험도 (<code>grid_congestion</code>) 각 도로 링크의
 혼잡위험도는 11·12번 혼잡 데이터(FRIN_CG, TI_CG)를 이용하여 다음과 같이
@@ -582,6 +590,14 @@ class="math inline">\(i\)</span>와 교차하는 도로 링크 집합 (avgspeed
 \text{gridcongestion} = \frac{1}{|L_{i}|} \sum_{l \in L_{i}}
 \text{congestionrisk}_{l}
 \]</span></p>
+<p><code>grid_avg_speed</code>와 <code>grid_congestion</code>을 결합하여 보정위험도(<code>enhanced_rate</code>)를 산출하며, 이는 속도와 혼잡도를 함께 반영한 링크 단위 위험 지표이다.</p>
+<p><span class="math display">\[
+\text{enhancedrate}_{l} = \text{epdo\_rate}_{l} \times \text{speedweight}_{l} \times (1 + \text{congestionfactor}_{l})
+\]</span></p>
+<ul>
+<li><code>congestion_factor</code>: 해당 링크가 속한 격자의 <code>grid_congestion</code> 값 (0 이상)</li>
+<li><code>epdo_rate</code>: 링크 단위 교통량 대비 사고 심각도 비율 (STEP 2에서 산출)</li>
+</ul>
 <ol start="7" type="1">
 <li>인프라 공백 수 (<code>gap_cnt</code>) 아래 2-3-1절에서 별도로
 정의한다.</li>
@@ -827,7 +843,7 @@ over-dispersion) 이 나타났다.</p>
 0·표준편차 1로 맞춘 뒤(표준화) 투입하였다.</p>
 <section id="통합-가중치-결과" class="newpage">
 <h3>4-2. 통합 가중치 결과</h3>
-<p><code>10_통합가중치_최종.csv</code> 기준:</p>
+<p><code>09_통합가중치_최종.csv</code> 기준:</p>
 <table>
 <thead>
 <tr>
@@ -1285,13 +1301,13 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 엔트로피 가중치로 가중합산한 값이다. 상세 로직은 4-3-1절 참조.</li>
 </ul></li>
 <li>하남교산 블록유형 기반 예측 격자 수: 770개
-(<code>14_하남교산_예측위험도(격자).csv</code>)
+(<code>13_하남교산_예측위험도.csv</code>)
 <ul>
 <li>위험등급 분포: 고위험 85개 / 중위험 558개 / 저위험 127개</li>
 <li>등급 기준: blockType별 동일유형 패턴 매칭 기반 pred_risk 분류</li>
 </ul></li>
 <li>하남교산 사고발생 격자 수: 41개
-(<code>13_하남교산_격자별_ECR_최종.csv</code>)
+(<code>12_하남교산_격자별_ECR_최종.csv</code>)
 <ul>
 <li>추출 기준: <code>accident_cnt &gt; 0</code> (해당 격자에 교통사고가
 1건 이상 발생한 경우). 하남교산 격자(770개)와 교통사고이력을
@@ -1422,10 +1438,11 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 의사결정 규칙</h3>
 <table>
 <colgroup>
-<col style="width: 18%" />
-<col style="width: 36%" />
-<col style="width: 30%" />
 <col style="width: 16%" />
+<col style="width: 32%" />
+<col style="width: 27%" />
+<col style="width: 14%" />
+<col style="width: 11%" />
 </colgroup>
 <thead>
 <tr>
@@ -1433,6 +1450,7 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 <th>설치 조건</th>
 <th>설치 위치</th>
 <th>기대 효과</th>
+<th>문헌 기반 감소율</th>
 </tr>
 </thead>
 <tbody>
@@ -1441,33 +1459,48 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 <td>crosswalk_cnt=0, 보행자 사고/어린이·노인 유동 높음</td>
 <td>학교·유치원 200m 내, 하교 시간대 사고 집중 격자</td>
 <td>보행자 충돌 위험 저감</td>
+<td>15%</td>
 </tr>
 <tr>
 <td>지능형 CCTV</td>
 <td>CCTV 계열 인프라 부족 + 야간/주말 사고 비율 높음</td>
 <td>교차로 진입부, 버스정류장 인접 격자</td>
 <td>위반 억제 및 사후 대응 강화</td>
+<td>12%</td>
 </tr>
 <tr>
 <td>우회전 경고 전광판</td>
 <td>차대사람·우회전 관련 위반 빈도 높음</td>
 <td>우회전 동선 교차점</td>
 <td>우회전 보행자 사고 예방</td>
+<td>—</td>
 </tr>
 <tr>
 <td>가드펜스/보행분리시설</td>
 <td>보차분리 취약 + 속도 높음</td>
 <td>통학로 외곽부/교차로 접근로</td>
 <td>보행공간 침범 감소</td>
+<td>—</td>
 </tr>
 <tr>
 <td>과속저감 패키지(방지턱+노면표시)</td>
 <td>speedbump_cnt=0, 고속/직선 구간</td>
 <td>학교 앞, 생활도로 진입부</td>
 <td>접근속도 저감</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>어린이보호구역 보강</td>
+<td>child_zone_cnt=0, 어린이 통행 밀집</td>
+<td>학교·유치원 300m 이내</td>
+<td>어린이 사고 위험 저감</td>
+<td>25%</td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>감소율 산출 근거: 총 감소율 = 1 − Π(1 − r_i). 복수 시설을 동시 설치할 경우 각 시설의 독립 감소율을 곱하여 산출한다 (문헌 기반 보수적 추정).</p>
+</blockquote>
 <h3 id="하남교산-적용-결과-및-적정-시설물-제안">7-2. 하남교산 적용 결과
 및 적정 시설물 제안</h3>
 <p><strong>본 절의 핵심은 격자별 적정 시설물 제안이다.</strong> 4개
@@ -1501,7 +1534,7 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 <h4 id="분석대상지4개-신도시-고위험-격자-top-10-모델-산출-근거">(1)
 분석대상지(4개 신도시) 고위험 격자 Top 10 — 모델 산출 근거</h4>
 <p>출처: <code>08_격자_종합위험지수.csv</code> +
-<code>11_시설물설치_효과예측.csv</code></p>
+<code>10_시설물설치_효과예측.csv</code></p>
 <table>
 <colgroup>
 <col style="width: 7%" />
@@ -1617,7 +1650,7 @@ class="math inline">\(\text{EPDO}_i \times (1 +
 id="하남교산-사고발생-격자-top-10-ecr-산출-결과-시설-설치-우선대상은-상위-9개">(2)
 하남교산 사고발생 격자 Top 10 — ECR 산출 결과 (시설 설치 우선대상은 상위
 9개)</h4>
-<p>출처: <code>13_하남교산_격자별_ECR_최종.csv</code> (하남교산 사고발생
+<p>출처: <code>12_하남교산_격자별_ECR_최종.csv</code> (하남교산 사고발생
 격자 41개 중 위험지수 상위 10개, 설치는 상위 9개 적용)</p>
 <table>
 <colgroup>
