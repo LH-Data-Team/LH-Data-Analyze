@@ -203,6 +203,7 @@ class="cover-page">
 <h4 id="분석-산출-파일">(2) 분석 산출 파일</h4>
 <ul>
 <li><code>00_교통사고_링크매핑.csv</code></li>
+<li><code>00_교통사고_격자매핑.geojson</code></li>
 <li><code>00_링크별_사고집계.csv</code></li>
 <li><code>00_격자별_통합데이터.csv</code></li>
 <li><code>01_사고별_EPDO점수.csv</code></li>
@@ -211,6 +212,7 @@ class="cover-page">
 <li><code>04_위험도로_원인분석.csv</code></li>
 <li><code>05_격자별_EPDO_인프라통합.csv</code></li>
 <li><code>06_인프라_상관분석.csv</code></li>
+<li><code>06_인프라공백_고위험격자.csv</code></li>
 <li><code>07_링크_속도혼잡_보강.csv</code></li>
 <li><code>08_격자_종합위험지수.csv</code></li>
 <li><code>08_하남교산_예측위험도(zone code).csv</code></li>
@@ -219,8 +221,159 @@ class="cover-page">
 <li><code>11_시설물설치_효과예측.csv</code></li>
 <li><code>13_하남교산_격자별_ECR_최종.csv</code></li>
 <li><code>14_하남교산_예측위험도(격자).csv</code></li>
-<li><code>17_시설추천.csv</code> ### 2-2. 정제/가공 절차</li>
+<li><code>17_시설추천.csv</code></li>
 </ul>
+<h4 id="제출-파일-구성">(3) 제출 파일 구성</h4>
+<p>제출 요건에 따라 산출 파일을 <strong>전처리 결과 / 분석 결과 / 시각화 활용</strong> 3개 폴더로 구분하여 ZIP으로 제출하였다. COMPAS 플랫폼 제출 결과는 아래와 같다.</p>
+<p><strong>📁 전처리_결과/</strong></p>
+<p>교통사고이력 원시 데이터를 가공하여 도출한 중간 산출물이다. 원시 데이터(13._교통사고이력.geojson)를 포함하는 파생 파일 3종은 비공개 데이터 유추 가능 사유로 불가 판정을 받아 제출 목록에서 제외하였다.</p>
+<table>
+<thead>
+<tr>
+<th>파일명</th>
+<th>제출 상태</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>00_격자별_통합데이터.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>00_링크별_사고집계.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>00_교통사고_링크매핑.csv</code></td>
+<td>❌ 불가</td>
+<td>비공개 데이터 유추 가능 (제외)</td>
+</tr>
+<tr>
+<td><code>00_교통사고_격자매핑.geojson</code></td>
+<td>❌ 불가</td>
+<td>비공개 데이터 유추 가능 (제외)</td>
+</tr>
+<tr>
+<td><code>01_사고별_EPDO점수.csv</code></td>
+<td>❌ 불가</td>
+<td>비공개 데이터 유추 가능 (제외)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>📁 분석_결과/</strong></p>
+<table>
+<thead>
+<tr>
+<th>파일명</th>
+<th>제출 상태</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>02_링크별_교통량.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>03_링크별_위험도.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>04_위험도로_원인분석.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>05_격자별_EPDO_인프라통합.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>06_인프라_상관분석.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>06_인프라공백_고위험격자.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>07_링크_속도혼잡_보강.csv</code></td>
+<td>❌ 불가</td>
+<td>비공개 데이터 유추 가능 (제외)</td>
+</tr>
+<tr>
+<td><code>08_격자_종합위험지수.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>09_엔트로피_가중치.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>10_통합가중치_최종.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>11_시설물설치_효과예측.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>13_하남교산_격자별_ECR_최종.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>14_하남교산_예측위험도(격자).csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+<tr>
+<td><code>17_시설추천.csv</code></td>
+<td>✅ 승인</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>📁 시각화_활용/</strong></p>
+<p>격자별 위험등급, 인프라 공백, 시설 제안 결과를 지도로 표현한 파일을 포함한다. 형식은 GeoJSON 및 시각화 결과 이미지(PNG)이다.</p>
+<table>
+<thead>
+<tr>
+<th>파일명</th>
+<th>형식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>grid_entropy_risk.geojson</code></td>
+<td>GeoJSON</td>
+</tr>
+<tr>
+<td><code>08_하남교산_예측위험도(zone code).csv</code></td>
+<td>CSV</td>
+</tr>
+<tr>
+<td><code>지도1_교통사고_발생구역_위험도.png</code></td>
+<td>PNG</td>
+</tr>
+<tr>
+<td><code>지도2_적정_시설물_제안.png</code></td>
+<td>PNG</td>
+</tr>
+</tbody>
+</table>
+<h3 id="정제-가공-절차">2-2. 정제/가공 절차</h3>
 <p>분석은 <code>link_id</code>(도로 단위)와 <code>grid_gid</code>(100m
 격자 단위)를 병행하여 수행했다.</p>
 <ol type="1">
